@@ -1,0 +1,5 @@
+set guifont=Source\ Code\ Pro:h16
+set linespace=10
+set background=dark
+colorscheme Tomorrow-Night-Eighties
+set guicursor+=n-v-c:blinkon0

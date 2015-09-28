@@ -1,0 +1,265 @@
+" .vimrc
+" Author: Walter Anderson <walteranderson19@gmail.com>
+"
+"NeoBundle {{{
+
+" Note: Skip initialization for vim-tiny or vim-small.
+if 0 | endif
+if has('vim_starting')
+ if &compatible
+   set nocompatible               " Be iMproved
+ endif
+ " Required:
+ set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+" My Bundles here:
+" Refer to |:NeoBundle-examples|.
+" Note: You don't set neobundle setting in .gvimrc!
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'fatih/vim-go'
+NeoBundle 'digitaltoad/vim-jade'
+NeoBundle 'groenewege/vim-less'
+NeoBundle 'wavded/vim-stylus'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'StanAngeloff/php.vim'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'majutsushi/tagbar'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'elzr/vim-json'
+NeoBundle 'mustache/vim-mustache-handlebars'
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'xsbeats/vim-blade'
+NeoBundle 'cakebaker/scss-syntax.vim'
+NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'mileszs/ack.vim'
+NeoBundle 'editorconfig/editorconfig-vim'
+NeoBundle 'tpope/vim-commentary'
+
+call neobundle#end()
+" Required:
+filetype plugin indent on
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+
+" }}}
+" Basic Options {{{
+
+filetype plugin indent on       " load file type plugins + indentation
+set nocompatible                " choose no compatibility with legacy vi
+set shell=/bin/bash
+
+set tabstop=4 shiftwidth=4      " setting the length of a tab
+set expandtab                   " use spaces, not tabs (optional)
+set encoding=utf-8              " using utf-8 encoding
+set hidden                      " Change buffers without saving
+set showcmd                     " display incomplete commands
+set title                       " set title of terminal to the file
+set nowrap                      " don't wrap lines
+set visualbell
+"set relativenumber              " relative numbering
+set number
+set backspace=indent,eol,start  " backspace through everything in insert mode
+set showcmd                     " Show partial commands on last line of window
+set ruler
+set history=1000
+
+set scrolloff=3                 " maintain context around cursor
+set pastetoggle=<F2>            " better copy and paste
+set clipboard=unnamed
+
+" Save when losing focus
+ au FocusLost * :silent! wall
+
+" Resize splits when the window is resized
+ au VimResized * :wincmd =
+
+" force .md files to be markdown
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+autocmd BufNewFile,BufReadPost *.md set wrap
+
+" }}}
+" List Characters {{{
+set list
+set listchars=tab:»·,nbsp:·,trail:·,eol:¬,extends:❯,precedes:❮
+set showbreak=↪
+
+" }}}
+" Searching {{{
+
+set hlsearch                    " highlight matches
+set incsearch                   " incremental searching
+set ignorecase                  " searches are case insensitive...
+set smartcase                   " ... unless they contain at least one capital letter
+
+" Keep search matches in the middle of the window.
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" }}}
+" Backups {{{
+
+set backup
+set noswapfile
+
+set undodir=~/.vim/tmp/undo//
+set backupdir=~/.vim/tmp/backup//
+set directory=~/.vim/tmp/swap//
+
+" Make those folders automatically if they don't already exist.
+if !isdirectory(expand(&undodir))
+    call mkdir(expand(&undodir), "p")
+endif
+if !isdirectory(expand(&backupdir))
+    call mkdir(expand(&backupdir), "p")
+endif
+if !isdirectory(expand(&directory))
+    call mkdir(expand(&directory), "p")
+endif
+
+" }}}
+" Folding {{{
+
+set foldlevelstart=0
+set foldmethod=marker
+
+" }}}
+" Color Scheme {{{
+
+syntax on
+set t_Co=256 " number of colors
+set background=dark
+colorscheme Tomorrow-Night
+
+" Highlight VCS conflict markers
+ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+
+" }}}
+" Leader Key {{{
+
+let mapleader = "\<Space>"
+
+" }}}
+" Remapping {{{
+
+" move to beginning and end of line, easier to type
+noremap H ^
+noremap L $
+vnoremap L g_
+
+" remove K man lookups
+noremap K k
+
+" cycle between buffers
+map <leader>[ :bprevious<CR>
+map <leader>] :bnext<CR>
+
+" close buffer
+map <leader>w :bd<CR>
+
+" easy save
+map <leader>s :w<CR>
+
+" quit and force quit
+map <leader>q :q<cr>
+map <leader>Q :q!<cr>
+
+" removes higlight of your last search
+noremap <leader>n :nohl<CR>
+vnoremap <leader>n :nohl<CR>
+
+" stay in visual mode when changing indentation
+vnoremap < <gv
+vnoremap > >gv
+
+" pressing return clears higlighted search
+nnoremap <cr> :nohlsearch<cr>/<bs>
+
+" }}}
+" Plugin Settings {{{
+" CtrlP {{{
+nnoremap <Leader>p :CtrlP<CR>
+" }}}
+" Tagbar {{{
+
+nnoremap <leader>r :TagbarToggle<CR>
+let g:tagbar_singleclick=1
+let g:tagbar_autoclose=1
+
+" }}}
+" vim-airline - status bar {{{
+set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+
+
+" }}}
+" NerdTree {{{
+
+map <leader>k :NERDTreeToggle<CR>
+let g:NERDTreeShowHidden=1
+let g:NERDTreeQuitOnOpen=1
+
+" close nerdtree if it is the only window left open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" }}}
+" Syntastic {{{
+
+map <leader>sc :SyntasticCheck<CR>
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_enable_signs = 0
+let g:syntastic_error_symbol = "✗"
+let g:syntastic_warning_symbol = "⚠"
+let g:syntastic_style_error_symbol = "✗"
+
+" by default, do not check for errors on save
+"let g:syntastic_mode_map = { "mode": "passive" }
+
+let g:syntastic_enable_highlighting = 1
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute " ,"trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
+
+" }}}
+" editorconfig {{{
+
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
+
+" }}}
+" Fugitive {{{
+
+nnoremap <Leader>st :Gstatus<CR>
+nnoremap <Leader>ci :Gcommit<CR>
+
+" }}}
+" Ack {{{
+
+nnoremap <leader>f :Ack 
+let g:ack_autoclose = 1
+let g:ack_autofold_results = 1
+
+" }}}
+" Commentary {{{
+
+autocmd FileType php setlocal commentstring=//\ %s
+
+" }}}
