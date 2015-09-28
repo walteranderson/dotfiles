@@ -1,0 +1,16 @@
+[user]
+	name = Walter Anderson
+	email = walter@kimbia.com
+[alias]
+    st = status
+    ci = commit
+    co = checkout
+    cob = checkout -b
+    br = branch
+    prune = fetch --prune
+    hist = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    l = log --oneline
+[core]
+    autocrlf = false
+[push]
+	default = simple
