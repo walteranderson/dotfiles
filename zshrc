@@ -5,7 +5,7 @@ export ZSH=~/.dotfiles/zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="gianu" # avit, gianu, pygmalion
+ZSH_THEME="walter" # avit, gianu, pygmalion, gnzh, jaischeema, junkfood
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -49,7 +49,7 @@ ZSH_THEME="gianu" # avit, gianu, pygmalion
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(vi-mode git sublime brew laravel5)
 
 # User configuration
 

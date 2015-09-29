@@ -16,3 +16,4 @@ ln -s ~/.dotfiles/bash_profile .bash_profile
 ln -s ~/.dotfiles/vim .vim
 ln -s ~/.dotfiles/vim/vimrc .vimrc
 
+cp ~/.dotfiles/custom.zsh-theme ~/.dotfiles/zsh/themes/custom.zsh-theme
