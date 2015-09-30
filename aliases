@@ -12,6 +12,7 @@ alias df='cd ~/.dotfiles/'
 
 # project directories
 alias ca='cd /Users/walter/Sites/class-agent'
+alias mdc='cd /Users/walter/Sites/match-day-controller-2015'
 
 # opening files
 alias hosts='sudo vim /etc/hosts'
