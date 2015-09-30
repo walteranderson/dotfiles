@@ -53,7 +53,7 @@ plugins=(git sublime brew)
 
 # User configuration
 
-export PATH="~/.composer/vendor/bin:/usr/local/sbin:/Users/walter/bin:/usr/local/mysql/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="~/.composer/vendor/bin:/usr/local/sbin:/Users/walter/bin:/usr/local/mysql/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh

@@ -41,6 +41,7 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'mileszs/ack.vim'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'tpope/vim-commentary'
+NeoBundle 'SirVer/ultisnips'
 
 call neobundle#end()
 " Required:
@@ -261,5 +262,16 @@ let g:ack_autofold_results = 1
 " Commentary {{{
 
 autocmd FileType php setlocal commentstring=//\ %s
+
+" }}}
+" Utilsnips {{{
+
+" path to snippets
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.dotfiles/snippets']
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
 
 " }}}

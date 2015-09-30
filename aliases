@@ -21,7 +21,7 @@ alias hV='vim ~/.homestead/Homestead.yaml'
 
 # dotfiles
 alias zV='vim ~/.dotfiles/zshrc'
-alias vV='vim ~/.dotfiles/vimrc'
+alias vV='vim ~/.dotfiles/vim/vimrc'
 alias bashrc='vim ~/.dotfiles/bashrc'
 alias bashprofile=' vim ~/.dotfiles/bash_profile'
 

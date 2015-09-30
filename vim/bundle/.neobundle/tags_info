@@ -7,6 +7,7 @@ php.vim
 scss-syntax.vim
 syntastic
 tagbar
+ultisnips
 vim-airline
 vim-blade
 vim-coffee-script
