@@ -158,6 +158,13 @@ vnoremap L g_
 " remove K man lookups
 noremap K k
 
+" easier movement between splits
+map <C-J> <C-W>j<CR>
+map <C-K> <C-W>k<CR>
+map <C-H> <C-W>h<CR>
+map <C-L> <C-W>l<CR>
+
+
 " cycle between buffers
 map <leader>[ :bprevious<CR>
 map <leader>] :bnext<CR>
