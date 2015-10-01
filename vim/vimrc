@@ -71,6 +71,7 @@ set backspace=indent,eol,start  " backspace through everything in insert mode
 set showcmd                     " Show partial commands on last line of window
 set ruler
 set history=1000
+set autoread                    " automatically reload buffers when file changes
 
 set scrolloff=3                 " maintain context around cursor
 set pastetoggle=<F2>            " better copy and paste
