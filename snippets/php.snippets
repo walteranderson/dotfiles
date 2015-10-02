@@ -1,4 +1,29 @@
-snippet func
+# PHP Snippets
+#
+# Class
+snippet class
+<?php
+
+namespace ${1:namespace};
+
+class ${2:ClassName} extends ${3:ParentClass}
+{
+	${4:// TODO}
+}
+endsnippet
+
+#
+# Class Constructor
+snippet _c "class constructor"
+public function __construct(${1:dependencies})
+{
+	${2:// TODO}
+}
+endsnippet
+
+#
+# Class Function
+snippet func "class function"
 /**
  *
  */
