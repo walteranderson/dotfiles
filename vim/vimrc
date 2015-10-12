@@ -20,29 +20,33 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " My Bundles here:
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
+
 NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'fatih/vim-go'
-NeoBundle 'digitaltoad/vim-jade'
-NeoBundle 'groenewege/vim-less'
-NeoBundle 'wavded/vim-stylus'
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'StanAngeloff/php.vim'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'elzr/vim-json'
-NeoBundle 'mustache/vim-mustache-handlebars'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'xsbeats/vim-blade'
-NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'mileszs/ack.vim'
-NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'mattn/emmet-vim'
+NeoBundle 'terryma/vim-multiple-cursors'
+
+" Language-specific plugins
+NeoBundle 'fatih/vim-go'
+NeoBundle 'digitaltoad/vim-jade'
+NeoBundle 'groenewege/vim-less'
+NeoBundle 'wavded/vim-stylus'
+NeoBundle 'cakebaker/scss-syntax.vim'
+NeoBundle 'StanAngeloff/php.vim'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'elzr/vim-json'
+NeoBundle 'xsbeats/vim-blade'
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'editorconfig/editorconfig-vim'
+NeoBundle 'mustache/vim-mustache-handlebars'
 
 call neobundle#end()
 " Required:

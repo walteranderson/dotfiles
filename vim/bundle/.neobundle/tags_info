@@ -20,5 +20,6 @@ vim-jade
 vim-javascript
 vim-json
 vim-less
+vim-multiple-cursors
 vim-mustache-handlebars
 vim-stylus
