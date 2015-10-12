@@ -1,6 +1,7 @@
 ack.vim
 ctrlp.vim
 editorconfig-vim
+emmet-vim
 neobundle.vim
 nerdtree
 php.vim

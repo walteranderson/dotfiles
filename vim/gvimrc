@@ -4,3 +4,5 @@ set background=dark
 colorscheme Tomorrow-Night-Eighties
 set guicursor+=n-v-c:blinkon0
 set guioptions-=L
+set guioptions-=r
+set guioptions-=T

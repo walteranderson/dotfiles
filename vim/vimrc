@@ -42,6 +42,7 @@ NeoBundle 'mileszs/ack.vim'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'SirVer/ultisnips'
+NeoBundle 'mattn/emmet-vim'
 
 call neobundle#end()
 " Required:
@@ -55,7 +56,6 @@ NeoBundleCheck
 
 filetype plugin indent on       " load file type plugins + indentation
 set nocompatible                " choose no compatibility with legacy vi
-set shell=/bin/bash
 
 set tabstop=4 shiftwidth=4      " setting the length of a tab
 set expandtab                   " use spaces, not tabs (optional)
@@ -77,8 +77,7 @@ set scrolloff=3                 " maintain context around cursor
 set pastetoggle=<F2>            " better copy and paste
 set clipboard=unnamed
 
-" Save when losing focus
- au FocusLost * :silent! wall
+set mouse=a " use mouse in terminal
 
 " Resize splits when the window is resized
  au VimResized * :wincmd =
@@ -86,6 +85,9 @@ set clipboard=unnamed
 " force .md files to be markdown
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd BufNewFile,BufReadPost *.md set wrap
+
+" don't include these folders when calling CtrlP
+set wildignore+=*/vendor/**
 
 " }}}
 " List Characters {{{
@@ -144,12 +146,13 @@ colorscheme Tomorrow-Night
  match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " }}}
-" Leader Key {{{
+" Remapping {{{
 
+" Leader key
 let mapleader = "\<Space>"
 
-" }}}
-" Remapping {{{
+" escape to normal mode
+imap jj <esc>
 
 " move to beginning and end of line, easier to type
 noremap H ^
@@ -159,12 +162,19 @@ vnoremap L g_
 " remove K man lookups
 noremap K k
 
+" down is really the next line
+nnoremap j gj
+nnoremap k gk
+
 " easier movement between splits
 map <C-J> <C-W>j<CR>
 map <C-K> <C-W>k<CR>
 map <C-H> <C-W>h<CR>
 map <C-L> <C-W>l<CR>
 
+" open splits
+nmap vs :vsplit<CR>
+nmap sp :split<CR>
 
 " cycle between buffers
 map <leader>[ :bprevious<CR>
@@ -180,6 +190,10 @@ map <leader>s :w<CR>
 map <leader>q :q<cr>
 map <leader>Q :q!<cr>
 
+" file/symbol searching
+nnoremap <leader>p :CtrlP<CR>
+nnoremap <leader>r :CtrlPBufTag<CR>
+
 " removes higlight of your last search
 noremap <leader>n :nohl<CR>
 vnoremap <leader>n :nohl<CR>
@@ -191,14 +205,30 @@ vnoremap > >gv
 " pressing return clears higlighted search
 nnoremap <cr> :nohlsearch<cr>/<bs>
 
+" auto change directory to match current file
+nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
+
+" increase vertical split size
+nmap <leader>v :vertical resize +5<CR>
+
+" Laravel framework common files
+nmap <leader>lr :e app/Http/routes.php<CR>
+nmap <leader>lca :e config/app.php<CR>
+nmap <leader>lcd :e config/database.php<CR>
+nmap <leader>lc :e composer.json<CR>
+
+" }}}
+" Abbreviations {{{
+
+abbrev gm !php artisan make:model
+abbrev gc !php artisan make:controller
+abbrev gmig !php artisan make:migration
+
 " }}}
 " Plugin Settings {{{
-" CtrlP {{{
-nnoremap <Leader>p :CtrlP<CR>
-" }}}
 " Tagbar {{{
 
-nnoremap <leader>r :TagbarToggle<CR>
+"nnoremap <leader>r :TagbarToggle<CR>
 let g:tagbar_singleclick=1
 let g:tagbar_autoclose=1
 
@@ -208,7 +238,7 @@ set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 
 if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
+let g:airline_symbols = {}
 endif
 
 let g:airline_left_sep = ''
@@ -223,7 +253,7 @@ let g:NERDTreeShowHidden=1
 let g:NERDTreeQuitOnOpen=1
 
 " close nerdtree if it is the only window left open
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " }}}
 " Syntastic {{{
@@ -281,5 +311,10 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
+
+" }}}
+" Emmet {{{
+
+let g:user_emmet_leader_key=','
 
 " }}}

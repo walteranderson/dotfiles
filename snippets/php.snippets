@@ -4,20 +4,20 @@
 snippet class
 <?php
 
-namespace ${1:namespace};
+namespace ${1:};
 
-class ${2:ClassName} extends ${3:ParentClass}
+class ${2:ClassName} ${3:extends ${4:}}
 {
-	${4:// TODO}
+	${5://}
 }
 endsnippet
 
 #
 # Class Constructor
 snippet _c "class constructor"
-public function __construct(${1:dependencies})
+public function __construct(${1:})
 {
-	${2:// TODO}
+	${2://}
 }
 endsnippet
 
@@ -27,8 +27,8 @@ snippet func "class function"
 /**
  *
  */
-${1:public} function ${2:name}(${3:})
+${1:public} function ${2:}(${3:})
 {
-	${4:// TODO}
+	${4://}
 }
 endsnippet
