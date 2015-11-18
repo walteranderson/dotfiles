@@ -33,6 +33,7 @@ NeoBundle 'tpope/vim-commentary'
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'terryma/vim-multiple-cursors'
+NeoBundle 'flazz/vim-colorschemes'
 
 " Language-specific plugins
 NeoBundle 'fatih/vim-go'
@@ -47,6 +48,7 @@ NeoBundle 'xsbeats/vim-blade'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'mustache/vim-mustache-handlebars'
+NeoBundle 'darthmall/vim-vue'
 
 call neobundle#end()
 " Required:
@@ -81,17 +83,24 @@ set scrolloff=3                 " maintain context around cursor
 set pastetoggle=<F2>            " better copy and paste
 set clipboard=unnamed
 
+" add line markers at 80 characters and 120 characters
+set colorcolumn=80,120
+
 set mouse=a " use mouse in terminal
 
 " Resize splits when the window is resized
  au VimResized * :wincmd =
+
+ " more natural split opening
+ set splitbelow
+ set splitright
 
 " force .md files to be markdown
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd BufNewFile,BufReadPost *.md set wrap
 
 " don't include these folders when calling CtrlP
-set wildignore+=*/vendor/**
+" set wildignore+=*/vendor/**
 
 " }}}
 " List Characters {{{
@@ -143,8 +152,8 @@ set foldmethod=marker
 
 syntax on
 set t_Co=256 " number of colors
-set background=dark
-colorscheme Tomorrow-Night
+colorscheme Tomorrow-Night-Eighties
+" set background=dark
 
 " Highlight VCS conflict markers
  match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
@@ -156,7 +165,7 @@ colorscheme Tomorrow-Night
 let mapleader = "\<Space>"
 
 " escape to normal mode
-imap jj <esc>
+imap jk <esc>
 
 " move to beginning and end of line, easier to type
 noremap H ^
@@ -198,6 +207,12 @@ map <leader>Q :q!<cr>
 nnoremap <leader>p :CtrlP<CR>
 nnoremap <leader>r :CtrlPBufTag<CR>
 
+" search for filename in open buffers
+nnoremap <leader>j :CtrlPBuffer<CR>
+
+" disable vim insert mode completion
+inoremap <C-P> <nop>
+
 " removes higlight of your last search
 noremap <leader>n :nohl<CR>
 vnoremap <leader>n :nohl<CR>
@@ -224,6 +239,7 @@ nmap <leader>lc :e composer.json<CR>
 " }}}
 " Abbreviations {{{
 
+abbrev art !php artisan
 abbrev gm !php artisan make:model
 abbrev gc !php artisan make:controller
 abbrev gmig !php artisan make:migration
@@ -239,7 +255,7 @@ let g:tagbar_autoclose=1
 " }}}
 " vim-airline - status bar {{{
 set laststatus=2
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 0
 
 if !exists('g:airline_symbols')
 let g:airline_symbols = {}
@@ -263,23 +279,27 @@ let g:NERDTreeQuitOnOpen=1
 " Syntastic {{{
 
 map <leader>sc :SyntasticCheck<CR>
+
+" using signs
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
-let g:syntastic_enable_signs = 0
+let g:syntastic_enable_signs = 1
 let g:syntastic_error_symbol = "✗"
 let g:syntastic_warning_symbol = "⚠"
 let g:syntastic_style_error_symbol = "✗"
 
+" using the quickfix window
+let g:syntastic_enable_highlighting = 1
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 0
+
+let g:syntastic_php_checkers = ["php", "phpcs"]
 " by default, do not check for errors on save
 let g:syntastic_mode_map = { "mode": "passive" }
 
-let g:syntastic_enable_highlighting = 1
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_auto_loc_list = 1
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute " ,"trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
+let g:syntastic_check_on_wq = 0
 
 " }}}
 " editorconfig {{{

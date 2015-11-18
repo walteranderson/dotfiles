@@ -12,6 +12,7 @@ ultisnips
 vim-airline
 vim-blade
 vim-coffee-script
+vim-colorschemes
 vim-commentary
 vim-fugitive
 vim-gitgutter
@@ -23,3 +24,4 @@ vim-less
 vim-multiple-cursors
 vim-mustache-handlebars
 vim-stylus
+vim-vue
