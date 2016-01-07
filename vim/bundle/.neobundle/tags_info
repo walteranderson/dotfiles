@@ -1,4 +1,6 @@
-ack.vim
+FuzzyFinder
+L9
+ag.vim
 ctrlp.vim
 editorconfig-vim
 emmet-vim
@@ -7,7 +9,7 @@ nerdtree
 php.vim
 scss-syntax.vim
 syntastic
-tagbar
+taglist.vim
 ultisnips
 vim-airline
 vim-blade
@@ -18,8 +20,7 @@ vim-fugitive
 vim-gitgutter
 vim-go
 vim-jade
-vim-javascript
-vim-json
+vim-javascript-syntax
 vim-less
 vim-multiple-cursors
 vim-mustache-handlebars

@@ -30,7 +30,11 @@ local user_host="( %{$fg_bold[green]%}%n%{$reset_color%}@%{$fg_bold[blue]%}%m%{$
 local current_dir="( %B%F{blue}%~%f%b )"
 local git_branch='$(git_prompt_info)'
 
-PROMPT="╭─${user_host}${current_dir}${git_branch}
+# PROMPT="╭─${user_host}${current_dir}${git_branch}
+# ╰─$PR_PROMPT "
+# RPROMPT="${return_code}"
+
+PROMPT="╭─${current_dir}${git_branch}
 ╰─$PR_PROMPT "
 RPROMPT="${return_code}"
 

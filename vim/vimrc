@@ -24,16 +24,18 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
-NeoBundle 'majutsushi/tagbar'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'mileszs/ack.vim'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'flazz/vim-colorschemes'
+NeoBundle 'rking/ag.vim'
+NeoBundle 'L9'
+NeoBundle 'FuzzyFinder'
+NeoBundle 'taglist.vim'
 
 " Language-specific plugins
 NeoBundle 'fatih/vim-go'
@@ -42,13 +44,12 @@ NeoBundle 'groenewege/vim-less'
 NeoBundle 'wavded/vim-stylus'
 NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'StanAngeloff/php.vim'
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'elzr/vim-json'
 NeoBundle 'xsbeats/vim-blade'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'mustache/vim-mustache-handlebars'
 NeoBundle 'darthmall/vim-vue'
+NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
 
 call neobundle#end()
 " Required:
@@ -62,11 +63,11 @@ NeoBundleCheck
 
 filetype plugin indent on       " load file type plugins + indentation
 set nocompatible                " choose no compatibility with legacy vi
+set hidden                      " Change buffers without saving
 
 set tabstop=4 shiftwidth=4      " setting the length of a tab
 set expandtab                   " use spaces, not tabs (optional)
 set encoding=utf-8              " using utf-8 encoding
-set hidden                      " Change buffers without saving
 set showcmd                     " display incomplete commands
 set title                       " set title of terminal to the file
 set nowrap                      " don't wrap lines
@@ -99,8 +100,7 @@ set mouse=a " use mouse in terminal
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd BufNewFile,BufReadPost *.md set wrap
 
-" don't include these folders when calling CtrlP
-" set wildignore+=*/vendor/**
+" autocmd! bufwritepost ~/.dotfiles/vim/vimrc source %
 
 " }}}
 " List Characters {{{
@@ -153,7 +153,7 @@ set foldmethod=marker
 syntax on
 set t_Co=256 " number of colors
 colorscheme Tomorrow-Night-Eighties
-" set background=dark
+set background=light
 
 " Highlight VCS conflict markers
  match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
@@ -232,9 +232,9 @@ nmap <leader>v :vertical resize +5<CR>
 
 " Laravel framework common files
 nmap <leader>lr :e app/Http/routes.php<CR>
-nmap <leader>lca :e config/app.php<CR>
-nmap <leader>lcd :e config/database.php<CR>
-nmap <leader>lc :e composer.json<CR>
+nmap <leader>lesp :e app/Providers/EventServiceProvider.php<CR>
+
+nmap <leader>f :Ag 
 
 " }}}
 " Abbreviations {{{
@@ -264,6 +264,15 @@ endif
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 
+let g:airline_symbols.crypt = '🔒'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
 
 " }}}
 " NerdTree {{{
@@ -294,7 +303,13 @@ let g:syntastic_enable_highlighting = 1
 let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 0
 
+" PHP checkers
 let g:syntastic_php_checkers = ["php", "phpcs"]
+let g:syntastic_php_phpcs_args = "--standard=PSR2 -n"
+
+" Javascript checkers
+let g:syntastic_javascript_checkers = ["eslint"]
+
 " by default, do not check for errors on save
 let g:syntastic_mode_map = { "mode": "passive" }
 
@@ -312,13 +327,6 @@ let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
 
 nnoremap <Leader>st :Gstatus<CR>
 nnoremap <Leader>ci :Gcommit<CR>
-
-" }}}
-" Ack {{{
-
-nnoremap <leader>f :Ack 
-let g:ack_autoclose = 1
-let g:ack_autofold_results = 1
 
 " }}}
 " Commentary {{{
@@ -340,5 +348,24 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " Emmet {{{
 
 let g:user_emmet_leader_key=','
+
+" }}}
+" EditorConfig {{{
+
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+
+" }}}
+" FuzzyFinder {{{
+
+nmap ,f :FufFileWithCurrentBufferDir<CR>
+nmap ,b :FufBuffer<CR>
+nmap ,t :FufTaggedFile<CR>
+
+nmap <leader>f :FufFileWithCurrentBufferDir<CR>
+
+" }}}
+" Taglist {{{
+
+nmap <leader>t :TlistToggle<CR>
 
 " }}}

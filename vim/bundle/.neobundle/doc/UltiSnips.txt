@@ -42,12 +42,12 @@ UltiSnips                                      *snippet* *snippets* *UltiSnips*
       4.10.1 Pre-expand actions                 |UltiSnips-pre-expand-actions|
       4.10.2 Post-expand actions                |UltiSnips-post-expand-actions|
       4.10.3 Post-jump actions                  |UltiSnips-post-jump-actions|
+   4.11 Autotrigger                             |UltiSnips-autotrigger|
 5. UltiSnips and Other Plugins                  |UltiSnips-other-plugins|
    5.1 Existing Integrations                    |UltiSnips-integrations|
    5.2 Extending UltiSnips                      |UltiSnips-extending|
 6. Helping Out                                  |UltiSnips-helping|
-7. Contact                                      |UltiSnips-contact|
-8. Contributors                                 |UltiSnips-contributors|
+7. Contributors                                 |UltiSnips-contributors|
 
 This plugin only works if 'compatible' is not set.
 {Vi does not have any of these features}
@@ -64,8 +64,8 @@ Snippets are common in structured text like source code but can also be used
 for general editing like, for example, inserting a signature in an email or
 inserting the current date in a text file.
 
-On my blog, http://www.sirver.net, I posted several short screencasts, which
-make a great introduction to UltiSnips, illustrating its features and usage.
+@SirVer posted several short screencasts which make a great introduction to
+UltiSnips, illustrating its features and usage.
 
 http://www.sirver.net/blog/2011/12/30/first-episode-of-ultisnips-screencast/
 http://www.sirver.net/blog/2012/01/08/second-episode-of-ultisnips-screencast/
@@ -131,7 +131,7 @@ permission to use his snippets.
 =============================================================================
 2. Installation and Updating                       *UltiSnips-installnupdate*
 
-The recommended way of getting ultisnips is to track SirVer/ultisnips on
+The recommended way of getting UltiSnips is to track SirVer/ultisnips on
 github. The master branch is always stable.
 
 Using Pathogen:                                     *UltiSnips-using-pathogen*
@@ -690,6 +690,9 @@ The options currently supported are: >
        python expression. This option can be specified along with other
        options, like 'b'. See |UltiSnips-context-snippets| for more info.
 
+   A   Snippet will be triggered automatically, when condition matches.
+       See |UltiSnips-autotrigger| for more info.
+
 The end line is the 'endsnippet' keyword on a line by itself. >
 
    endsnippet
@@ -700,9 +703,9 @@ from the 'endsnippet' end line.
 
  4.1.1 Character Escaping:                     *UltiSnips-character-escaping*
 
-In snippet definitions, the characters '`', '{', '$', '\' and "'" (single
-quote) have special meaning. If you want to insert one of these characters
-literally, escape them with a backslash, '\'.
+In snippet definitions, the characters '`', '{', '$' and '\' have special
+meaning. If you want to insert one of these characters literally, escape them
+with a backslash, '\'.
 
 
 4.2 Plaintext Snippets                         *UltiSnips-plaintext-snippets*
@@ -1599,6 +1602,41 @@ def $1():
 endsnippet
 ------------------- SNAP -------------------
 
+4.11 Autotrigger                                       *UltiSnips-autotrigger*
+----------------
+
+Note: vim should be newer than 7.4.214 to support this feature.
+
+Many language constructs can occur only at specific places, so it's
+possible to use snippets without manually triggering them.
+
+Snippet can be marked as autotriggered by specifying 'A' option in the snippet
+definition.
+
+After snippet is defined as being autotriggered, snippet condition will be
+checked on every typed character and if condition matches, then snippet will
+be triggered.
+
+*Warning:* using of this feature can lead to significant vim slowdown. If you
+discovered that, report an issue to the github.com/SirVer/UltiSnips.
+
+Consider following snippets, that can be usefull in Go programming:
+------------------- SNIP -------------------
+snippet "^p" "package" rbA
+package ${1:main}
+endsnippet
+
+snippet "^m" "func main" rbA
+func main() {
+	$1
+}
+endsnippet
+------------------- SNAP -------------------
+
+When "p" character will occur in the beginning of the line, it will be
+automatically expanded into "package main". Same with "m" character. There is
+no need to press trigger key after "m""
+
 ==============================================================================
 5. UltiSnips and Other Plugins                      *UltiSnips-other-plugins*
 
@@ -1607,8 +1645,8 @@ endsnippet
 
 UltiSnips has built-in support for some common plugins and there are others
 that are aware of UltiSnips and use it to improve the user experience. This is
-an incomplete list - if you want to have your plugin listed here, just send me
-a pull request.
+an incomplete list - if you want to have your plugin listed here, just send a
+pull request.
 
                                                     *UltiSnips-snipMate*
 
@@ -1650,49 +1688,33 @@ to Supertab for expansion.
 UltiSnips allows other plugins to add new snippets on the fly. Since UltiSnips
 is written in python, the integration is also on a python basis. A small
 example can be found in `test.py`, search for AddNewSnippetSource. Please
-contact me on github if you integrate UltiSnips with your plugin so it can be
+contact us on github if you integrate UltiSnips with your plugin so it can be
 listed in the docs.
 
 =============================================================================
 6. Helping Out                                            *UltiSnips-helping*
 
 UltiSnips needs the help of the Vim community to keep improving. Please
-consider joining this effort by providing new snippets, new features or bug
-reports.
-
-You can contribute snippets or patches in various ways. The methods are listed
-below in order of convenience for me. Please be as convenient as you
-can be :)
+consider joining this effort by providing new features or bug reports.
 
 * Clone the repository on GitHub (git clone git@github.com:SirVer/ultisnips.git),
   make your changes and send a pull request on GitHub.
 * Make a patch, report a bug/feature request (see below) and attach the patch
   to it.
-* Send me an Email with a patch (see Contact section below).
-* Send me an Email with the changed files only.
 
 You can contribute by fixing or reporting bugs in our issue tracker:
 https://github.com/sirver/ultisnips/issues
 
-If you like this plugin, please vote for it on its Vim script page >
-    http://www.vim.org/scripts/script.php?script_id=2715
-It is life-changing for me. Maybe it is for you too.
-
-
 =============================================================================
-7. Contact                                                *UltiSnips-contact*
+7. Contributors                                      *UltiSnips-contributors*
 
-You can reach me at SirVer -AT- gmx -ADOT- de.
+UltiSnips has been started and maintained from Jun 2009 - Dec 2015 by Holger
+Rapp (@SirVer, SirVer@gmx.de). It is now maintained by Stanislav Seletskiy
+(@seletskiy).
 
-This project aims to be the one-for-all solution for Snippets for Vim. If you
-miss a feature or find a bug, please contact me or add an issues to our issues
-tracker.
-
-=============================================================================
-8. Contributors                                      *UltiSnips-contributors*
-
-The primary developer of UltiSnips is SirVer (Holger Rapp). The following
-individuals have contributed to UltiSnips (in chronological order):
+This is the list of contributors pre-git in chronological order. For a full
+list of contributors take the union of this set and the authors according to
+git log.
 
    JCEB - Jan Christoph Ebersbach
    Michael Henry
@@ -1752,8 +1774,5 @@ individuals have contributed to UltiSnips (in chronological order):
    Zhao Jiarong - kawing-chiu
    Ye Ding - dyng
    Greg Hurrell - wincent
-
-
-Thank you for your support.
 
 vim:tw=78:ts=8:ft=help:norl:

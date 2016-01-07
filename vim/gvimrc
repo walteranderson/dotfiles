@@ -1,5 +1,6 @@
-set guifont=Source\ Code\ Pro:h16
+set guifont=Source\ Code\ Pro:h15
 set linespace=10
+" Tomorrow-Night-Eighties, gruvbox, railscasts, seoul256, void, vydark, zenburn
 colorscheme Tomorrow-Night-Eighties
 set guicursor+=n-v-c:blinkon0
 set guioptions-=L

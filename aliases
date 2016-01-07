@@ -14,6 +14,7 @@ alias df='cd ~/.dotfiles/'
 # project directories
 alias ca='cd /Users/walter/Sites/class-agent'
 alias mdc='cd /Users/walter/Sites/mdcv2'
+alias bp='cd /Users/walter/Sites/packages/bluuprint'
 
 # opening files
 alias hosts='sudo vim /etc/hosts'
@@ -43,5 +44,7 @@ alias gw='gulp watch'
 # basecamp setting hours
 alias time='php ~/Sites/camptime/artisan camptime'
 
-# tmux
+# applications
 alias tm='tmux'
+alias emacs='open -a emacs'
+alias homestead='function __homestead() { (cd ~/Homestead && vagrant $*); unset -f __homestead; }; __homestead'
