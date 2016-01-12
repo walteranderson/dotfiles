@@ -36,6 +36,7 @@ NeoBundle 'rking/ag.vim'
 NeoBundle 'L9'
 NeoBundle 'FuzzyFinder'
 NeoBundle 'taglist.vim'
+NeoBundle 'joonty/vim-phpunitqf'
 
 " Language-specific plugins
 NeoBundle 'fatih/vim-go'
@@ -311,7 +312,7 @@ let g:syntastic_php_phpcs_args = "--standard=PSR2 -n"
 let g:syntastic_javascript_checkers = ["eslint"]
 
 " by default, do not check for errors on save
-let g:syntastic_mode_map = { "mode": "passive" }
+"let g:syntastic_mode_map = { "mode": "passive" }
 
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute " ,"trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
 let g:syntastic_check_on_wq = 0
@@ -357,15 +358,21 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 " }}}
 " FuzzyFinder {{{
 
-nmap ,f :FufFileWithCurrentBufferDir<CR>
-nmap ,b :FufBuffer<CR>
+" nmap ,f :FufFileWithCurrentBufferDir<CR>
+" nmap ,b :FufBuffer<CR>
 nmap ,t :FufTaggedFile<CR>
 
 nmap <leader>f :FufFileWithCurrentBufferDir<CR>
+nmap <leader>b :FufBuffer<CR>
 
 " }}}
 " Taglist {{{
 
 nmap <leader>t :TlistToggle<CR>
+
+" }}}
+" PhpUnitQF {{{
+
+let g:phpunit_cmd = './vendor/bin/phpunit'
 
 " }}}

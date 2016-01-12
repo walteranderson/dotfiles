@@ -24,5 +24,6 @@ vim-javascript-syntax
 vim-less
 vim-multiple-cursors
 vim-mustache-handlebars
+vim-phpunitqf
 vim-stylus
 vim-vue
