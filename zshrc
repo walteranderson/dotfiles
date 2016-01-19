@@ -85,3 +85,5 @@ fi
 source $HOME/.dotfiles/aliases
 
 source $HOME/.dotfiles/git-flow-completion.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

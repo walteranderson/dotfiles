@@ -1,5 +1,13 @@
-" .vimrc
-" Author: Walter Anderson <walteranderson19@gmail.com>
+"     oooooo     oooo ooooo ooo        ooooo ooooooooo.     .oooooo
+"      `888.     .8'  `888' `88.       .888' `888   `Y88.  d8P'  `Y8b
+"       `888.   .8'    888   888b     d'888   888   .d88' 888
+"        `888. .8'     888   8 Y88. .P  888   888ooo88P'  888
+"         `888.8'      888   8  `888'   888   888`88b.    888
+" .o.      `888'       888   8    Y     888   888  `88b.  `88b    ooo
+" Y8P       `8'       o888o o8o        o888o o888o  o888o  `Y8bood8P'
+"
+" Author:     Walter Anderson <walteranderson19@gmail.com>
+" Repository: https://bitbucket.org/walteranderson/dotfiles
 "
 "NeoBundle {{{
 
@@ -27,16 +35,29 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'tpope/vim-commentary'
+NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'rking/ag.vim'
-NeoBundle 'L9'
+NeoBundle 'jreybert/vimagit'
+
+NeoBundle 'L9' " required by fuzzy finder
 NeoBundle 'FuzzyFinder'
+
+NeoBundle 'junegunn/fzf', { 'dir': '~/.fzf' }
+NeoBundle 'junegunn/fzf.vim'
+NeoBundle 'wincent/terminus'
+
 NeoBundle 'taglist.vim'
-NeoBundle 'joonty/vim-phpunitqf'
+NeoBundle 'wdalmut/vim-phpunit'
+NeoBundle 'roman/golden-ratio'
+NeoBundle 'Yggdroot/indentLine'
+NeoBundle 'Valloric/MatchTagAlways'
+
+" autoclosing quotes/brackets/parens
+" NeoBundle 'Raimondi/delimitMate'
 
 " Language-specific plugins
 NeoBundle 'fatih/vim-go'
@@ -49,8 +70,9 @@ NeoBundle 'xsbeats/vim-blade'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'mustache/vim-mustache-handlebars'
-NeoBundle 'darthmall/vim-vue'
-NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
+NeoBundle 'posva/vim-vue'
+" NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
+NeoBundle 'othree/yajs.vim'
 
 call neobundle#end()
 " Required:
@@ -62,60 +84,81 @@ NeoBundleCheck
 " }}}
 " Basic Options {{{
 
-filetype plugin indent on       " load file type plugins + indentation
-set nocompatible                " choose no compatibility with legacy vi
-set hidden                      " Change buffers without saving
-
-set tabstop=4 shiftwidth=4      " setting the length of a tab
-set expandtab                   " use spaces, not tabs (optional)
-set encoding=utf-8              " using utf-8 encoding
-set showcmd                     " display incomplete commands
-set title                       " set title of terminal to the file
-set nowrap                      " don't wrap lines
+filetype plugin indent on
+set nocompatible
+set hidden
+set expandtab
+set encoding=utf-8
+set nowrap
 set visualbell
-"set relativenumber              " relative numbering
-set number
-set backspace=indent,eol,start  " backspace through everything in insert mode
-set showcmd                     " Show partial commands on last line of window
 set ruler
 set history=1000
-set autoread                    " automatically reload buffers when file changes
 
-set scrolloff=3                 " maintain context around cursor
-set pastetoggle=<F2>            " better copy and paste
-set clipboard=unnamed
 
-" add line markers at 80 characters and 120 characters
-set colorcolumn=80,120
+" setting the length of a tab
+  set tabstop=4 shiftwidth=4
+" use mouse in terminal
+  set mouse=a
+" maintain context around cursor
+  set scrolloff=10
 
-set mouse=a " use mouse in terminal
+" better copy and paste
+  set pastetoggle=<F2>
+  set clipboard=unnamed
+
+" display incomplete commands
+  set showcmd
+" backspace through everything in insert mode
+  set backspace=indent,eol,start
+" Show partial commands on last line of window
+  set showcmd
+" automatically reload buffers when file changes
+  set autoread
 
 " Resize splits when the window is resized
- au VimResized * :wincmd =
+  au VimResized * :wincmd =
 
  " more natural split opening
- set splitbelow
- set splitright
+   set splitbelow
+   set splitright
 
 " force .md files to be markdown
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-autocmd BufNewFile,BufReadPost *.md set wrap
+  autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+  autocmd BufNewFile,BufReadPost *.md set wrap
 
-" autocmd! bufwritepost ~/.dotfiles/vim/vimrc source %
+" list characters
+  set list
+  set listchars=tab:»·,nbsp:·,trail:·,eol:¬,extends:❯,precedes:❮
+  set showbreak=↪
 
 " }}}
-" List Characters {{{
-set list
-set listchars=tab:»·,nbsp:·,trail:·,eol:¬,extends:❯,precedes:❮
-set showbreak=↪
+" Color Scheme & Display {{{
+
+syntax on
+set t_Co=256
+set background=dark
+colorscheme Tomorrow-Night-Eighties
+
+" highlight VCS conflict markers
+  match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+" set title of terminal to the file
+  set title
+" or relativenumber
+  set number
+" add line markers at 80 characters and 120 characters
+  set colorcolumn=80,120
 
 " }}}
 " Searching {{{
 
-set hlsearch                    " highlight matches
-set incsearch                   " incremental searching
-set ignorecase                  " searches are case insensitive...
-set smartcase                   " ... unless they contain at least one capital letter
+" highlight matches
+set hlsearch
+" incremental searching
+set incsearch
+" searches are case insensitive...
+set ignorecase
+" ... unless they contain at least one capital letter
+set smartcase
 
 " Keep search matches in the middle of the window.
 nnoremap n nzzzv
@@ -149,87 +192,58 @@ set foldlevelstart=0
 set foldmethod=marker
 
 " }}}
-" Color Scheme {{{
-
-syntax on
-set t_Co=256 " number of colors
-colorscheme Tomorrow-Night-Eighties
-set background=light
-
-" Highlight VCS conflict markers
- match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
-
-" }}}
 " Remapping {{{
 
 " Leader key
-let mapleader = "\<Space>"
+  let mapleader = "\<Space>"
 
 " escape to normal mode
-imap jk <esc>
+  imap jk <esc>
 
-" move to beginning and end of line, easier to type
-noremap H ^
-noremap L $
-vnoremap L g_
+" HJKL - quickly move through the document
+  noremap H ^
+  noremap L g_
+  noremap J 5j
+  noremap K 5k
 
-" remove K man lookups
-noremap K k
+" move through display lines
+  nnoremap k gk
+  nnoremap j gj
 
-" down is really the next line
-nnoremap j gj
-nnoremap k gk
+" remap ; to do :'s job
+  noremap ; :
 
 " easier movement between splits
-map <C-J> <C-W>j<CR>
-map <C-K> <C-W>k<CR>
-map <C-H> <C-W>h<CR>
-map <C-L> <C-W>l<CR>
-
-" open splits
-nmap vs :vsplit<CR>
-nmap sp :split<CR>
+  noremap <C-J> <C-W>j<CR>
+  noremap <C-K> <C-W>k<CR>
+  noremap <C-H> <C-W>h<CR>
+  noremap <C-L> <C-W>l<CR>
 
 " cycle between buffers
-map <leader>[ :bprevious<CR>
-map <leader>] :bnext<CR>
+  noremap <leader>[ :bprevious<CR>
+  noremap <leader>] :bnext<CR>
 
 " close buffer
-map <leader>w :bd<CR>
+  map <leader>w :bd<CR>
 
 " easy save
-map <leader>s :w<CR>
-
-" quit and force quit
-map <leader>q :q<cr>
-map <leader>Q :q!<cr>
-
-" file/symbol searching
-nnoremap <leader>p :CtrlP<CR>
-nnoremap <leader>r :CtrlPBufTag<CR>
-
-" search for filename in open buffers
-nnoremap <leader>j :CtrlPBuffer<CR>
+  map <leader>s :w<CR>
 
 " disable vim insert mode completion
-inoremap <C-P> <nop>
-
-" removes higlight of your last search
-noremap <leader>n :nohl<CR>
-vnoremap <leader>n :nohl<CR>
+  inoremap <C-P> <nop>
 
 " stay in visual mode when changing indentation
-vnoremap < <gv
-vnoremap > >gv
+  vnoremap < <gv
+  vnoremap > >gv
 
 " pressing return clears higlighted search
-nnoremap <cr> :nohlsearch<cr>/<bs>
+  noremap <cr> :nohlsearch<cr>/<bs>
 
 " auto change directory to match current file
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
 " increase vertical split size
-nmap <leader>v :vertical resize +5<CR>
+nmap <leader>v :vertical resize +10<CR>
 
 " Laravel framework common files
 nmap <leader>lr :e app/Http/routes.php<CR>
@@ -254,9 +268,12 @@ let g:tagbar_singleclick=1
 let g:tagbar_autoclose=1
 
 " }}}
-" vim-airline - status bar {{{
-set laststatus=2
+" Airline {{{
+
 let g:airline#extensions#tabline#enabled = 0
+
+" enable/disable status bar at the system level
+set laststatus=2
 
 if !exists('g:airline_symbols')
 let g:airline_symbols = {}
@@ -278,7 +295,7 @@ let g:airline_symbols.whitespace = 'Ξ'
 " }}}
 " NerdTree {{{
 
-map <leader>k :NERDTreeToggle<CR>
+map <leader>k :NERDTreeToggle<CR>:vertical resize 30<CR>
 let g:NERDTreeShowHidden=1
 let g:NERDTreeQuitOnOpen=1
 
@@ -310,6 +327,7 @@ let g:syntastic_php_phpcs_args = "--standard=PSR2 -n"
 
 " Javascript checkers
 let g:syntastic_javascript_checkers = ["eslint"]
+let g:syntastic_eslint_args = "-c ~/.dotfiles/.eslint.json"
 
 " by default, do not check for errors on save
 "let g:syntastic_mode_map = { "mode": "passive" }
@@ -371,8 +389,69 @@ nmap <leader>b :FufBuffer<CR>
 nmap <leader>t :TlistToggle<CR>
 
 " }}}
-" PhpUnitQF {{{
+" PHPUnit {{{
 
 let g:phpunit_cmd = './vendor/bin/phpunit'
+
+" }}}
+" Golden Ratio {{{
+
+let g:golden_ratio_exclude_nonmodifiable = 1
+
+" }}}
+" indentLine {{{
+
+let g:indentLine_color_term = 239
+let g:indentLine_char = '┆'
+
+" }}}
+" MatchTagAlways {{{
+
+let g:mta_filetypes = {
+    \ 'html' : 1,
+    \ 'xhtml' : 1,
+    \ 'xml' : 1,
+    \ 'jinja' : 1,
+    \ 'blade' : 1,
+    \}
+
+" }}}
+" fzf {{{
+
+" This is the default extra key bindings
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+" Default fzf layout
+" - down / up / left / right
+" - window (nvim only)
+let g:fzf_layout = { 'down': '~40%' }
+
+" For Commits and BCommits to customize the options used by 'git log':
+let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+
+" Advanced customization using autoload functions
+autocmd VimEnter * command! Colors
+  \ call fzf#vim#colors({'left': '15%', 'options': '--reverse --margin 30%,0'})
+
+" }}}
+" Multiple Cursors {{{
+
+let g:multi_cursor_next_key='<C-n>'
+let g:multi_cursor_prev_key='<C-p>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
+
+" }}}
+" CtrlP {{{
+
+" file/symbol searching
+  noremap <leader>p :CtrlP<CR>
+  noremap <leader>r :CtrlPBufTag<CR>
+
+" search for filename in open buffers
+  noremap <leader>j :CtrlPBuffer<CR>
 
 " }}}
