@@ -20,6 +20,6 @@ ln -s ~/.dotfiles/vim/vimrc ~/.vimrc
 ln -s ~/.dotfiles/vim/gvimrc ~/.gvimrc
 ln -s ~/.dotfiles/tmux.conf  ~/.tmux.conf
 ln -s ~/.dotfiles/aliases  ~/.homestead/aliases
-ln -s ~/.dotfiles/.eslintrc.json ~/.eslintrc.json
+cp ~/.dotfiles/eslintrc.json ~/.eslintrc.json
 
 cp ~/.dotfiles/custom.zsh-theme ~/.dotfiles/zsh/themes/custom.zsh-theme
