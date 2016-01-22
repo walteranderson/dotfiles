@@ -9,7 +9,7 @@
 " Author:     Walter Anderson <walteranderson19@gmail.com>
 " Repository: https://bitbucket.org/walteranderson/dotfiles
 "
-"NeoBundle {{{
+" NeoBundle {{{
 
 " Note: Skip initialization for vim-tiny or vim-small.
 if 0 | endif
@@ -39,10 +39,10 @@ NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'terryma/vim-multiple-cursors'
-NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'jreybert/vimagit'
 NeoBundle 'gorodinskiy/vim-coloresque'
+NeoBundle 'kristijanhusak/vim-hybrid-material'
 
 NeoBundle 'L9' " required by fuzzy finder
 NeoBundle 'FuzzyFinder'
@@ -138,6 +138,9 @@ syntax on
 set t_Co=256
 set background=dark
 colorscheme Tomorrow-Night-Eighties
+
+" colorscheme hybrid_reverse
+" let g:enable_bold_font = 1
 
 " highlight VCS conflict markers
   match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
@@ -275,6 +278,8 @@ let g:airline#extensions#tabline#enabled = 0
 " enable/disable status bar at the system level
 set laststatus=2
 
+let g:airline_theme='tomorrow'
+
 if !exists('g:airline_symbols')
 let g:airline_symbols = {}
 endif
@@ -329,11 +334,13 @@ let g:syntastic_php_phpcs_args = "--standard=PSR2 -n"
 let g:syntastic_javascript_checkers = ["eslint"]
 let g:syntastic_eslint_args = "-c ~/.dotfiles/.eslint.json"
 
-" by default, do not check for errors on save
-"let g:syntastic_mode_map = { "mode": "passive" }
+" do not check for errors on save
+" let g:syntastic_mode_map = { "mode": "passive" }
 
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute " ,"trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
 let g:syntastic_check_on_wq = 0
+
+let g:syntastic_quiet_messages = { "regex": 'camel caps format' }
 
 " }}}
 " editorconfig {{{
@@ -454,4 +461,7 @@ let g:multi_cursor_quit_key='<Esc>'
 " search for filename in open buffers
   noremap <leader>j :CtrlPBuffer<CR>
 
+" }}}
+" Terminus {{{
+let g:TerminusCursorShape=0
 " }}}

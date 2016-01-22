@@ -22,10 +22,10 @@ vim-airline
 vim-blade
 vim-coffee-script
 vim-coloresque
-vim-colorschemes
 vim-fugitive
 vim-gitgutter
 vim-go
+vim-hybrid-material
 vim-jade
 vim-less
 vim-multiple-cursors
