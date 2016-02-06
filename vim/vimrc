@@ -11,75 +11,7 @@
 "
 " NeoBundle {{{
 
-" Note: Skip initialization for vim-tiny or vim-small.
-if 0 | endif
-if has('vim_starting')
- if &compatible
-   set nocompatible               " Be iMproved
- endif
- " Required:
- set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
-" Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-" My Bundles here:
-" Refer to |:NeoBundle-examples|.
-" Note: You don't set neobundle setting in .gvimrc!
-
-NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'SirVer/ultisnips'
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'terryma/vim-multiple-cursors'
-NeoBundle 'rking/ag.vim'
-NeoBundle 'jreybert/vimagit'
-NeoBundle 'gorodinskiy/vim-coloresque'
-NeoBundle 'kristijanhusak/vim-hybrid-material'
-
-NeoBundle 'L9' " required by fuzzy finder
-NeoBundle 'FuzzyFinder'
-
-NeoBundle 'junegunn/fzf', { 'dir': '~/.fzf' }
-NeoBundle 'junegunn/fzf.vim'
-NeoBundle 'wincent/terminus'
-
-NeoBundle 'taglist.vim'
-NeoBundle 'wdalmut/vim-phpunit'
-NeoBundle 'roman/golden-ratio'
-NeoBundle 'Yggdroot/indentLine'
-NeoBundle 'Valloric/MatchTagAlways'
-
-" autoclosing quotes/brackets/parens
-" NeoBundle 'Raimondi/delimitMate'
-
-" Language-specific plugins
-NeoBundle 'fatih/vim-go'
-NeoBundle 'digitaltoad/vim-jade'
-NeoBundle 'groenewege/vim-less'
-NeoBundle 'wavded/vim-stylus'
-NeoBundle 'cakebaker/scss-syntax.vim'
-NeoBundle 'StanAngeloff/php.vim'
-NeoBundle 'xsbeats/vim-blade'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'editorconfig/editorconfig-vim'
-NeoBundle 'mustache/vim-mustache-handlebars'
-NeoBundle 'posva/vim-vue'
-NeoBundle 'othree/yajs.vim'
-
-call neobundle#end()
-" Required:
-filetype plugin indent on
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
+so ~/.dotfiles/vim/plugins.vim
 
 " }}}
 " Basic Options {{{
@@ -137,10 +69,8 @@ set history=1000
 syntax on
 set t_Co=256
 set background=dark
-colorscheme Tomorrow-Night-Eighties
-
-" colorscheme hybrid_reverse
-" let g:enable_bold_font = 1
+" colorscheme Tomorrow-Night-Eighties
+colorscheme hybrid_reverse
 
 " highlight VCS conflict markers
   match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
@@ -243,24 +173,26 @@ set foldmethod=marker
   noremap <cr> :nohlsearch<cr>/<bs>
 
 " auto change directory to match current file
-nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
+  nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
 " increase vertical split size
-nmap <leader>v :vertical resize +10<CR>
+  nmap <leader>v :vertical resize +10<CR>
 
 " Laravel framework common files
-nmap <leader>lr :e app/Http/routes.php<CR>
-nmap <leader>lesp :e app/Providers/EventServiceProvider.php<CR>
+  nmap <leader>lr :e app/Http/routes.php<CR>
+  nmap <leader>lesp :e app/Providers/EventServiceProvider.php<CR>
 
-nmap <leader>f :Ag 
+" search using Ag
+  nmap <leader>f :Ag<CR>
+
+" close the buffer without messing with the splits
+  nmap <leader>d :ene<CR>:bw #<CR>
 
 " }}}
 " Abbreviations {{{
 
 abbrev art !php artisan
-abbrev gm !php artisan make:model
-abbrev gc !php artisan make:controller
-abbrev gmig !php artisan make:migration
+abbrev artmig !php artisan make:migration
 
 " }}}
 " Plugin Settings {{{
@@ -278,31 +210,18 @@ let g:airline#extensions#tabline#enabled = 0
 " enable/disable status bar at the system level
 set laststatus=2
 
-let g:airline_theme='tomorrow'
+let g:airline_theme='bubblegum'
 
-if !exists('g:airline_symbols')
-let g:airline_symbols = {}
-endif
-
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-
-let g:airline_symbols.crypt = '🔒'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
+let g:airline_powerline_fonts = 1
 
 " }}}
 " NerdTree {{{
 
-map <leader>k :NERDTreeToggle<CR>:vertical resize 30<CR>
+map <leader>k :NERDTreeToggle<CR>
+" :vertical resize 40<CR>
+
 let g:NERDTreeShowHidden=1
-let g:NERDTreeQuitOnOpen=1
+let g:NERDTreeQuitOnOpen=0
 
 " close nerdtree if it is the only window left open
 " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
@@ -381,16 +300,6 @@ let g:user_emmet_leader_key=','
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 " }}}
-" FuzzyFinder {{{
-
-" nmap ,f :FufFileWithCurrentBufferDir<CR>
-" nmap ,b :FufBuffer<CR>
-nmap ,t :FufTaggedFile<CR>
-
-nmap <leader>f :FufFileWithCurrentBufferDir<CR>
-nmap <leader>b :FufBuffer<CR>
-
-" }}}
 " Taglist {{{
 
 nmap <leader>t :TlistToggle<CR>
@@ -403,7 +312,15 @@ let g:phpunit_cmd = './vendor/bin/phpunit'
 " }}}
 " Golden Ratio {{{
 
-let g:golden_ratio_exclude_nonmodifiable = 1
+
+" Use this option to keep all windows that have 'nomodifiable' option set
+" untouched (off by default): >
+" let g:golden_ratio_exclude_nonmodifiable = 1
+
+noremap <leader>gt :GoldenRatioToggle<CR>
+
+" disable by default
+  let g:golden_ratio_autocommand = 0
 
 " }}}
 " indentLine {{{
@@ -425,6 +342,13 @@ let g:mta_filetypes = {
 " }}}
 " fzf {{{
 
+
+" view open buffers
+  noremap <leader>j :Buffers<CR>
+
+" fuzzy find files
+  noremap <leader>p :Files<CR>
+
 " This is the default extra key bindings
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
@@ -434,7 +358,7 @@ let g:fzf_action = {
 " Default fzf layout
 " - down / up / left / right
 " - window (nvim only)
-let g:fzf_layout = { 'down': '~40%' }
+let g:fzf_layout = { 'down': '~30%' }
 
 " For Commits and BCommits to customize the options used by 'git log':
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
@@ -455,13 +379,32 @@ let g:multi_cursor_quit_key='<Esc>'
 " CtrlP {{{
 
 " file/symbol searching
-  noremap <leader>p :CtrlP<CR>
+  " noremap <leader>p :CtrlP<CR>
+
+" buffer search
   noremap <leader>r :CtrlPBufTag<CR>
 
 " search for filename in open buffers
-  noremap <leader>j :CtrlPBuffer<CR>
+  " noremap <leader>j :CtrlPBuffer<CR>
 
 " }}}
 " Terminus {{{
+
 let g:TerminusCursorShape=0
+
+" }}}
+" VDebug {{{
+
+let g:vdebug_options= {"break_on_open" : 0}
+
+" }}}
+" Notes {{{
+
+" Ctags
+" - run `ctags -R` in project directory to generate `tags` file
+" - :tag <search string>
+"   - :tn and :tp to navigate between tags
+" - C-] on a method to go to it's definition
+"   - C-^ to go back
+
 " }}}

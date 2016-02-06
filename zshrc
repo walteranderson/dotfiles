@@ -62,11 +62,12 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='vim'
-fi
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='vim'
+# fi
+export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -84,6 +85,11 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source $HOME/.dotfiles/aliases
 
-source $HOME/.dotfiles/git-flow-completion.zsh
+# completion libraries
+source $HOME/.dotfiles/completion/git-flow-completion.zsh
+source $HOME/.dotfiles/completion/tmuxinator.zsh
+
+# do not auto-name tmux windows
+export DISABLE_AUTO_TITLE=true
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
