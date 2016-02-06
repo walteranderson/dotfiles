@@ -40,6 +40,7 @@ alias test='./vendor/bin/phpunit'
 
 alias g='gulp'
 alias gw='gulp watch'
+alias gp='gulp --production'
 
 # basecamp setting hours
 alias time='php ~/Sites/camptime/artisan camptime'
