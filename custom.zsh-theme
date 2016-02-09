@@ -26,25 +26,20 @@ fi
 local return_code="%(?..%F{red}%? ↵%f)"
 
 local user_host="( %{$fg_bold[green]%}%n%{$reset_color%}@%{$fg_bold[blue]%}%m%{$reset_color%} )"
-#local user_host="(${PR_USER}%F{cyan}@${PR_HOST})"
-local current_dir="( %B%F{blue}%~%f%b )"
+local current_dir="[ %B%F{blue}%~%f%b ]"
 local git_branch='$(git_prompt_info)'
-
-# PROMPT="╭─${user_host}${current_dir}${git_branch}
-# ╰─$PR_PROMPT "
-# RPROMPT="${return_code}"
 
 PROMPT="╭─${current_dir}${git_branch}
 ╰─$PR_PROMPT "
 RPROMPT="${return_code}"
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%F{yellow}( "
-ZSH_THEME_GIT_PROMPT_SUFFIX=" %F{yellow}) %f"
+ZSH_THEME_GIT_PROMPT_PREFIX="%F{yellow}[ "
+ZSH_THEME_GIT_PROMPT_SUFFIX="%F{yellow} ]%f"
 
-# Do nothing if the branch is clean (no changes).
+# Do nothing if the branch is clean (no changes)
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%} ✔%{$reset_color%}" 
 
-# Add 3 cyan ✗s if this branch is diiirrrty! Dirty branch!
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg_bold[red]%} ✗✗✗%{$reset_color%}"
+# Add ✗ if the branch is dirty
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg_bold[red]%} ✗%{$reset_color%}"
 
 }
