@@ -1,44 +1,53 @@
 #!/bin/bash
 
+NEOBUNDLE_DIR=~/.dotfiles/vim/bundle/neobundle.vim
+
+TO=(
+    ~/.gitconfig
+    ~/.bash_profile
+    ~/.bashrc
+    ~/.zshrc
+    ~/.vim
+    ~/.vimrc
+    ~/.gvimrc
+    ~/.tmux.conf
+    ~/.homestead/aliases
+    ~/.tmuxinator
+)
+
+FROM=(
+    ~/.dotfiles/gitconfig
+    ~/.dotfiles/bash_profile
+    ~/.dotfiles/bashrc
+    ~/.dotfiles/zshrc
+    ~/.dotfiles/vim
+    ~/.dotfiles/vim/vimrc
+    ~/.dotfiles/vim/gvimrc
+    ~/.dotfiles/tmux.conf
+    ~/.dotfiles/aliases
+    ~/.dotfiles/tmuxinator
+)
+
+
 install_dotfiles() {
     echo 'Installing...'
 
-    to=(
-        ~/.gitconfig
-        ~/.bash_profile
-        ~/.bashrc
-        ~/.zshrc
-        ~/.vim
-        ~/.vimrc
-        ~/.gvimrc
-        ~/.tmux.conf
-        ~/.homestead/aliases
-        ~/.tmuxinator
-    )
+    echo 'Checking for NeoBundle'
+    if [ ! -d "$NEOBUNDLE_DIR" ]; then
+        echo 'Installing NeoBundle'
+        git clone https://github.com/Shougo/neobundle.vim $NEOBUNDLE_DIR
+    fi
 
     echo 'Deleting existing dotfiles'
-    for file in ${to[@]}
+    for file in ${TO[@]}
     do
         rm -rf $file
     done
 
-    from=(
-        ~/.dotfiles/gitconfig
-        ~/.dotfiles/bash_profile
-        ~/.dotfiles/bashrc
-        ~/.dotfiles/zshrc
-        ~/.dotfiles/vim
-        ~/.dotfiles/vim/vimrc
-        ~/.dotfiles/vim/gvimrc
-        ~/.dotfiles/tmux.conf
-        ~/.dotfiles/aliases
-        ~/.dotfiles/tmuxinator
-    )
-
     echo 'Symlinking new dotfiles'
-    for (( i = 0 ; i < ${#from[@]} ; i++ ))
+    for (( i = 0 ; i < ${#FROM[@]} ; i++ ))
     do
-        ln -s ${from[$i]} ${to[$i]}
+        ln -s ${FROM[$i]} ${TO[$i]}
     done
 
     # eslintc doesn't like to be symlinked
