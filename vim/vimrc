@@ -10,9 +10,85 @@
 " Repository: https://bitbucket.org/walteranderson/dotfiles
 "
 " NeoBundle {{{
+" Note: Skip initialization for vim-tiny or vim-small.
+if 0 | endif
+if has('vim_starting')
+ if &compatible
+   set nocompatible               " Be iMproved
+ endif
+ " Required:
+ set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+" My Bundles here:
+" Refer to |:NeoBundle-examples|.
+" Note: You don't set neobundle setting in .gvimrc!
 
-so ~/.dotfiles/vim/plugins.vim
+" syntax checker
+NeoBundle 'scrooloose/syntastic'
 
+" status bar
+NeoBundle 'bling/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
+NeoBundle 'edkolev/tmuxline.vim'
+
+" git
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'jreybert/vimagit'
+
+NeoBundle 'tomtom/tcomment_vim'
+NeoBundle 'SirVer/ultisnips'
+NeoBundle 'mattn/emmet-vim'
+NeoBundle 'terryma/vim-multiple-cursors'
+NeoBundle 'Yggdroot/indentLine'
+NeoBundle 'Valloric/MatchTagAlways'
+
+" autoclosing quotes/brackets/parens
+NeoBundle 'Raimondi/delimitMate'
+
+" colorschemes
+NeoBundle 'gorodinskiy/vim-coloresque'
+NeoBundle 'kristijanhusak/vim-hybrid-material'
+NeoBundle 'w0ng/vim-hybrid'
+
+" search
+NeoBundle 'rking/ag.vim'
+NeoBundle 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+NeoBundle 'junegunn/fzf.vim'
+
+" file navigation
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'scrooloose/nerdtree'
+
+NeoBundle 'taglist.vim'
+NeoBundle 'wdalmut/vim-phpunit'
+NeoBundle 'roman/golden-ratio'
+
+" Language-specific plugins
+NeoBundle 'fatih/vim-go'
+NeoBundle 'digitaltoad/vim-jade'
+NeoBundle 'groenewege/vim-less'
+NeoBundle 'wavded/vim-stylus'
+NeoBundle 'cakebaker/scss-syntax.vim'
+NeoBundle 'StanAngeloff/php.vim'
+NeoBundle 'xsbeats/vim-blade'
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'editorconfig/editorconfig-vim'
+NeoBundle 'mustache/vim-mustache-handlebars'
+NeoBundle 'posva/vim-vue'
+NeoBundle 'othree/yajs.vim'
+
+call neobundle#end()
+" Required:
+filetype plugin indent on
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
 " }}}
 " Basic Options {{{
 
@@ -130,9 +206,6 @@ set foldmethod=marker
 " Leader key
   let mapleader = "\<Space>"
 
-" escape to normal mode
-  imap jk <esc>
-
 " HJKL - quickly move through the document
   noremap H ^
   noremap L g_
@@ -193,6 +266,46 @@ set foldmethod=marker
 
 abbrev art !php artisan
 abbrev artmig !php artisan make:migration
+
+" }}}
+" Functions {{{
+
+
+" Prepare a new PHP class
+function! Class()
+    let name = input('Class name? ')
+    let namespace = input('Any Namespace? ')
+
+    if strlen(namespace)
+        exec "normal i<?php namespace " . namespace . ";"
+    else
+        exec "normal i<?php \<C-m>"
+    endif
+
+    " Open class
+    exec "normal iclass " . name . " {\<C-m>}\<C-[>O\<C-[>"
+
+    exec "normal i\<C-M>    public function __construct()\<C-M>{\<C-M>\<C-M>}\<C-[>"
+endfunction
+nmap <leader>1  :call Class()<cr>
+
+
+" Add a new dependency to a PHP class
+function! AddDependency()
+    let dependency = input('Var Name: ')
+    let namespace = input('Class Path: ')
+
+    let segments = split(namespace, '\')
+    let typehint = segments[-1]
+
+    exec 'normal gg/construct^M:H^Mf)i, ' . typehint . ' $' . dependency . '^[/}^>O$this->^[a' . dependency . ' = $' . dependency . ';^[?{^MkOprotected $' . dependency . ';^M^[?{^MOuse ' . namespace . ';^M^['
+
+    " Remove opening comma if there is only one dependency
+    exec 'normal :%s/(, /(/g'
+endfunction
+nmap <leader>2  :call AddDependency()<cr>
+
+
 
 " }}}
 " Plugin Settings {{{
@@ -386,16 +499,6 @@ let g:multi_cursor_quit_key='<Esc>'
 
 " search for filename in open buffers
   " noremap <leader>j :CtrlPBuffer<CR>
-
-" }}}
-" Terminus {{{
-
-let g:TerminusCursorShape=0
-
-" }}}
-" VDebug {{{
-
-let g:vdebug_options= {"break_on_open" : 0}
 
 " }}}
 " Notes {{{
