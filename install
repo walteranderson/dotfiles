@@ -1,23 +1,59 @@
-rm -f ~/.gitconfig
-rm -f ~/.bashrc
-rm -f ~/.bash_profile
-rm -rf ~/.vim
-rm -rf ~/.vimrc
-rm -rf ~/.gvimrc
-rm -rf ~/.zshrc
-rm -rf ~/.tmux.conf
-rm -rf ~/.homestead/aliases
-rm -rf ~/.eslintrc.json
+#!/bin/bash
 
-ln -s ~/.dotfiles/zshrc ~/.zshrc
-ln -s ~/.dotfiles/gitconfig ~/.gitconfig
-ln -s ~/.dotfiles/bashrc ~/.bashrc
-ln -s ~/.dotfiles/bash_profile ~/.bash_profile
-ln -s ~/.dotfiles/vim ~/.vim
-ln -s ~/.dotfiles/vim/vimrc ~/.vimrc
-ln -s ~/.dotfiles/vim/gvimrc ~/.gvimrc
-ln -s ~/.dotfiles/tmux.conf  ~/.tmux.conf
-ln -s ~/.dotfiles/aliases  ~/.homestead/aliases
-cp ~/.dotfiles/eslintrc.json ~/.eslintrc.json
+install_dotfiles() {
+    echo 'Installing...'
 
-cp ~/.dotfiles/custom.zsh-theme ~/.dotfiles/zsh/themes/custom.zsh-theme
+    to=(
+        ~/.gitconfig
+        ~/.bash_profile
+        ~/.bashrc
+        ~/.zshrc
+        ~/.vim
+        ~/.vimrc
+        ~/.gvimrc
+        ~/.tmux.conf
+        ~/.homestead/aliases
+        ~/.tmuxinator
+    )
+
+    echo 'Deleting existing dotfiles'
+    for file in ${to[@]}
+    do
+        rm -rf $file
+    done
+
+    from=(
+        ~/.dotfiles/gitconfig
+        ~/.dotfiles/bash_profile
+        ~/.dotfiles/bashrc
+        ~/.dotfiles/zshrc
+        ~/.dotfiles/vim
+        ~/.dotfiles/vim/vimrc
+        ~/.dotfiles/vim/gvimrc
+        ~/.dotfiles/tmux.conf
+        ~/.dotfiles/aliases
+        ~/.dotfiles/tmuxinator
+    )
+
+    echo 'Symlinking new dotfiles'
+    for (( i = 0 ; i < ${#from[@]} ; i++ ))
+    do
+        ln -s ${from[$i]} ${to[$i]}
+    done
+
+    # eslintc doesn't like to be symlinked
+    rm -rf ~/.eslintrc.json
+    cp ~/.dotfiles/eslintrc.json ~/.eslintrc.json
+
+    # copy the zsh theme
+    cp ~/.dotfiles/custom.zsh-theme ~/.dotfiles/zsh/themes/custom.zsh-theme
+
+    echo 'Finished!'
+}
+
+
+read -r -p "Are you sure you want to continue? [y/N] " response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]
+then
+    install_dotfiles
+fi
