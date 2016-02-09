@@ -3,18 +3,18 @@ alias zV="vim ~/.zshrc"
 alias ll='ls -FGlAhp'
 alias ..='cd ..'
 alias ...='cd ../..'
-alias c='clear'
+alias cl='clear'
 
 # folder changes
-alias s='cd ~/Sites'
-alias d='cd ~/Sites/dev'
+alias c='cd ~/code'
+alias d='cd ~/code/dev'
 alias h='cd ~/Homestead'
 alias df='cd ~/.dotfiles/'
 
 # project directories
-alias ca='cd /Users/walter/Sites/class-agent'
-alias mdc='cd /Users/walter/Sites/mdcv2'
-alias bp='cd /Users/walter/Sites/packages/bluuprint'
+alias ca='cd /Users/walter/code/class-agent'
+alias mdc='cd /Users/walter/code/mdcv2'
+alias bp='cd /Users/walter/code/packages/bluuprint'
 
 # opening files
 alias hosts='sudo vim /etc/hosts'
@@ -24,8 +24,6 @@ alias hV='vim ~/.homestead/Homestead.yaml'
 # dotfiles
 alias zV='vim ~/.dotfiles/zshrc'
 alias vV='vim ~/.dotfiles/vim/vimrc'
-alias bashrc='vim ~/.dotfiles/bashrc'
-alias bashprofile=' vim ~/.dotfiles/bash_profile'
 
 # todo.sh
 export TODOTXT_DEFAULT_ACTION=ls
@@ -43,7 +41,7 @@ alias gw='gulp watch'
 alias gp='gulp --production'
 
 # basecamp setting hours
-alias time='php ~/Sites/camptime/artisan camptime'
+alias time='php ~/code/camptime/artisan camptime'
 
 # applications
 alias tm='tmux'
