@@ -82,6 +82,7 @@ NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'mustache/vim-mustache-handlebars'
 NeoBundle 'posva/vim-vue'
 NeoBundle 'othree/yajs.vim'
+NeoBundle 'mxw/vim-jsx'
 
 call neobundle#end()
 " Required:
@@ -220,10 +221,13 @@ set foldmethod=marker
   noremap ; :
 
 " easier movement between splits
-  noremap <C-J> <C-W>j<CR>
-  noremap <C-K> <C-W>k<CR>
-  noremap <C-H> <C-W>h<CR>
-  noremap <C-L> <C-W>l<CR>
+  noremap <C-j> <C-W>j<CR>
+  noremap <C-k> <C-W>k<CR>
+  noremap <C-h> <C-W>h<CR>
+  noremap <C-l> <C-W>l<CR>
+
+" increase vertical split size
+  nmap <leader>v :vertical resize +10<CR>
 
 " cycle between buffers
   noremap <leader>[ :bprevious<CR>
@@ -247,9 +251,6 @@ set foldmethod=marker
 
 " auto change directory to match current file
   nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
-
-" increase vertical split size
-  nmap <leader>v :vertical resize +10<CR>
 
 " Laravel framework common files
   nmap <leader>lr :e app/Http/routes.php<CR>
@@ -349,9 +350,9 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_enable_signs = 1
-let g:syntastic_error_symbol = "✗"
+let g:syntastic_error_symbol = ">>"
 let g:syntastic_warning_symbol = "⚠"
-let g:syntastic_style_error_symbol = "✗"
+let g:syntastic_style_error_symbol = ">>"
 
 " using the quickfix window
 let g:syntastic_enable_highlighting = 1
