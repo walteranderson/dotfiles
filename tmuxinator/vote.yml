@@ -1,7 +1,7 @@
 # ~/.tmuxinator/voter.yml
 
 name: vote
-root: ~/Sites/dev/votor
+root: ~/code/dev/votor
 
 # Optional tmux socket
 # socket_name: foo

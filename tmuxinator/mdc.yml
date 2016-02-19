@@ -1,7 +1,7 @@
 # ~/.tmuxinator/MDC.yml
 
 name: mdc
-root: ~/Sites/mdcv2
+root: ~/code/mdcv2
 
 # Optional tmux socket
 # socket_name: foo
@@ -28,20 +28,18 @@ root: ~/Sites/mdcv2
 # post: tmux -CC attach -t MDC
 
 windows:
+  - terminal:
+      layout: even-horizontal
+      panes: 
+        - cd ~/code/mdcv2/
+        - cd ~/code/bluuprint
   - mdc:
       layout: e23d,185x46,0,0{118x46,0,0,1,66x46,119,0,5}
       panes:
         - vim
         -
   - bluuprint:
-      layout: e23d,185x46,0,0{118x46,0,0,1,66x46,119,0,5}
-      root: ~/Sites/bluuprint
+      root: ~/code/bluuprint
       panes:
         - vim
-        -
-  - gulp:
-      layout: even-horizontal
-      panes: 
-        -
-        -
   - logs: tail -f storage/logs/laravel.log
