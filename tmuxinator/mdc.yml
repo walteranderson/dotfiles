@@ -31,15 +31,17 @@ windows:
   - terminal:
       layout: even-horizontal
       panes: 
-        - cd ~/code/mdcv2/
-        - cd ~/code/bluuprint
+        - cd ~/code/mdcv2 && clear
+        - cd ~/code/bluuprint && clear
   - mdc:
-      layout: e23d,185x46,0,0{118x46,0,0,1,66x46,119,0,5}
       panes:
         - vim
-        -
   - bluuprint:
       root: ~/code/bluuprint
+      panes:
+        - vim
+  - leaderboard-service:
+      root: ~/code/leaderboard-service
       panes:
         - vim
   - logs: tail -f storage/logs/laravel.log
