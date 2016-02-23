@@ -22,7 +22,7 @@ function get_pwd(){
 }
 
 
-PROMPT='$YELLOW$(get_pwd) $(git_prompt_info) $RESET'
+PROMPT='$YELLOW$(get_pwd) $(git_prompt_info)$RESET '
 
 ZSH_THEME_GIT_PROMPT_PREFIX="$BLUE "
 ZSH_THEME_GIT_PROMPT_SUFFIX=""
