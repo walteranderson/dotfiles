@@ -13,6 +13,8 @@ TO=(
     ~/.tmux.conf
     ~/.homestead/aliases
     ~/.tmuxinator
+    ~/.dotfiles/zsh/custom/themes/walter.zsh-theme
+    ~/.dotfiles/zsh/custom/themes/gitster.zsh-theme
 )
 
 FROM=(
@@ -26,6 +28,8 @@ FROM=(
     ~/.dotfiles/tmux.conf
     ~/.dotfiles/aliases
     ~/.dotfiles/tmuxinator
+    ~/.dotfiles/walter.zsh-theme
+    ~/.dotfiles/gitster.zsh-theme
 )
 
 
@@ -55,7 +59,7 @@ install_dotfiles() {
     cp ~/.dotfiles/eslintrc.json ~/.eslintrc.json
 
     # copy the zsh theme
-    cp ~/.dotfiles/custom.zsh-theme ~/.dotfiles/zsh/themes/custom.zsh-theme
+    # cp ~/.dotfiles/walter.zsh-theme ~/.dotfiles/zsh/custom/themes/walter.zsh-theme
 
     echo 'Finished!'
 }
