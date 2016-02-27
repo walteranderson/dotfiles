@@ -146,7 +146,6 @@ set history=1000
 syntax on
 set t_Co=256
 set background=dark
-" colorscheme Tomorrow-Night-Eighties
 colorscheme hybrid_reverse
 
 " highlight VCS conflict markers
