@@ -89,6 +89,7 @@ NeoBundle 'mustache/vim-mustache-handlebars'
 NeoBundle 'posva/vim-vue'
 NeoBundle 'othree/yajs.vim'
 NeoBundle 'mxw/vim-jsx'
+NeoBundle 'keith/tmux.vim'
 
 call neobundle#end()
 " Required:
