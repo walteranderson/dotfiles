@@ -34,7 +34,10 @@ NeoBundle 'scrooloose/syntastic'
 " status bar
 NeoBundle 'bling/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
+
+" tmux
 NeoBundle 'edkolev/tmuxline.vim'
+NeoBundle 'christoomey/vim-tmux-navigator'
 
 " git
 NeoBundle 'tpope/vim-fugitive'
@@ -50,6 +53,9 @@ NeoBundle 'Valloric/MatchTagAlways'
 
 " autoclosing quotes/brackets/parens
 NeoBundle 'Raimondi/delimitMate'
+
+" surround things with ({'" and more
+NeoBundle 'tpope/vim-surround'
 
 " colorschemes
 NeoBundle 'gorodinskiy/vim-coloresque'
@@ -323,7 +329,8 @@ let g:airline#extensions#tabline#enabled = 0
 " enable/disable status bar at the system level
 set laststatus=2
 
-let g:airline_theme='bubblegum'
+" let g:airline_theme='bubblegum'
+let g:airline_theme='distinguished'
 
 let g:airline_powerline_fonts = 1
 
@@ -514,7 +521,7 @@ let g:multi_cursor_quit_key='<Esc>'
 " Tmuxline {{{
 
 
-let g:tmuxline_preset = 'minimal'
+let g:tmuxline_preset = 'powerline'
 
 
 " }}}
