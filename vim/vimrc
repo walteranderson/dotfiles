@@ -86,10 +86,10 @@ NeoBundle 'xsbeats/vim-blade'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'mustache/vim-mustache-handlebars'
+NeoBundle 'elzr/vim-json'
 NeoBundle 'posva/vim-vue'
-NeoBundle 'othree/yajs.vim'
-NeoBundle 'mxw/vim-jsx'
 NeoBundle 'keith/tmux.vim'
+NeoBundle 'jelera/vim-javascript-syntax'
 
 call neobundle#end()
 " Required:
@@ -160,6 +160,7 @@ colorscheme hybrid_reverse
 " set title of terminal to the file
   set title
 " or relativenumber
+  " set relativenumber
   set number
 " add line markers at 80 characters and 120 characters
   set colorcolumn=80,120
@@ -316,13 +317,6 @@ nmap <leader>2  :call AddDependency()<cr>
 
 " }}}
 " Plugin Settings {{{
-" Tagbar {{{
-
-"nnoremap <leader>r :TagbarToggle<CR>
-let g:tagbar_singleclick=1
-let g:tagbar_autoclose=1
-
-" }}}
 " Airline {{{
 
 let g:airline#extensions#tabline#enabled = 0
@@ -448,6 +442,7 @@ noremap <leader>gt :GoldenRatioToggle<CR>
 
 let g:indentLine_color_term = 239
 let g:indentLine_char = '┆'
+let g:indentLine_noConcealCursor=""
 
 " }}}
 " MatchTagAlways {{{
@@ -465,7 +460,7 @@ let g:mta_filetypes = {
 
 
 " view open buffers
-  noremap <leader>j :Buffers<CR>
+  " noremap <leader>j :Buffers<CR>
 
 " fuzzy find files
   noremap <leader>p :Files<CR>
@@ -506,7 +501,7 @@ let g:multi_cursor_quit_key='<Esc>'
   noremap <leader>r :CtrlPBufTag<CR>
 
 " search for filename in open buffers
-  " noremap <leader>j :CtrlPBuffer<CR>
+  noremap <leader>j :CtrlPBuffer<CR>
 
 " }}}
 " Notes {{{
@@ -524,5 +519,10 @@ let g:multi_cursor_quit_key='<Esc>'
 
 let g:tmuxline_preset = 'powerline'
 
+
+" }}}
+" JSON {{{
+
+let g:vim_json_syntax_conceal = 0
 
 " }}}
