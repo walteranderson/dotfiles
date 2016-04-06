@@ -87,9 +87,11 @@ NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'mustache/vim-mustache-handlebars'
 NeoBundle 'elzr/vim-json'
-NeoBundle 'posva/vim-vue'
+NeoBundle 'darthmall/vim-vue'
 NeoBundle 'keith/tmux.vim'
 NeoBundle 'jelera/vim-javascript-syntax'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'mxw/vim-jsx'
 
 call neobundle#end()
 " Required:
@@ -269,6 +271,9 @@ set foldmethod=marker
 " close the buffer without messing with the splits
   nmap <leader>d :ene<CR>:bw #<CR>
 
+" set the tab size on the fly
+  nmap <leader>t4 :set expandtab tabstop=4 shiftwidth=4 softtabstop=4<CR>
+  nmap <leader>t2 :set expandtab tabstop=2 shiftwidth=2 softtabstop=2<CR>
 " }}}
 " Abbreviations {{{
 
@@ -332,7 +337,8 @@ let g:airline_powerline_fonts = 1
 " }}}
 " NerdTree {{{
 
-map <leader>k :NERDTreeToggle<CR>
+" updating this remapping to match spacemacs
+map <leader>pt :NERDTreeToggle<CR>
 " :vertical resize 40<CR>
 
 let g:NERDTreeShowHidden=1
@@ -415,11 +421,6 @@ let g:user_emmet_leader_key=','
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 " }}}
-" Taglist {{{
-
-nmap <leader>t :TlistToggle<CR>
-
-" }}}
 " PHPUnit {{{
 
 let g:phpunit_cmd = './vendor/bin/phpunit'
@@ -463,7 +464,7 @@ let g:mta_filetypes = {
   " noremap <leader>j :Buffers<CR>
 
 " fuzzy find files
-  noremap <leader>p :Files<CR>
+  noremap <leader>pf :Files<CR>
 
 " This is the default extra key bindings
 let g:fzf_action = {

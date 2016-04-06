@@ -45,5 +45,5 @@ alias time='php ~/code/camptime/artisan camptime'
 
 # applications
 alias tm='tmux'
-alias emacs='open -a emacs'
+alias emacsgui='open -a emacs'
 alias homestead='function __homestead() { (cd ~/Homestead && vagrant $*); unset -f __homestead; }; __homestead'

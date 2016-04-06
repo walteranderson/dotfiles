@@ -11,7 +11,6 @@
         ],
         "no-undef": [0],
         "no-undef-init": [1],
-        "curly": [1],
         "eqeqeq": [2, "smart"],
         "guard-for-in": [2],
         "no-else-return": [2],
@@ -24,6 +23,12 @@
         "jquery": true,
         "commonjs": true
     },
+    "plugins": [
+        "react"
+    ],
     "extends": "eslint:recommended",
-    "ecmaFeatures": { "modules": true }
+    "ecmaFeatures": {
+        "modules": true,
+        "jsx": true
+    }
 }
