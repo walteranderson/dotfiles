@@ -9,96 +9,77 @@
 " Author:     Walter Anderson <walteranderson19@gmail.com>
 " Repository: https://bitbucket.org/walteranderson/dotfiles
 "
-" NeoBundle {{{
-" Note: Skip initialization for vim-tiny or vim-small.
-if 0 | endif
-if has('vim_starting')
- if &compatible
-   set nocompatible               " Be iMproved
- endif
- " Required:
- set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
-" Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-" My Bundles here:
-" Refer to |:NeoBundle-examples|.
-" Note: You don't set neobundle setting in .gvimrc!
+" Vim Plug {{{
+
+call plug#begin('~/.vim/plugged')
 
 " syntax checker
-NeoBundle 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 
 " status bar
-NeoBundle 'bling/vim-airline'
-NeoBundle 'vim-airline/vim-airline-themes'
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " tmux
-NeoBundle 'edkolev/tmuxline.vim'
-NeoBundle 'christoomey/vim-tmux-navigator'
+Plug 'edkolev/tmuxline.vim'
+Plug 'christoomey/vim-tmux-navigator'
 
 " git
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'jreybert/vimagit'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'jreybert/vimagit'
 
-NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'SirVer/ultisnips'
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'terryma/vim-multiple-cursors'
-NeoBundle 'Yggdroot/indentLine'
-NeoBundle 'Valloric/MatchTagAlways'
+Plug 'tomtom/tcomment_vim'
+Plug 'SirVer/ultisnips'
+Plug 'mattn/emmet-vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'Yggdroot/indentLine'
+Plug 'Valloric/MatchTagAlways'
 
 " autoclosing quotes/brackets/parens
-NeoBundle 'Raimondi/delimitMate'
+Plug 'Raimondi/delimitMate'
 
 " surround things with ({'" and more
-NeoBundle 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 
 " colorschemes
-NeoBundle 'gorodinskiy/vim-coloresque'
-NeoBundle 'kristijanhusak/vim-hybrid-material'
-NeoBundle 'w0ng/vim-hybrid'
+Plug 'gorodinskiy/vim-coloresque'
+Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'w0ng/vim-hybrid'
 
 " search
-NeoBundle 'rking/ag.vim'
-NeoBundle 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
-NeoBundle 'junegunn/fzf.vim'
+Plug 'rking/ag.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+Plug 'junegunn/fzf.vim'
 
 " file navigation
-NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'scrooloose/nerdtree'
+Plug 'kien/ctrlp.vim'
+Plug 'scrooloose/nerdtree'
 
-NeoBundle 'taglist.vim'
-NeoBundle 'wdalmut/vim-phpunit'
-NeoBundle 'roman/golden-ratio'
+Plug 'taglist.vim'
+Plug 'wdalmut/vim-phpunit'
+Plug 'roman/golden-ratio'
 
 " Language-specific plugins
-NeoBundle 'fatih/vim-go'
-NeoBundle 'digitaltoad/vim-jade'
-NeoBundle 'groenewege/vim-less'
-NeoBundle 'wavded/vim-stylus'
-NeoBundle 'cakebaker/scss-syntax.vim'
-NeoBundle 'StanAngeloff/php.vim'
-NeoBundle 'xsbeats/vim-blade'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'editorconfig/editorconfig-vim'
-NeoBundle 'mustache/vim-mustache-handlebars'
-NeoBundle 'elzr/vim-json'
-NeoBundle 'darthmall/vim-vue'
-NeoBundle 'keith/tmux.vim'
-NeoBundle 'jelera/vim-javascript-syntax'
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'mxw/vim-jsx'
+Plug 'fatih/vim-go'
+Plug 'digitaltoad/vim-jade'
+Plug 'groenewege/vim-less'
+Plug 'wavded/vim-stylus'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'StanAngeloff/php.vim'
+Plug 'xsbeats/vim-blade'
+Plug 'kchmck/vim-coffee-script'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'elzr/vim-json'
+Plug 'darthmall/vim-vue'
+Plug 'keith/tmux.vim'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 
-call neobundle#end()
-" Required:
-filetype plugin indent on
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
+call plug#end()
+
 " }}}
 " Basic Options {{{
 

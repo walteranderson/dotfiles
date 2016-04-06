@@ -2,6 +2,4 @@
 .netrwhist
 vim/tmp
 
-# ignore installed plugins and keep the lock file
-vim/bundle/*
-!vim/bundle/NeoBundle.lock
+vim/plugged
