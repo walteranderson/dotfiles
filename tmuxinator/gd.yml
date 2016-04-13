@@ -1,7 +1,7 @@
 # ~/.tmuxinator/MDC.yml
 
-name: mdc
-root: ~/code/mdcv2
+name: gd
+root: ~/code/givingday
 
 # Optional tmux socket
 # socket_name: foo
@@ -31,9 +31,9 @@ windows:
   - terminal:
       layout: even-horizontal
       panes: 
-        - cd ~/code/mdcv2 && clear
+        -
         - cd ~/code/bluuprint && clear
-  - mdc:
+  - givingday:
       panes:
         - vim
   - bluuprint:
@@ -44,4 +44,3 @@ windows:
       root: ~/code/leaderboard-service
       panes:
         - vim
-  - logs: tail -f storage/logs/laravel.log
