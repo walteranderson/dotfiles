@@ -29,10 +29,11 @@ root: ~/code/givingday
 
 windows:
   - terminal:
-      layout: even-horizontal
+      layout: b304,278x69,0,0{203x69,0,0,546,74x69,204,0[74x54,204,0,550,74x14,204,55,551]}
       panes: 
-        -
+        - clear
         - cd ~/code/bluuprint && clear
+        - tmux clock-mode
   - givingday:
       panes:
         - vim
