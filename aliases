@@ -13,8 +13,11 @@ alias df='cd ~/.dotfiles/'
 
 # project directories
 alias ca='cd /Users/walter/code/class-agent'
-alias mdc='cd /Users/walter/code/mdcv2'
+alias gd='cd /Users/walter/code/givingday'
 alias bp='cd /Users/walter/code/bluuprint'
+
+# so that I don't lose my mind
+alias mdc='cd /Users/walter/code/givingday'
 
 # opening files
 alias hosts='sudo vim /etc/hosts'
