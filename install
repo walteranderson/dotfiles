@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NEOBUNDLE_DIR=~/.dotfiles/vim/bundle/neobundle.vim
+OH_MY_ZSH_DIR=~/.dotfiles/oh-my-zsh/
 
 TO=(
     ~/.gitconfig
@@ -13,7 +13,7 @@ TO=(
     ~/.tmux.conf
     ~/.homestead/aliases
     ~/.tmuxinator
-    ~/.dotfiles/zsh/custom
+    ~/.dotfiles/oh-my-zsh/custom
 )
 
 FROM=(
@@ -34,11 +34,11 @@ FROM=(
 install_dotfiles() {
     echo 'Installing...'
 
-    # echo 'Checking for NeoBundle'
-    # if [ ! -d "$NEOBUNDLE_DIR" ]; then
-    #     echo 'Installing NeoBundle'
-    #     git clone https://github.com/Shougo/neobundle.vim $NEOBUNDLE_DIR
-    # fi
+    if [ ! -d "$OH_MY_ZSH_DIR" ]; then
+        echo 'Installing oh my zsh'
+        git clone git://github.com/robbyrussell/oh-my-zsh.git $OH_MY_ZSH_DIR
+        chsh -s /bin/zsh
+    fi
 
     echo 'Deleting existing dotfiles'
     for file in ${TO[@]}
@@ -52,18 +52,15 @@ install_dotfiles() {
         ln -s ${FROM[$i]} ${TO[$i]}
     done
 
-    # eslintc doesn't like to be symlinked
+    # eslintrc doesn't like to be symlinked
     rm -rf ~/.eslintrc.json
     cp ~/.dotfiles/eslintrc.json ~/.eslintrc.json
-
-    # copy the zsh theme
-    # cp ~/.dotfiles/walter.zsh-theme ~/.dotfiles/zsh/custom/themes/walter.zsh-theme
 
     echo 'Finished!'
 }
 
 
-read -r -p "Are you sure you want to continue? [y/N] " response
+read -r -p "Install? [y/N] " response
 if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]
 then
     install_dotfiles
