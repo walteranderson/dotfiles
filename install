@@ -13,8 +13,7 @@ TO=(
     ~/.tmux.conf
     ~/.homestead/aliases
     ~/.tmuxinator
-    ~/.dotfiles/zsh/custom/themes/walter.zsh-theme
-    ~/.dotfiles/zsh/custom/themes/gitster.zsh-theme
+    ~/.dotfiles/zsh/custom
 )
 
 FROM=(
@@ -28,8 +27,7 @@ FROM=(
     ~/.dotfiles/tmux.conf
     ~/.dotfiles/aliases
     ~/.dotfiles/tmuxinator
-    ~/.dotfiles/walter.zsh-theme
-    ~/.dotfiles/gitster.zsh-theme
+    ~/.dotfiles/zsh_custom/
 )
 
 
