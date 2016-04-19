@@ -1,5 +1,5 @@
 ## Table of Contents
-* [Installation](#installation)
+* [Installation](#markdown-header-installation)
 * [To Install](#to-install)
 
 ## Installation
