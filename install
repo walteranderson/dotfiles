@@ -1,67 +1,14 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-OH_MY_ZSH_DIR=~/.dotfiles/oh-my-zsh/
+set -e
 
-TO=(
-    ~/.gitconfig
-    ~/.bash_profile
-    ~/.bashrc
-    ~/.zshrc
-    ~/.vim
-    ~/.vimrc
-    ~/.gvimrc
-    ~/.tmux.conf
-    ~/.homestead/aliases
-    ~/.tmuxinator
-    ~/.dotfiles/oh-my-zsh/custom
-)
+CONFIG="install.conf.yaml"
+DOTBOT_DIR="dotbot"
 
-FROM=(
-    ~/.dotfiles/gitconfig
-    ~/.dotfiles/bash_profile
-    ~/.dotfiles/bashrc
-    ~/.dotfiles/zshrc
-    ~/.dotfiles/vim
-    ~/.dotfiles/vim/vimrc
-    ~/.dotfiles/vim/gvimrc
-    ~/.dotfiles/tmux.conf
-    ~/.dotfiles/aliases
-    ~/.dotfiles/tmuxinator
-    ~/.dotfiles/zsh_custom/
-)
+DOTBOT_BIN="bin/dotbot"
+BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+cd "${BASEDIR}"
+git submodule update --init --recursive "${DOTBOT_DIR}"
 
-install_dotfiles() {
-    echo 'Installing...'
-
-    if [ ! -d "$OH_MY_ZSH_DIR" ]; then
-        echo 'Installing oh my zsh'
-        git clone git://github.com/robbyrussell/oh-my-zsh.git $OH_MY_ZSH_DIR
-        chsh -s /bin/zsh
-    fi
-
-    echo 'Deleting existing dotfiles'
-    for file in ${TO[@]}
-    do
-        rm -rf $file
-    done
-
-    echo 'Symlinking new dotfiles'
-    for (( i = 0 ; i < ${#FROM[@]} ; i++ ))
-    do
-        ln -s ${FROM[$i]} ${TO[$i]}
-    done
-
-    # eslintrc doesn't like to be symlinked
-    rm -rf ~/.eslintrc.json
-    cp ~/.dotfiles/eslintrc.json ~/.eslintrc.json
-
-    echo 'Finished!'
-}
-
-
-read -r -p "Install? [y/N] " response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]
-then
-    install_dotfiles
-fi
+"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"

@@ -360,7 +360,7 @@ let g:syntastic_php_phpcs_args = "--standard=PSR2 -n"
 
 " Javascript checkers
 let g:syntastic_javascript_checkers = ["eslint"]
-let g:syntastic_eslint_args = "-c ~/.dotfiles/.eslint.json --parser babel-eslint"
+let g:syntastic_eslint_args = "-c ~/.dotfiles/.eslintrc --parser babel-eslint"
 
 " do not check for errors on save
 " let g:syntastic_mode_map = { "mode": "passive" }
@@ -391,8 +391,8 @@ autocmd FileType php setlocal commentstring=//\ %s
 " Utilsnips {{{
 
 " path to snippets
-let g:UltiSnipsSnippetDirectories=[$HOME.'/.dotfiles/snippets']
-
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.dotfiles/vim/snippets']
+let g:UltiSnipsEnableSnipMate=0
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"

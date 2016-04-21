@@ -1,0 +1,19 @@
+- defaults:
+    link:
+        relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.gitconfig: git/gitconfig
+    ~/.bash_profile: bash/bash_profile
+    ~/.bashrc: bash/bashrc
+    ~/.zshrc: zsh/zshrc
+    ~/.vim: vim
+    ~/.vimrc: vim/vimrc
+    ~/.gvimrc: vim/gvimrc
+    ~/.tmux.conf: tmux/tmux.conf
+    ~/.tmuxinator: tmux/tmuxinator
+    ~/.dotfiles/zsh/oh-my-zsh/custom: zsh/custom
+    ~/.homestead/aliases: aliases
+    ~/.eslintrc: js/eslintrc

@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=~/.dotfiles/oh-my-zsh
+export ZSH=~/.dotfiles/zsh/oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -30,8 +30,8 @@ export EDITOR='vim'
 source $HOME/.dotfiles/aliases
 
 # completion libraries
-source $HOME/.dotfiles/completion/git-flow-completion.zsh
-source $HOME/.dotfiles/completion/tmuxinator.zsh
+source $HOME/.dotfiles/zsh/completion/git-flow-completion.zsh
+source $HOME/.dotfiles/zsh/completion/tmuxinator.zsh
 
 # nvm
 export NVM_DIR=~/.nvm
