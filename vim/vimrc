@@ -23,6 +23,7 @@ Plug 'vim-airline/vim-airline-themes'
 " tmux
 Plug 'edkolev/tmuxline.vim'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'melonmanchan/vim-tmux-resizer'
 
 " git
 Plug 'tpope/vim-fugitive'
@@ -227,7 +228,7 @@ set foldmethod=marker
   map <leader>w :bd<CR>
 
 " easy save
-  noremap <C-s> :w<CR>
+  noremap <leader><cr> :update<cr>
 
 " disable vim insert mode completion
   inoremap <C-P> <nop>

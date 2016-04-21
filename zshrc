@@ -20,12 +20,11 @@ COMPLETION_WAITING_DOTS="true"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-plugins=(git sublime brew vi-mode tmux zsh-syntax-highlighting)
+plugins=(git git-flow vi-mode tmux tmuxinator web-search zsh-syntax-highlighting)
 
 # User configuration
 export PATH="/Users/walter/.composer/vendor/bin:/usr/local/sbin:/Users/walter/bin:/usr/local/mysql/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 source $ZSH/oh-my-zsh.sh
-
 
 export EDITOR='vim'
 source $HOME/.dotfiles/aliases
