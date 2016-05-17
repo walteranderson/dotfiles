@@ -26,22 +26,23 @@ root: ~/code/givingday
 
 # Runs after everything. Use it to attach to tmux with custom options etc.
 # post: tmux -CC attach -t MDC
+# layout: b304,278x69,0,0{203x69,0,0,546,74x69,204,0[74x54,204,0,550,74x14,204,55,551]}
 
 windows:
   - terminal:
-      layout: b304,278x69,0,0{203x69,0,0,546,74x69,204,0[74x54,204,0,550,74x14,204,55,551]}
+      layout: 1293,278x70,0,0{183x70,0,0,198,94x70,184,0[94x39,184,0,202,94x30,184,40,203]}
       panes: 
         - clear
         - cd ~/code/bluuprint && clear
-        - tmux clock-mode
+        - cd ~/code/leaderboard-service && clear
   - givingday:
       panes:
-        - vim
+        -
   - bluuprint:
       root: ~/code/bluuprint
       panes:
-        - vim
+        -
   - leaderboard-service:
       root: ~/code/leaderboard-service
       panes:
-        - vim
+        -

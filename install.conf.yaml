@@ -14,6 +14,8 @@
     ~/.gvimrc: vim/gvimrc
     ~/.tmux.conf: tmux/tmux.conf
     ~/.tmuxinator: tmux/tmuxinator
-    ~/.dotfiles/zsh/oh-my-zsh/custom: zsh/custom
+    ~/.dotfiles/zsh/oh-my-zsh/custom/plugins/git-flow: zsh/custom/plugins/git-flow
+    ~/.dotfiles/zsh/oh-my-zsh/custom/plugins/zsh-syntax-highlighting: zsh/custom/plugins/zsh-syntax-highlighting
+    ~/.dotfiles/zsh/oh-my-zsh/custom/themes: zsh/custom/themes
     ~/.homestead/aliases: aliases
     ~/.eslintrc: js/eslintrc
