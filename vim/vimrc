@@ -44,9 +44,8 @@ Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-surround'
 
 " colorschemes
-Plug 'gorodinskiy/vim-coloresque'
 Plug 'kristijanhusak/vim-hybrid-material'
-Plug 'w0ng/vim-hybrid'
+Plug 'flazz/vim-colorschemes'
 
 " search
 Plug 'rking/ag.vim'
@@ -57,7 +56,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 
-Plug 'taglist.vim'
+" tags
+Plug 'joonty/vim-taggatron'
+
 Plug 'wdalmut/vim-phpunit'
 Plug 'roman/golden-ratio'
 
@@ -128,7 +129,8 @@ set history=1000
 
 " list characters
   set list
-  set listchars=tab:»·,nbsp:·,trail:·,eol:¬,extends:❯,precedes:❮
+  " set listchars=tab:»·,nbsp:·,trail:·,eol:¬,extends:❯,precedes:❮
+  set listchars=tab:»·,nbsp:·,trail:·,extends:❯,precedes:❮
   set showbreak=↪
 
 " }}}
@@ -136,8 +138,14 @@ set history=1000
 
 syntax on
 set t_Co=256
+
+" dark theme
 set background=dark
 colorscheme hybrid_reverse
+
+" light theme
+" set background=light
+" colorscheme solarized8_light_low
 
 " highlight VCS conflict markers
   match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
@@ -317,8 +325,11 @@ let g:airline#extensions#tabline#enabled = 0
   set laststatus=2
 
 " set the theme
+  " dark theme
   let g:airline_theme='distinguished'
-" let g:airline_theme='bubblegum'
+  " light theme
+  " let g:airline_theme='solarized'
+
 
 " enable powerline fonts
   let g:airline_powerline_fonts = 1
@@ -522,5 +533,10 @@ let g:javascript_enable_domhtmlcss=1
 " vim-typescript {{{
 
 let g:typescript_compiler_options = '-experimentalDecorators'
+
+" }}}
+" taggatron {{{
+
+let g:tagcommands = { "php" : { "tagfile": "tags", "args": "-R", "cmd": "ctags" } }
 
 " }}}

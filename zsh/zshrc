@@ -44,6 +44,9 @@ export DISABLE_AUTO_TITLE=true
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
+export GOPATH="$HOME/code/golang"
+export PATH="$PATH:$GOPATH/bin"
+
 
 # tabtab source for yo package
 # uninstall by removing these lines or running `tabtab uninstall yo`

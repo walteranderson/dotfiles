@@ -101,7 +101,7 @@ prompt_git() {
     if [[ -n $dirty ]]; then
       prompt_segment yellow black
     else
-      prompt_segment green black
+      prompt_segment blue black
     fi
 
     if [[ -e "${repo_path}/BISECT_LOG" ]]; then
@@ -127,45 +127,30 @@ prompt_git() {
   fi
 }
 
-prompt_hg() {
-  local rev status
-  if $(hg id >/dev/null 2>&1); then
-    if $(hg prompt >/dev/null 2>&1); then
-      if [[ $(hg prompt "{status|unknown}") = "?" ]]; then
-        # if files are not added
-        prompt_segment red white
-        st='±'
-      elif [[ -n $(hg prompt "{status|modified}") ]]; then
-        # if any modification
-        prompt_segment yellow black
-        st='±'
-      else
-        # if working copy is clean
-        prompt_segment green black
-      fi
-      echo -n $(hg prompt "☿ {rev}@{branch}") $st
-    else
-      st=""
-      rev=$(hg id -n 2>/dev/null | sed 's/[^-0-9]//g')
-      branch=$(hg id -b 2>/dev/null)
-      if `hg st | grep -q "^\?"`; then
-        prompt_segment red black
-        st='±'
-      elif `hg st | grep -q "^[MA]"`; then
-        prompt_segment yellow black
-        st='±'
-      else
-        prompt_segment green black
-      fi
-      echo -n "☿ $rev@$branch" $st
-    fi
+
+# get the current working directory
+# if it's a git directory, only show the root dir name
+function prompt_dir() {
+  git_root=$PWD
+  while [[ $git_root != / && ! -e $git_root/.git ]]; do
+    git_root=$git_root:h
+  done
+  if [[ $git_root = / ]]; then
+    unset git_root
+    prompt_short_dir=%~
+  else
+    parent=${git_root%\/*}
+    prompt_short_dir=${PWD#$parent/}
   fi
+  # echo $prompt_short_dir
+  prompt_segment black default $prompt_short_dir
 }
 
 # Dir: current working directory
-prompt_dir() {
-  prompt_segment blue black '%~'
-}
+# NOTE: deprecated
+# prompt_dir() {
+#   prompt_segment black default '%~'
+# }
 
 # Virtualenv: current working virtualenv
 prompt_virtualenv() {
@@ -194,10 +179,9 @@ build_prompt() {
   RETVAL=$?
   prompt_status
   prompt_virtualenv
-  prompt_context
+  # prompt_context
   prompt_dir
   prompt_git
-  prompt_hg
   prompt_end
 }
 

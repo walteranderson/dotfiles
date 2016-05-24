@@ -47,6 +47,7 @@ alias gp='gulp --production'
 alias time='php ~/code/camptime/artisan camptime'
 
 # applications
+alias mux='tmuxinator'
 alias tm='tmux'
 alias emacsgui='open -a emacs'
 alias homestead='function __homestead() { (cd ~/Homestead && vagrant $*); unset -f __homestead; }; __homestead'
