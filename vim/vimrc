@@ -60,7 +60,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'joonty/vim-taggatron'
 
 Plug 'wdalmut/vim-phpunit'
-Plug 'roman/golden-ratio'
+Plug 'zhaocai/GoldenView.Vim'
 
 " Language-specific plugins
 Plug 'digitaltoad/vim-jade'
@@ -73,12 +73,13 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'elzr/vim-json'
-Plug 'darthmall/vim-vue'
 Plug 'keith/tmux.vim'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'leafgarland/typescript-vim'
+Plug 'fatih/vim-go'
+Plug 'posva/vim-vue'
 
 call plug#end()
 
@@ -378,6 +379,10 @@ let g:syntastic_php_phpcs_args = "--standard=PSR2 -n"
 let g:syntastic_javascript_checkers = ["eslint"]
 let g:syntastic_eslint_args = "-c ~/.dotfiles/.eslintrc --parser babel-eslint"
 
+" Go checkers
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+
 " do not check for errors on save
 " let g:syntastic_mode_map = { "mode": "passive" }
 
@@ -422,19 +427,6 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 " PHPUnit {{{
 
 let g:phpunit_cmd = './vendor/bin/phpunit'
-
-" }}}
-" Golden Ratio {{{
-
-
-" Use this option to keep all windows that have 'nomodifiable' option set
-" untouched (off by default): >
-" let g:golden_ratio_exclude_nonmodifiable = 1
-
-noremap <leader>gt :GoldenRatioToggle<CR>
-
-" disable by default
-  let g:golden_ratio_autocommand = 0
 
 " }}}
 " indentLine {{{
@@ -538,5 +530,35 @@ let g:typescript_compiler_options = '-experimentalDecorators'
 " taggatron {{{
 
 let g:tagcommands = { "php" : { "tagfile": "tags", "args": "-R", "cmd": "ctags" } }
+
+" }}}
+" vim-go {{{
+
+" turn off some ridiculous defaults
+let g:go_doc_keywordprg_enabled = 0
+let g:go_def_mapping_enabled = 0
+let g:go_textobj_enabled = 0
+
+
+" lint on save
+let g:go_metalinter_autosave = 1
+
+
+" }}}
+" golden ratio {{{
+
+let g:goldenview__enable_default_mapping = 0
+
+" 1. split to tiled windows
+" nmap <silent> <C-L>  <Plug>GoldenViewSplit
+
+" 2. quickly switch current window with the main pane
+" and toggle back
+nmap <silent> <F8>   <Plug>GoldenViewSwitchMain
+nmap <silent> <S-F8> <Plug>GoldenViewSwitchToggle
+
+" 3. jump to next and previous window
+nmap <silent> <C-N>  <Plug>GoldenViewNext
+nmap <silent> <C-P>  <Plug>GoldenViewPrevious
 
 " }}}
