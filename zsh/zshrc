@@ -7,6 +7,7 @@ export ZSH=~/.dotfiles/zsh/oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="gitster" # avit, gianu, pygmalion, gnzh, jaischeema, junkfood, norm, sunrise
 
+
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
 HYPHEN_INSENSITIVE="true"
@@ -20,7 +21,7 @@ COMPLETION_WAITING_DOTS="true"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-plugins=(git git-flow vi-mode tmux tmuxinator web-search zsh-syntax-highlighting)
+plugins=(git git-flow vi-mode tmux tmuxinator zsh-syntax-highlighting history-substring-search)
 
 # User configuration
 export PATH="/Users/walter/.composer/vendor/bin:/usr/local/sbin:/Users/walter/bin:/usr/local/mysql/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
@@ -33,8 +34,12 @@ source $HOME/.dotfiles/aliases
 source $HOME/.dotfiles/zsh/completion/git-flow-completion.zsh
 source $HOME/.dotfiles/zsh/completion/tmuxinator.zsh
 
+# for history-substring-search, turn off highlighting
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='none'
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='none'
+
 # nvm
-export NVM_DIR=~/.nvm
+export NVM_DIR=$HOME/.nvm
 source $(brew --prefix nvm)/nvm.sh
 
 # do not auto-name tmux windows
@@ -46,7 +51,6 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 export GOPATH="$HOME/code/golang"
 export PATH="$PATH:$GOPATH/bin"
-
 
 # tabtab source for yo package
 # uninstall by removing these lines or running `tabtab uninstall yo`

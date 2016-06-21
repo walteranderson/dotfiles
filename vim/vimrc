@@ -80,6 +80,7 @@ Plug 'mxw/vim-jsx'
 Plug 'leafgarland/typescript-vim'
 Plug 'fatih/vim-go'
 Plug 'posva/vim-vue'
+Plug 'b4b4r07/vim-hcl'
 
 call plug#end()
 
@@ -541,7 +542,7 @@ let g:go_textobj_enabled = 0
 
 
 " lint on save
-let g:go_metalinter_autosave = 1
+let g:go_metalinter_autosave = 0
 
 
 " }}}
@@ -549,16 +550,6 @@ let g:go_metalinter_autosave = 1
 
 let g:goldenview__enable_default_mapping = 0
 
-" 1. split to tiled windows
-" nmap <silent> <C-L>  <Plug>GoldenViewSplit
-
-" 2. quickly switch current window with the main pane
-" and toggle back
-nmap <silent> <F8>   <Plug>GoldenViewSwitchMain
-nmap <silent> <S-F8> <Plug>GoldenViewSwitchToggle
-
-" 3. jump to next and previous window
-nmap <silent> <C-N>  <Plug>GoldenViewNext
-nmap <silent> <C-P>  <Plug>GoldenViewPrevious
+noremap <leader>gt :ToggleGoldenViewAutoResize<CR>
 
 " }}}

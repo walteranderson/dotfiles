@@ -1,4 +1,5 @@
 YELLOW="%F{yellow}"
+MAGENTA="%F{magenta}"
 BLUE="%F{blue}"
 GREEN="%{$fg_bold[green]%}"
 RED="%{$fg_bold[red]%}"
@@ -22,9 +23,10 @@ function get_pwd(){
 }
 
 
-PROMPT='$YELLOW$(get_pwd) $(git_prompt_info)$RESET '
+PROMPT='┌$MAGENTA %n$RESET.$MAGENTA%m$RESET at $YELLOW$(get_pwd)$RESET $(git_prompt_info)$RESET
+└ $ '
 
-ZSH_THEME_GIT_PROMPT_PREFIX="$BLUE "
+ZSH_THEME_GIT_PROMPT_PREFIX="on $BLUE "
 ZSH_THEME_GIT_PROMPT_SUFFIX=""
 
 ZSH_THEME_GIT_PROMPT_DIRTY=" $RED✗"
