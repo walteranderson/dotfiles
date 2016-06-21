@@ -21,7 +21,7 @@ COMPLETION_WAITING_DOTS="true"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-plugins=(git git-flow vi-mode tmux tmuxinator zsh-syntax-highlighting history-substring-search)
+plugins=(git git-flow vi-mode tmux zsh-syntax-highlighting history-substring-search)
 
 # User configuration
 export PATH="/Users/walter/.composer/vendor/bin:/usr/local/sbin:/Users/walter/bin:/usr/local/mysql/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
@@ -32,7 +32,10 @@ source $HOME/.dotfiles/aliases
 
 # completion libraries
 source $HOME/.dotfiles/zsh/completion/git-flow-completion.zsh
-source $HOME/.dotfiles/zsh/completion/tmuxinator.zsh
+
+if type tmuxinator > /dev/null; then
+    source $HOME/.dotfiles/zsh/completion/tmuxinator.zsh
+fi
 
 # for history-substring-search, turn off highlighting
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='none'
@@ -40,7 +43,13 @@ HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='none'
 
 # nvm
 export NVM_DIR=$HOME/.nvm
-source $(brew --prefix nvm)/nvm.sh
+
+if type brew > /dev/null; then
+  source $(brew --prefix nvm)/nvm.sh
+else
+  source $HOME/.nvm/nvm.sh
+fi
+
 
 # do not auto-name tmux windows
 export DISABLE_AUTO_TITLE=true
