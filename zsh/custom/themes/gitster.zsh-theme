@@ -1,3 +1,5 @@
+# vi: set ft=zsh :
+
 YELLOW="%F{yellow}"
 MAGENTA="%F{magenta}"
 BLUE="%F{blue}"
@@ -27,7 +29,11 @@ function git_prompt_info() {
   echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$ZSH_THEME_GIT_PROMPT_SUFFIX"
 }
 
-PROMPT='┌$MAGENTA %n$RESET.$MAGENTA%m$RESET at $YELLOW$(get_pwd)$RESET $(git_prompt_info)$RESET
+function name_and_host() {
+  echo "%n@%m"
+}
+
+PROMPT='┌ $MAGENTA$(name_and_host)$RESET at $YELLOW$(get_pwd)$RESET $(git_prompt_info)$RESET
 └ $ '
 
 ZSH_THEME_GIT_PROMPT_PREFIX="on $BLUE "
