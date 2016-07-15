@@ -35,7 +35,7 @@ Plug 'SirVer/ultisnips'
 Plug 'mattn/emmet-vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'Yggdroot/indentLine'
-Plug 'Valloric/MatchTagAlways'
+" Plug 'Valloric/MatchTagAlways'
 
 " autoclosing quotes/brackets/parens
 Plug 'Raimondi/delimitMate'
@@ -68,7 +68,7 @@ Plug 'groenewege/vim-less'
 Plug 'wavded/vim-stylus'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'StanAngeloff/php.vim'
-Plug 'xsbeats/vim-blade'
+Plug 'jwalton512/vim-blade'
 Plug 'kchmck/vim-coffee-script'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'mustache/vim-mustache-handlebars'
@@ -81,6 +81,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'fatih/vim-go'
 Plug 'posva/vim-vue'
 Plug 'b4b4r07/vim-hcl'
+Plug 'tfnico/vim-gradle'
 
 call plug#end()
 
@@ -494,6 +495,15 @@ let g:multi_cursor_quit_key='<Esc>'
 
 " search for filename in open buffers
   noremap <leader>j :CtrlPBuffer<CR>
+
+
+" remapping keyboard shortcuts inside the CtrlP window
+  let g:ctrlp_prompt_mappings = {
+    \ 'PrtSelectMove("j")':   ['<c-n>', '<down>'],
+    \ 'PrtSelectMove("k")':   ['<c-p>', '<up>'],
+    \ 'PrtHistory(-1)':       [''],
+    \ 'PrtHistory(1)':        [''],
+    \ }
 
 " }}}
 " Notes {{{
