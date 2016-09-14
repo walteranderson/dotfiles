@@ -38,7 +38,7 @@ Plug 'Yggdroot/indentLine'
 " Plug 'Valloric/MatchTagAlways'
 
 " autoclosing quotes/brackets/parens
-Plug 'Raimondi/delimitMate'
+" Plug 'Raimondi/delimitMate'
 
 " surround things with ({'" and more
 Plug 'tpope/vim-surround'
@@ -82,6 +82,8 @@ Plug 'fatih/vim-go'
 Plug 'posva/vim-vue'
 Plug 'b4b4r07/vim-hcl'
 Plug 'tfnico/vim-gradle'
+Plug 'lambdatoast/elm.vim'
+Plug 'dart-lang/dart-vim-plugin'
 
 call plug#end()
 
@@ -331,7 +333,7 @@ let g:airline#extensions#tabline#enabled = 0
   " dark theme
   let g:airline_theme='distinguished'
   " light theme
-  " let g:airline_theme='solarized'
+  " let g:airline_theme='lucius'
 
 
 " enable powerline fonts
@@ -373,15 +375,18 @@ let g:syntastic_enable_highlighting = 1
 let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 0
 
-" PHP checkers
+" PHP checker
 let g:syntastic_php_checkers = ["php", "phpcs"]
 let g:syntastic_php_phpcs_args = "--standard=PSR2 -n"
 
-" Javascript checkers
+" Javascript checker
 let g:syntastic_javascript_checkers = ["eslint"]
 let g:syntastic_eslint_args = "-c ~/.dotfiles/.eslintrc --parser babel-eslint"
 
-" Go checkers
+" SCSS checker
+" let g:syntastic_scss_checkers = ["stylelint"]
+
+" Go checker
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
@@ -396,8 +401,12 @@ let g:syntastic_quiet_messages = { "regex": 'camel caps format' }
 " }}}
 " Fugitive {{{
 
-nnoremap <Leader>st :Gstatus<CR>
-nnoremap <Leader>ci :Gcommit<CR>
+nnoremap <Leader>gst :Gstatus<CR>
+
+" }}}
+" Magit {{{
+
+nnoremap <Leader>gd :Magit<CR>
 
 " }}}
 " Commentary {{{

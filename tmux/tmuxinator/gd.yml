@@ -42,7 +42,11 @@ windows:
       root: ~/code/bluuprint
       panes:
         -
-  - leaderboard-service:
+  - lbs:
       root: ~/code/leaderboard-service
+      panes:
+        -
+  - sdk:
+      root: ~/code/packages/services-php-sdk
       panes:
         -

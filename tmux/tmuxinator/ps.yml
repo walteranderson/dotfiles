@@ -1,7 +1,7 @@
-# ~/.tmuxinator/kraken.yml
+# ~/.tmuxinator/ps.yml
 
-name: kraken
-root: ~/code/kraken
+name: ps
+root: ~/code/publishing-service
 
 # Optional tmux socket
 # socket_name: foo
@@ -25,13 +25,18 @@ root: ~/code/kraken
 # attach: false
 
 # Runs after everything. Use it to attach to tmux with custom options etc.
-# post: tmux -CC attach -t kraken
+# post: tmux -CC attach -t ps
 
 windows:
-  - editor:
-    -
   - terminal:
       layout: even-horizontal
       panes:
-        -
-        -
+        - cd ~/code/publishing-service && clear
+        - cd ~/code/kraken-themes && clear
+  - publishing-service:
+      panes:
+        - clear
+  - kraken-themes:
+      root: ~/code/kraken-themes
+      panes:
+        - clear

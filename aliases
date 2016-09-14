@@ -53,3 +53,6 @@ alias tm='tmux'
 alias emacsgui='open -a emacs'
 alias homestead='function __homestead() { (cd ~/Homestead && vagrant $*); unset -f __homestead; }; __homestead'
 alias pgsql='postgres -D /usr/local/var/postgres'
+
+alias dj='python3 manage.py'
+alias vimL='vim -c "colorscheme lucius|AirlineTheme lucius"'

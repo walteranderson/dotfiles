@@ -15,5 +15,6 @@
     amend = commit -a --amend
 [core]
     autocrlf = false
+    excludesfile = /Users/walter/.gitignore_global
 [push]
     default = simple
