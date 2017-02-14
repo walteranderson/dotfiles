@@ -1,4 +1,4 @@
-alias zV="vim ~/.zshrc"
+# vi: set ft=sh :
 
 alias ll='ls -FGlAhp'
 alias ..='cd ..'
@@ -16,9 +16,6 @@ alias ca='cd /Users/walter/code/class-agent'
 alias gd='cd /Users/walter/code/givingday'
 alias bp='cd /Users/walter/code/bluuprint'
 
-# so that I don't lose my mind
-alias mdc='cd /Users/walter/code/givingday'
-
 # opening files
 alias hosts='sudo vim /etc/hosts'
 alias vhost='sudo vim /etc/apache2/extra/httpd-vhosts.conf'
@@ -29,23 +26,20 @@ alias zV='vim ~/.dotfiles/zshrc'
 alias vV='vim ~/.dotfiles/vim/vimrc'
 
 # todo.sh
-export TODOTXT_DEFAULT_ACTION=ls
-alias t='todo.sh -d ~/.todo.cfg'
-alias tw='t ls @work'
-alias twa='t a @work'
+# export TODOTXT_DEFAULT_ACTION=ls
+# alias t='todo.sh -d ~/.todo.cfg'
+# alias tw='t ls @work'
+# alias twa='t a @work'
 
 # laravel-specific
 alias art='php artisan'
-alias da='composer dump-autoload'
 
 alias g='gulp'
 alias gw='gulp watch'
 alias gp='gulp --production'
+alias pkg='yarn'
 
 alias gopath='cd $GOPATH'
-
-# basecamp setting hours
-alias time='php ~/code/camptime/artisan camptime'
 
 # applications
 alias mux='tmuxinator'
@@ -57,3 +51,4 @@ alias pgsql='postgres -D /usr/local/var/postgres'
 alias dj='python3 manage.py'
 alias vimL='vim -c "colorscheme lucius|AirlineTheme lucius"'
 alias :q='echo "this is not vim, you idiot."'
+alias gfb='git config gitflow.branch.develop'
