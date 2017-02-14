@@ -45,10 +45,15 @@ HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='none'
 export NVM_DIR=$HOME/.nvm
 
 if type brew > /dev/null; then
-  source $(brew --prefix nvm)/nvm.sh
+  source /usr/local/opt/nvm/nvm.sh
 else
   source $HOME/.nvm/nvm.sh
 fi
+
+function gdlog {
+  logs=($(ls ~/code/givingday/storage/logs/*.log))
+  tail -f ${logs[-1]}
+}
 
 
 # do not auto-name tmux windows
