@@ -1,6 +1,6 @@
 [user]
-    name = Walter Anderson
-    email = walter@kimbia.com
+	name = Walter Anderson
+	email = walter@kimbia.com
 [alias]
     st = status
     ci = commit
@@ -15,7 +15,7 @@
     amend = commit -a --amend
 [core]
     autocrlf = false
-    excludesfile = /Users/walter/.gitignore_global
+	excludesfile = /Users/walter/.gitignore_global
 [push]
     default = simple
 [difftool "sourcetree"]
@@ -24,3 +24,5 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[commit]
+	template = /Users/walter/.stCommitMsg
