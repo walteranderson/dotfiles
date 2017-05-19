@@ -7,7 +7,6 @@ export ZSH=~/.dotfiles/zsh/oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="gitster" # avit, gianu, pygmalion, gnzh, jaischeema, junkfood, norm, sunrise
 
-
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
 HYPHEN_INSENSITIVE="true"
@@ -41,6 +40,11 @@ fi
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='none'
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='none'
 
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+# Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
 # nvm
 export NVM_DIR=$HOME/.nvm
 
@@ -49,6 +53,9 @@ if type brew > /dev/null; then
 else
   source $HOME/.nvm/nvm.sh
 fi
+
+# add phantomjs to path
+export PATH="$PATH:$HOME/Documents/phantomjs-2.1.1-macosx/bin"
 
 function gdlog {
   logs=($(ls ~/code/givingday/storage/logs/*.log))
@@ -60,8 +67,6 @@ function gdlog {
 export DISABLE_AUTO_TITLE=true
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 export GOPATH="$HOME/code/golang"
 export PATH="$PATH:$GOPATH/bin"
