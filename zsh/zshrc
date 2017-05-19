@@ -27,11 +27,17 @@ export PATH="/Users/walter/.composer/vendor/bin:/usr/local/sbin:/Users/walter/bi
 source $ZSH/oh-my-zsh.sh
 
 export EDITOR='vim'
+
+# add custom aliases
 source $HOME/.dotfiles/aliases
 
-# completion libraries
-source $HOME/.dotfiles/zsh/completion/git-flow-completion.zsh
+# do not auto-name tmux windows
+export DISABLE_AUTO_TITLE=true
 
+# completion libraries
+[ -f $HOME/.dotfiles/zsh/completion/git-flow-completion.zsh ] && source $HOME/.dotfiles/zsh/completion/git-flow-completion.zsh
+
+# add tmuxinator auto-completion
 if type tmuxinator > /dev/null; then
     source $HOME/.dotfiles/zsh/completion/tmuxinator.zsh
 fi
@@ -62,15 +68,7 @@ function gdlog {
   tail -f ${logs[-1]}
 }
 
-
-# do not auto-name tmux windows
-export DISABLE_AUTO_TITLE=true
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export GOPATH="$HOME/code/golang"
 export PATH="$PATH:$GOPATH/bin"
-
-# tabtab source for yo package
-# uninstall by removing these lines or running `tabtab uninstall yo`
-[[ -f /Users/walter/.nvm/versions/node/v5.10.0/lib/node_modules/yo/node_modules/tabtab/.completions/yo.zsh ]] && . /Users/walter/.nvm/versions/node/v5.10.0/lib/node_modules/yo/node_modules/tabtab/.completions/yo.zsh
