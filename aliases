@@ -22,7 +22,7 @@ alias vhost='sudo vim /etc/apache2/extra/httpd-vhosts.conf'
 alias hV='vim ~/.homestead/Homestead.yaml'
 
 # dotfiles
-alias zV='vim ~/.dotfiles/zshrc'
+alias zV='vim ~/.dotfiles/zsh/zshrc'
 alias vV='vim ~/.dotfiles/vim/vimrc'
 
 # todo.sh
