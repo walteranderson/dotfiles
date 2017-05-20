@@ -1,6 +1,6 @@
 [user]
-	name = Walter Anderson
-	email = walter@kimbia.com
+    name = Walter Anderson
+    email = walter@kimbia.com
 [alias]
     st = status
     ci = commit
@@ -13,16 +13,18 @@
     wip = !git add -A && git commit -am "WIP"
     undo = reset HEAD~1 --mixed
     amend = commit -a --amend
+    update-submodules = submodule update --init --recursive
+    upgrade-submodules = submodule update --init --remote
 [core]
     autocrlf = false
-	excludesfile = /Users/walter/.gitignore_global
+    excludesfile = /Users/walter/.gitignore_global
 [push]
     default = simple
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+    path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+    trustExitCode = true
 [commit]
-	template = /Users/walter/.stCommitMsg
+    template = /Users/walter/.stCommitMsg

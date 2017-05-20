@@ -1,7 +1,7 @@
-alias ll='ls -FGlAhp'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias cl='clear'
+alias ll='ls -FGlAhp'
 
 # folder changes
 alias c='cd ~/code'
@@ -23,21 +23,22 @@ alias hV='vim ~/.homestead/Homestead.yaml'
 alias zV='vim ~/.dotfiles/zsh/zshrc'
 alias vV='vim ~/.dotfiles/vim/vimrc'
 
-# todo.sh
-# export TODOTXT_DEFAULT_ACTION=ls
-# alias t='todo.sh -d ~/.todo.cfg'
-# alias tw='t ls @work'
-# alias twa='t a @work'
+# vim with a light colorscheme
+alias vimL='vim -c "colorscheme lucius|AirlineTheme lucius"'
 
-# laravel-specific
-alias art='php artisan'
+# git-related
+alias gfb='git config gitflow.branch.develop'
+alias gst='git status'
+alias gaa='git add --all'
+alias gcmsg='git commit -m'
 
+alias pkg='yarn'
 alias g='gulp'
 alias gw='gulp watch'
 alias gp='gulp --production'
-alias pkg='yarn'
-
+alias art='php artisan'
 alias gopath='cd $GOPATH'
+alias dj='python3 manage.py'
 
 # applications
 alias mux='tmuxinator'
@@ -46,7 +47,4 @@ alias emacsgui='open -a emacs'
 alias homestead='function __homestead() { (cd ~/Homestead && vagrant $*); unset -f __homestead; }; __homestead'
 alias pgsql='postgres -D /usr/local/var/postgres'
 
-alias dj='python3 manage.py'
-alias vimL='vim -c "colorscheme lucius|AirlineTheme lucius"'
 alias :q='echo "this is not vim, you idiot."'
-alias gfb='git config gitflow.branch.develop'

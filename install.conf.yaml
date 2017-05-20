@@ -7,6 +7,8 @@
 - link:
     ~/.vim:
     ~/.zshrc:
+    ~/.zsh:
+    ~/.shell:
     ~/.vimrc:
     ~/.bashrc:
     ~/.gvimrc:
@@ -15,6 +17,6 @@
     ~/.tmux.conf:
     ~/.tmuxinator:
     ~/.bash_profile:
-    ~/.dotfiles/zsh/oh-my-zsh/custom/plugins/git-flow: zsh/custom/plugins/git-flow
-    ~/.dotfiles/zsh/oh-my-zsh/custom/plugins/zsh-syntax-highlighting: zsh/custom/plugins/zsh-syntax-highlighting
-    ~/.dotfiles/zsh/oh-my-zsh/custom/themes: zsh/custom/themes
+    # ~/.dotfiles/zsh/oh-my-zsh/custom/plugins/git-flow: zsh/custom/plugins/git-flow
+    # ~/.dotfiles/zsh/oh-my-zsh/custom/plugins/zsh-syntax-highlighting: zsh/custom/plugins/zsh-syntax-highlighting
+    # ~/.dotfiles/zsh/oh-my-zsh/custom/themes: zsh/custom/themes
