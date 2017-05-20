@@ -1,6 +1,6 @@
 
 # source aliases
-[ -f ./aliases ] && source ./aliases
+[ -f ./shell/aliases.sh ] && source ./shell/aliases.sh
 
 # source fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

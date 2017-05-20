@@ -29,7 +29,7 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR='vim'
 
 # add custom aliases
-source $HOME/.dotfiles/aliases
+source $HOME/.dotfiles/shell/aliases.sh
 
 # do not auto-name tmux windows
 export DISABLE_AUTO_TITLE=true

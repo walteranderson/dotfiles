@@ -1,5 +1,3 @@
-# vi: set ft=sh :
-
 alias ll='ls -FGlAhp'
 alias ..='cd ..'
 alias ...='cd ../..'
