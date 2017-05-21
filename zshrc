@@ -7,3 +7,5 @@ source ~/.zsh/completion.zsh
 source ~/.zsh/plugins.zsh
 
 source ~/.shell/aliases.sh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
