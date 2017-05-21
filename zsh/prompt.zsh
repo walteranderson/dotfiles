@@ -26,7 +26,7 @@ function git_prompt_info {
   fi
 
   if [[ -n $ref ]]; then
-    echo "$BLUE${ref#refs/heads/}$RESET$gitstatus"
+    echo "on $BLUE${ref#refs/heads/}$RESET$gitstatus"
   fi
 }
 
@@ -51,5 +51,5 @@ function name_and_host() {
   echo "%n@%m"
 }
 
-PROMPT='┌ $MAGENTA$(name_and_host)$RESET at $YELLOW$(get_pwd)$RESET on $(git_prompt_info)$RESET
+PROMPT='┌ $MAGENTA$(name_and_host)$RESET at $YELLOW$(get_pwd)$RESET $(git_prompt_info)$RESET
 └ $ '
