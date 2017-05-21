@@ -31,6 +31,7 @@ alias gfb='git config gitflow.branch.develop'
 alias gst='git status'
 alias gaa='git add --all'
 alias gcmsg='git commit -m'
+alias gco='git checkout'
 
 alias pkg='yarn'
 alias g='gulp'
