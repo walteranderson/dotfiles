@@ -21,3 +21,6 @@ export PATH="$PATH:$HOME/Documents/phantomjs-2.1.1-macosx/bin"
 # golang
 export GOPATH="$HOME/code/golang"
 export PATH="$PATH:$GOPATH/bin"
+
+# Setting ag as the default source for fzf
+export FZF_DEFAULT_COMMAND='ag -g ""'
