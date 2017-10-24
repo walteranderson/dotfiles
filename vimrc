@@ -35,6 +35,7 @@ Plug 'SirVer/ultisnips'
 Plug 'mattn/emmet-vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'Yggdroot/indentLine'
+Plug 'BufOnly.vim'
 " Plug 'Valloric/MatchTagAlways'
 
 " autoclosing quotes/brackets/parens
@@ -43,13 +44,8 @@ Plug 'Yggdroot/indentLine'
 " surround things with ({'" and more
 Plug 'tpope/vim-surround'
 
-" colorschemes
-Plug 'kristijanhusak/vim-hybrid-material'
-Plug 'flazz/vim-colorschemes'
-
 " search
-Plug 'rking/ag.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " file navigation
@@ -63,7 +59,7 @@ Plug 'majutsushi/tagbar'
 Plug 'wdalmut/vim-phpunit'
 Plug 'zhaocai/GoldenView.Vim'
 
-Plug 'junegunn/goyo.vim'
+Plug 'morhetz/gruvbox'
 
 " Language-specific plugins
 Plug 'digitaltoad/vim-jade'
@@ -88,6 +84,8 @@ Plug 'othree/html5.vim'
 Plug 'elmcast/elm-vim'
 Plug 'slim-template/vim-slim'
 Plug 'dart-lang/dart-vim-plugin'
+Plug 'vim-scripts/django.vim'
+Plug 'leafgarland/typescript-vim'
 
 call plug#end()
 
@@ -150,13 +148,12 @@ set lazyredraw " redraw only when needed
 syntax on
 set t_Co=256
 
-" dark theme
 set background=dark
 colorscheme hybrid_reverse
 
 " light theme
 " set background=light
-" colorscheme solarized8_light_low
+" colorscheme gruvbox
 
 " highlight VCS conflict markers
   match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
@@ -279,6 +276,9 @@ set foldmethod=marker
 " run tests for the currently opened buffer
   nmap <leader>tf :!./vendor/bin/phpunit %<CR>
 
+" Close all buffers except current
+map <leader>bo :BufOnly<cr>
+
 
 " }}}
 " Functions {{{
@@ -340,7 +340,7 @@ let g:airline#extensions#tabline#enabled = 0
 
 " set the theme
   " dark theme
-  let g:airline_theme='distinguished'
+  let g:airline_theme='base16'
   " light theme
   " let g:airline_theme='lucius'
 
@@ -378,8 +378,7 @@ let g:syntastic_enable_signs = 1
 let g:syntastic_error_symbol = ">>"
 let g:syntastic_warning_symbol = "⚠"
 let g:syntastic_style_error_symbol = ">>"
-
-" using the quickfix window
+let g:syntastic_check_on_wq = 0
 let g:syntastic_enable_highlighting = 1
 let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 0
@@ -389,30 +388,25 @@ let g:syntastic_php_checkers = ["php", "phpcs"]
 let g:syntastic_php_phpcs_args = "--standard=PSR2 -n"
 
 " Javascript checker
-" let g:syntastic_javascript_checkers = ['standard']
 let g:syntastic_javascript_checkers = ["eslint"]
-" let g:syntastic_eslint_args = "-c ~/.dotfiles/.eslintrc --parser babel-eslint"
 
-" SCSS checker
-" let g:syntastic_scss_checkers = ["stylelint"]
+" workaround to get eslint working with kraken project, this slows things down
+" considerably though. See if there's a better solution.
+let g:syntastic_javascript_eslint_exe='$(npm bin)/eslint'
 
 " Go checker
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-" let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
-
-" do not check for errors on save
-" let g:syntastic_mode_map = { "mode": "passive" }
 
 " Elm
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 0
 let g:elm_syntastic_show_warnings = 1
 
+" HTML
 let g:syntastic_html_checkers=['']
-" let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute " ,"trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
-let g:syntastic_check_on_wq = 0
-
 let g:syntastic_quiet_messages = { "regex": 'camel caps format' }
+
+" debug info
+" let g:syntastic_debug = 33
+" let g:syntastic_debug_file = "~/syntastic.log"
 
 " }}}
 " Fugitive {{{

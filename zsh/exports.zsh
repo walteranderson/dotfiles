@@ -24,3 +24,8 @@ export PATH="$PATH:$GOPATH/bin"
 
 # Setting ag as the default source for fzf
 export FZF_DEFAULT_COMMAND='ag -g ""'
+
+# virtualenvwrapper
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/code/python
+export VIRTUALENV_PYTHON=/usr/local/bin/python3

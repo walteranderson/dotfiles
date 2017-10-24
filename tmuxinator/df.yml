@@ -28,4 +28,4 @@ root: ~/.dotfiles
 # post: tmux -CC attach -t df
 
 windows:
-  - editor: vim +NERDTreeToggle vim/vimrc
+  - editor:

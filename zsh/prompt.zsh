@@ -51,5 +51,6 @@ function name_and_host() {
   echo "%n@%m"
 }
 
-PROMPT='┌ $MAGENTA$(name_and_host)$RESET at $YELLOW$(get_pwd)$RESET $(git_prompt_info)$RESET
+# PROMPT='┌ $MAGENTA$(name_and_host)$RESET at $YELLOW$(get_pwd)$RESET $(git_prompt_info)$RESET
+PROMPT='┌ $YELLOW$(get_pwd)$RESET $(git_prompt_info)$RESET
 └ $ '

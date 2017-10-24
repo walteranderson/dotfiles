@@ -39,7 +39,7 @@ windows:
       panes:
         -
   - bluuprint:
-      root: ~/code/bluuprint
+      root: ~/code/givingday/bluuprint
       panes:
         -
   - lbs:

@@ -9,3 +9,7 @@ source ~/.zsh/plugins.zsh
 source ~/.shell/aliases.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+[ -f /usr/local/bin/virtualenvwrapper.sh ] && source /usr/local/bin/virtualenvwrapper.sh
+
+eval "$(pyenv init -)"
