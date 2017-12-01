@@ -279,6 +279,9 @@ set foldmethod=marker
 " Close all buffers except current
 map <leader>bo :BufOnly<cr>
 
+" beautify some selected JSON
+map <leader>bjson :!jq '.'<cr>
+
 
 " }}}
 " Functions {{{
@@ -361,6 +364,9 @@ map <leader>pt :NERDTreeToggle<CR>
 
 let g:NERDTreeShowHidden=1
 let g:NERDTreeQuitOnOpen=0
+
+" hide .pyc files in NERDTree
+let NERDTreeIgnore=['\.pyc$']
 
 " close nerdtree if it is the only window left open
 " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
@@ -494,6 +500,9 @@ let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %
 " Advanced customization using autoload functions
 autocmd VimEnter * command! Colors
   \ call fzf#vim#colors({'left': '15%', 'options': '--reverse --margin 30%,0'})
+
+" exclude file name results from Ag
+command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
 " }}}
 " Multiple Cursors {{{
