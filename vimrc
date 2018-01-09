@@ -32,7 +32,6 @@ Plug 'jreybert/vimagit'
 
 Plug 'tomtom/tcomment_vim'
 Plug 'SirVer/ultisnips'
-Plug 'mattn/emmet-vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'Yggdroot/indentLine'
 Plug 'BufOnly.vim'
@@ -441,11 +440,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 
 " }}}
-" Emmet {{{
-
-let g:user_emmet_leader_key=','
-
-" }}}
 " EditorConfig {{{
 
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
@@ -478,7 +472,7 @@ let g:mta_filetypes = {
 
 
 " view open buffers
-  " noremap <leader>j :Buffers<CR>
+  noremap <leader>j :Buffers<CR>
 
 " fuzzy find files
   noremap <leader>pf :Files<CR>
@@ -522,7 +516,7 @@ let g:multi_cursor_quit_key='<Esc>'
   noremap <leader>r :CtrlPBufTag<CR>
 
 " search for filename in open buffers
-  noremap <leader>j :CtrlPBuffer<CR>
+  " noremap <leader>j :CtrlPBuffer<CR>
 
 
 " remapping keyboard shortcuts inside the CtrlP window
