@@ -15,9 +15,6 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # nvm
 export NVM_DIR=$HOME/.nvm
 
-# add phantomjs to path
-export PATH="$PATH:$HOME/Documents/phantomjs-2.1.1-macosx/bin"
-
 # golang
 export GOPATH="$HOME/code/golang"
 export PATH="$PATH:$GOPATH/bin"
