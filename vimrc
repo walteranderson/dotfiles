@@ -348,7 +348,7 @@ let g:airline#extensions#tabline#enabled = 0
 
 
 " enable powerline fonts
-  let g:airline_powerline_fonts = 1
+  let g:airline_powerline_fonts = 0
 
 
 " disable the `vim-gitgutter` diff hunks
@@ -542,6 +542,7 @@ let g:multi_cursor_quit_key='<Esc>'
 
 
 let g:tmuxline_preset = 'powerline'
+let g:tmuxline_powerline_separators = 0
 
 
 " }}}
