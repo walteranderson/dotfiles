@@ -52,7 +52,6 @@ Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 
 " tags
-Plug 'joonty/vim-taggatron'
 Plug 'majutsushi/tagbar'
 
 Plug 'wdalmut/vim-phpunit'

@@ -6,9 +6,10 @@ source ~/.zsh/prompt.zsh
 source ~/.zsh/completion.zsh
 source ~/.zsh/plugins.zsh
 
-source ~/.shell/aliases.sh
-
 # onnit project aliases
 source ~/.zsh/onnit.zsh
+
+# useful aliases across all terminal environments
+source ~/.shell/aliases.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

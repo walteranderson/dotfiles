@@ -26,3 +26,6 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/code/python
 export VIRTUALENV_PYTHON=/usr/local/bin/python3
+
+# ansible
+export PATH="/usr/local/opt/ansible@2.0/bin:$PATH"

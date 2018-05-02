@@ -16,7 +16,7 @@
     update-submodules = submodule update --init --recursive
     upgrade-submodules = submodule update --init --remote
 [core]
-    autocrlf = false
+	autocrlf = input
     excludesfile = /Users/walter/.gitignore_global
 	ignorecase = false
 [push]
