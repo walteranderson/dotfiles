@@ -34,7 +34,6 @@ Plug 'tomtom/tcomment_vim'
 Plug 'SirVer/ultisnips'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'Yggdroot/indentLine'
-Plug 'BufOnly.vim'
 " Plug 'Valloric/MatchTagAlways'
 
 " autoclosing quotes/brackets/parens
@@ -112,7 +111,7 @@ set lazyredraw " redraw only when needed
 
 " better copy and paste
   set pastetoggle=<F2>
-  set clipboard=unnamed
+  set clipboard+=unnamed
 
 " display incomplete commands
   set showcmd
@@ -234,10 +233,6 @@ set foldmethod=marker
 " increase vertical split size
   nmap <leader>v :vertical resize +10<CR>
 
-" cycle between buffers
-  noremap <leader>[ :bprevious<CR>
-  noremap <leader>] :bnext<CR>
-
 " close buffer
   map <leader>w :bd<CR>
 
@@ -254,13 +249,6 @@ set foldmethod=marker
 " pressing return clears higlighted search
   noremap <cr> :nohlsearch<cr>/<bs>
 
-" auto change directory to match current file
-  nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
-
-" Laravel framework common files
-  nmap <leader>lr :e app/Http/routes.php<CR>
-  nmap <leader>lesp :e app/Providers/EventServiceProvider.php<CR>
-
 " search using Ag
   nmap <leader>f :Ag<CR>
 
@@ -271,64 +259,8 @@ set foldmethod=marker
   nmap <leader>t4 :set expandtab tabstop=4 shiftwidth=4 softtabstop=4<CR>
   nmap <leader>t2 :set expandtab tabstop=2 shiftwidth=2 softtabstop=2<CR>
 
-" run tests for the currently opened buffer
-  nmap <leader>tf :!./vendor/bin/phpunit %<CR>
-
-" Close all buffers except current
-map <leader>bo :BufOnly<cr>
-
 " beautify some selected JSON
-map <leader>bjson :!jq '.'<cr>
-
-
-" }}}
-" Functions {{{
-
-
-" Prepare a new PHP class
-function! Class()
-    let name = input('Class name? ')
-    let namespace = input('Any Namespace? ')
-
-    if strlen(namespace)
-        exec "normal i<?php namespace " . namespace . ";"
-    else
-        exec "normal i<?php \<C-m>"
-    endif
-
-    " Open class
-    exec "normal iclass " . name . " {\<C-m>}\<C-[>O\<C-[>"
-
-    exec "normal i\<C-M>    public function __construct()\<C-M>{\<C-M>\<C-M>}\<C-[>"
-endfunction
-nmap <leader>1  :call Class()<cr>
-
-
-" Add a new dependency to a PHP class
-function! AddDependency()
-    let dependency = input('Var Name: ')
-    let namespace = input('Class Path: ')
-
-    let segments = split(namespace, '\')
-    let typehint = segments[-1]
-
-    exec 'normal gg/construct^M:H^Mf)i, ' . typehint . ' $' . dependency . '^[/}^>O$this->^[a' . dependency . ' = $' . dependency . ';^[?{^MkOprotected $' . dependency . ';^M^[?{^MOuse ' . namespace . ';^M^['
-
-    " Remove opening comma if there is only one dependency
-    exec 'normal :%s/(, /(/g'
-endfunction
-nmap <leader>2  :call AddDependency()<cr>
-
-function! SearchAndReplace()
-    let find = input('Find: ')
-    let replace = input('Replace: ')
-
-    exec ':%s/' . find . '/' . replace . '/g'
-endfunction
-
-nmap <leader>sr :call SearchAndReplace()<cr>
-
-
+  map <leader>bjson :!jq '.'<cr>
 
 " }}}
 " Plugin Settings {{{

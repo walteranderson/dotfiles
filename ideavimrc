@@ -1,3 +1,5 @@
 source ~/.vimrc
 
 let mapleader = " "
+
+set surround

@@ -23,6 +23,7 @@ alias ssh-onnitwholesale="dock exec onnitwholesale bash"
 # SSH into prod EC2 instances
 
 alias ssh-prod-app-1a-4="ssh -i ~/.ssh/id_rsa wanderson@app-1a-4.onnit.io"
+alias ssh-prod-appworker01="ssh -i ~/.ssh/id_rsa wanderson@appworker01.onnit.io"
 
 # PHPUnit
 alias phpunit-allit="dock exec allit bash -c \"vendor/bin/phpunit -c test -d error_reporting=2147483647 -d display_errors=1\""
@@ -36,7 +37,10 @@ alias build-atlas-shared="dock exec allit bash -c \"cd /var/www/atlas_shared && 
 alias build-all="build-allit && build-atlas-shared && build-atlas-api"
 
 # AWS
-alias aws-login="$(aws ecr get-login --no-include-email --region us-east-1)"
+# alias aws-login="$(aws ecr get-login --no-include-email --region us-east-1)"
+aws-login() {
+    aws ecr get-login --no-include-email --region us-east-1
+}
 
 # Database refresh
 alias db-cre="export LOCAL_DB_NAME=10460_onnit; ( curl -sSL http://devdata.onnit.io/mysql/local-import.bash | bash -eo pipefail ) && dock exec atlas-api bash -c \"php artisan db:seed && php artisan migrate\" && db-maintenance"
