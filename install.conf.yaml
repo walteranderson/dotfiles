@@ -19,3 +19,6 @@
     ~/.tmuxinator:
     ~/.bash_profile:
     ~/.hammerspoon:
+
+- shell:
+  - ./homebrew/install

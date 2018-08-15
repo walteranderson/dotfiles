@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+echo 'Installing homebrew packages...'
+
+packages=(
+  'vim'
+  'tmux'
+  'htop'
+  'the_silver_searcher'
+  'composer'
+  'php'
+  'php-code-sniffer'
+  'nvm'
+)
+
+for package in "${packages[@]}"
+do
+  echo " -- brew install ${package}"
+  brew install $package
+done
