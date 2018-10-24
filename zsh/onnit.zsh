@@ -37,9 +37,8 @@ alias build-atlas-shared="dock exec allit bash -c \"cd /var/www/atlas_shared && 
 alias build-all="build-allit && build-atlas-shared && build-atlas-api"
 
 # AWS
-# alias aws-login="$(aws ecr get-login --no-include-email --region us-east-1)"
 aws-login() {
-    aws ecr get-login --no-include-email --region us-east-1
+    aws ecr get-login --no-include-email --region us-west-2
 }
 
 # Database refresh

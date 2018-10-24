@@ -15,6 +15,7 @@
     amend = commit -a --amend
     update-submodules = submodule update --init --recursive
     upgrade-submodules = submodule update --init --remote
+    save-me = reset --hard ORIG_HEAD
 [core]
     autocrlf = input
     excludesfile = /Users/walter/.gitignore_global

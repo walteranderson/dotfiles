@@ -57,6 +57,7 @@ Plug 'wdalmut/vim-phpunit'
 Plug 'zhaocai/GoldenView.Vim'
 
 Plug 'morhetz/gruvbox'
+Plug 'jonathanfilip/vim-lucius'
 
 " Language-specific plugins
 Plug 'digitaltoad/vim-jade'

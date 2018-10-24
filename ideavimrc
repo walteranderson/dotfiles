@@ -1,5 +1,5 @@
 source ~/.vimrc
 
-let mapleader = " "
-
 set surround
+
+let mapleader=<Space>
