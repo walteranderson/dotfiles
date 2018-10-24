@@ -18,7 +18,8 @@ function pkg
 # uses noti to display a popup notification once the countdown is finished
 #
 # USAGE:
-#   countdown 25 (start a countdown for 25 minutes)
+#   countdown    (start a timer for 25 minutes)
+#   countdown 15 (start a timer for 15 minutes)
 function countdown
 {
     AMOUNT=$1
