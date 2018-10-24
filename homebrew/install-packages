@@ -11,6 +11,7 @@ packages=(
   'php'
   'php-code-sniffer'
   'nvm'
+  'noti'
 )
 
 for package in "${packages[@]}"
