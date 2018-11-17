@@ -14,6 +14,7 @@ casks=(
   'slack'
   'sublime-text'
   '1password'
+  'hammerspoon'
 )
 
 for cask in "${casks[@]}"
