@@ -48,7 +48,7 @@ windows:
       root: ~/projects/allit
       panes:
         -
-        - tail -f log/allit.log
+        - dock logs -f allit
   - atlas-api:
       layout: main-vertical
       root: ~/projects/atlas-api
