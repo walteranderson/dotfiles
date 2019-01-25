@@ -60,3 +60,6 @@ windows:
       root: ~/projects/atlas-ui
       panes:
         -
+  - devops:
+      panes:
+        -

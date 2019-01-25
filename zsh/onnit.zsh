@@ -29,7 +29,7 @@ alias ssh-prod-appworker01="ssh -i ~/.ssh/id_rsa wanderson@appworker01.onnit.io"
 # PHPUnit
 alias phpunit-allit="dock exec allit entrypoint.bash bash -c \"vendor/bin/phpunit -c test -d error_reporting=2147483647 -d display_errors=1\""
 alias phpunit-atlas-api="dock exec atlas-api entrypoint.bash bash -c \"vendor/bin/phpunit -c tests\""
-alias phpunit-atlas-shared="dock exec allit entrypoint.bash bash -c 'cd /var/www/atlas_shared && vendor/bin/phpunit -c tests/ --exclude-group=database'"
+alias phpunit-atlas-shared="dock exec allit entrypoint.bash make -C /var/www/atlas_shared test"
 
 # Build projects
 alias build-allit="dock exec allit entrypoint.bash bash -c \"composer install && cd onnit && yarn build\""
@@ -38,9 +38,7 @@ alias build-atlas-shared="dock exec allit entrypoint.bash bash -c \"cd /var/www/
 alias build-all="build-allit && build-atlas-shared && build-atlas-api"
 
 # AWS
-aws-login() {
-    aws ecr get-login --no-include-email --region us-west-2
-}
+alias aws-login="$(aws ecr get-login --no-include-email --region us-west-2)"
 
 # Database refresh
 alias db-cre="export LOCAL_DB_NAME=10460_onnit; ( curl -sSL http://devdata.onnit.io/mysql/local-import.bash | bash -eo pipefail ) && dock exec atlas-api entrypoint.bash bash -c \"php artisan db:seed && php artisan migrate\" && db-maintenance"
