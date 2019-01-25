@@ -15,6 +15,7 @@ casks=(
   'sublime-text'
   '1password'
   'hammerspoon'
+  'quicklook-json' # adds JSON preview support in finder's quicklook window
 )
 
 for cask in "${casks[@]}"
