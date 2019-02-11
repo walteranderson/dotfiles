@@ -10,10 +10,11 @@ packages=(
   'composer'
   'php'
   'php-code-sniffer'
-  'nvm'
   'noti'
   'ruby'
 )
+
+# TODO: need to install nvm differently. doesn't work with homebrew
 
 for package in "${packages[@]}"
 do
