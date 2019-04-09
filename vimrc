@@ -85,6 +85,10 @@ Plug 'dart-lang/dart-vim-plugin'
 Plug 'vim-scripts/django.vim'
 Plug 'leafgarland/typescript-vim'
 
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'css', 'scss'] }
+
 call plug#end()
 
 " }}}
@@ -531,5 +535,13 @@ let g:tagbar_autoclose = 0
 let g:tagbar_left = 1
 
 nnoremap <leader>o :TagbarToggle<CR>
+
+" }}}
+" Prettier {{{
+
+" Prettier will auto format if the file contains `// @format`
+" Disabling this functionality
+let g:prettier#autoformat = 0
+
 
 " }}}

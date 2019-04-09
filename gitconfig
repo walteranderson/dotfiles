@@ -18,7 +18,7 @@
     save-me = reset --hard ORIG_HEAD
 [core]
     autocrlf = input
-    excludesfile = /Users/walter/.gitignore_global
+    excludesfile = /Users/walter.anderson/.gitignore_global
     ignorecase = false
 [push]
     default = simple
