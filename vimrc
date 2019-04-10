@@ -267,6 +267,10 @@ set foldmethod=marker
 " beautify some selected JSON
   map <leader>bjson :!jq '.'<cr>
 
+" disable command history keybinding
+  nnoremap q: <nop>
+  nnoremap Q <nop>
+
 " }}}
 " Plugin Settings {{{
 " Airline {{{
