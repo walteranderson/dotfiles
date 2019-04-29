@@ -6,6 +6,9 @@ source ~/.zsh/prompt.zsh
 source ~/.zsh/completion.zsh
 source ~/.zsh/plugins.zsh
 
+# enable VIM mode!
+bindkey -v
+
 # useful aliases across all terminal environments
 source ~/.shell/aliases.sh
 

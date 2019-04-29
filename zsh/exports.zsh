@@ -39,3 +39,6 @@ export PATH="/usr/local/opt/ansible@2.0/bin:$PATH"
 
 # ruby
 export PATH="/usr/local/opt/ruby/bin:$PATH"
+
+# reduce mode change delay to 0.1 seconds
+export KEYTIMEOUT=1
