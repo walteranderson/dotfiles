@@ -438,6 +438,9 @@ autocmd VimEnter * command! Colors
 " exclude file name results from Ag
 command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
+" shut up W
+command W w
+
 " }}}
 " Multiple Cursors {{{
 
