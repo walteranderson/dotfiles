@@ -15,6 +15,9 @@ call plug#begin('~/.vim/plugged')
 
 " syntax checker
 Plug 'scrooloose/syntastic'
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'css', 'scss'] }
 
 " status bar
 Plug 'bling/vim-airline'
@@ -30,15 +33,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'jreybert/vimagit'
 
-Plug 'tomtom/tcomment_vim'
-Plug 'SirVer/ultisnips'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'Yggdroot/indentLine'
-" Plug 'Valloric/MatchTagAlways'
-
-" autoclosing quotes/brackets/parens
-" Plug 'Raimondi/delimitMate'
-
 " surround things with ({'" and more
 Plug 'tpope/vim-surround'
 
@@ -46,47 +40,18 @@ Plug 'tpope/vim-surround'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-" file navigation
-Plug 'scrooloose/nerdtree'
-
-" tags
-Plug 'majutsushi/tagbar'
-
-Plug 'wdalmut/vim-phpunit'
-Plug 'zhaocai/GoldenView.Vim'
-
+" color themes
 Plug 'morhetz/gruvbox'
 Plug 'jonathanfilip/vim-lucius'
 
-" Language-specific plugins
-Plug 'digitaltoad/vim-jade'
-Plug 'groenewege/vim-less'
-Plug 'wavded/vim-stylus'
-Plug 'cakebaker/scss-syntax.vim'
-Plug 'StanAngeloff/php.vim'
-Plug 'jwalton512/vim-blade'
-Plug 'kchmck/vim-coffee-script'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'mustache/vim-mustache-handlebars'
-Plug 'elzr/vim-json'
-Plug 'keith/tmux.vim'
-" Plug 'jelera/vim-javascript-syntax'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'fatih/vim-go'
-Plug 'posva/vim-vue'
-Plug 'b4b4r07/vim-hcl'
-Plug 'tfnico/vim-gradle'
-Plug 'othree/html5.vim'
-Plug 'elmcast/elm-vim'
-Plug 'slim-template/vim-slim'
-Plug 'dart-lang/dart-vim-plugin'
-Plug 'vim-scripts/django.vim'
-Plug 'leafgarland/typescript-vim'
-
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'css', 'scss'] }
+" everything else
+Plug 'tomtom/tcomment_vim'
+Plug 'SirVer/ultisnips'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'Yggdroot/indentLine'
+Plug 'scrooloose/nerdtree'
+Plug 'zhaocai/GoldenView.Vim'
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
@@ -379,32 +344,11 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 
 " }}}
-" EditorConfig {{{
-
-let g:EditorConfig_exclude_patterns = ['fugitive://.*']
-
-" }}}
-" PHPUnit {{{
-
-let g:phpunit_cmd = './vendor/bin/phpunit'
-
-" }}}
 " indentLine {{{
 
 let g:indentLine_color_term = 239
 let g:indentLine_char = '┆'
 let g:indentLine_noConcealCursor=""
-
-" }}}
-" MatchTagAlways {{{
-
-let g:mta_filetypes = {
-    \ 'html' : 1,
-    \ 'xhtml' : 1,
-    \ 'xml' : 1,
-    \ 'jinja' : 1,
-    \ 'blade' : 1,
-    \}
 
 " }}}
 " fzf {{{
@@ -449,16 +393,6 @@ let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
 
 " }}}
-" Notes {{{
-
-" Ctags
-" - run `ctags -R` in project directory to generate `tags` file
-" - :tag <search string>
-"   - :tn and :tp to navigate between tags
-" - C-] on a method to go to it's definition
-"   - C-^ to go back
-
-" }}}
 " Tmuxline {{{
 
 
@@ -467,59 +401,11 @@ let g:tmuxline_powerline_separators = 0
 
 
 " }}}
-" JSON {{{
-
-let g:vim_json_syntax_conceal = 0
-
-" }}}
-" vim-javascript {{{
-
-let g:javascript_enable_domhtmlcss=1
-
-" }}}
-" vim-typescript {{{
-
-let g:typescript_compiler_options = '-experimentalDecorators'
-
-" }}}
-" taggatron {{{
-
-let g:tagcommands = {
-\    "php" : { "tagfile": "tags", "args": "-R", "cmd": "ctags" }
-\}
-
-" }}}
-" vim-go {{{
-
-" turn off some ridiculous defaults
-let g:go_doc_keywordprg_enabled = 0
-let g:go_def_mapping_enabled = 0
-let g:go_textobj_enabled = 0
-
-
-" lint on save
-let g:go_metalinter_autosave = 0
-
-
-" }}}
 " golden ratio {{{
 
 let g:goldenview__enable_default_mapping = 0
 
 noremap <leader>gt :ToggleGoldenViewAutoResize<CR>
-
-" }}}
-" Elm {{{
-
-let g:elm_format_autosave = 1
-
-" }}}
-" TagBar {{{
-
-let g:tagbar_autoclose = 0
-let g:tagbar_left = 1
-
-nnoremap <leader>o :TagbarToggle<CR>
 
 " }}}
 " Prettier {{{
