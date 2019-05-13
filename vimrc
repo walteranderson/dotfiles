@@ -47,7 +47,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " file navigation
-Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 
 " tags
@@ -448,27 +447,6 @@ let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
-
-" }}}
-" CtrlP {{{
-
-" file/symbol searching
-  " noremap <leader>p :CtrlP<CR>
-
-" buffer search
-  noremap <leader>r :CtrlPBufTag<CR>
-
-" search for filename in open buffers
-  " noremap <leader>j :CtrlPBuffer<CR>
-
-
-" remapping keyboard shortcuts inside the CtrlP window
-  let g:ctrlp_prompt_mappings = {
-    \ 'PrtSelectMove("j")':   ['<c-n>', '<down>'],
-    \ 'PrtSelectMove("k")':   ['<c-p>', '<up>'],
-    \ 'PrtHistory(-1)':       [''],
-    \ 'PrtHistory(1)':        [''],
-    \ }
 
 " }}}
 " Notes {{{
