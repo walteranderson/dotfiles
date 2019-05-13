@@ -14,7 +14,7 @@
 call plug#begin('~/.vim/plugged')
 
 " syntax checker
-Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'for': ['javascript', 'css', 'scss'] }
@@ -52,6 +52,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'scrooloose/nerdtree'
 Plug 'zhaocai/GoldenView.Vim'
 Plug 'sheerun/vim-polyglot'
+Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
 
@@ -237,6 +238,20 @@ set foldmethod=marker
 
 " }}}
 " Plugin Settings {{{
+" ALE {{{
+
+" define which linters to use based on file type
+let g:ale_fixers = {
+\   'javascript': ['prettier', 'eslint'],
+\}
+
+" Set this variable to 1 to fix files when you save them.
+let g:ale_fix_on_save = 1
+
+let g:ale_sign_error = '!!'
+let g:ale_sign_warning = "⚠"
+
+" }}}
 " Airline {{{
 
 let g:airline#extensions#tabline#enabled = 0
@@ -273,49 +288,6 @@ let NERDTreeIgnore=['\.pyc$']
 
 " close nerdtree if it is the only window left open
 " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
-" }}}
-" Syntastic {{{
-
-map <leader>sc :SyntasticCheck<CR>
-
-" using signs
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_enable_signs = 1
-let g:syntastic_error_symbol = ">>"
-let g:syntastic_warning_symbol = "⚠"
-let g:syntastic_style_error_symbol = ">>"
-let g:syntastic_check_on_wq = 0
-let g:syntastic_enable_highlighting = 1
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 0
-
-" PHP checker
-let g:syntastic_php_checkers = ["php", "phpcs"]
-let g:syntastic_php_phpcs_args = "--standard=PSR2 -n"
-
-" Javascript checker
-let g:syntastic_javascript_checkers = ["eslint"]
-
-" workaround to get eslint working with kraken project, this slows things down
-" considerably though. See if there's a better solution.
-let g:syntastic_javascript_eslint_exe='$(npm bin)/eslint'
-
-" Go checker
-let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-
-" Elm
-let g:elm_syntastic_show_warnings = 1
-
-" HTML
-let g:syntastic_html_checkers=['']
-let g:syntastic_quiet_messages = { "regex": 'camel caps format' }
-
-" debug info
-" let g:syntastic_debug = 33
-" let g:syntastic_debug_file = "~/syntastic.log"
 
 " }}}
 " Fugitive {{{
