@@ -15,9 +15,6 @@ call plug#begin('~/.vim/plugged')
 
 " syntax checker
 Plug 'w0rp/ale'
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'css', 'scss'] }
 
 " status bar
 Plug 'bling/vim-airline'
@@ -124,11 +121,14 @@ colorscheme hybrid_reverse
 
 " highlight VCS conflict markers
   match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+
 " set title of terminal to the file
   set title
-" or relativenumber
-  " set relativenumber
-  set number
+
+" add line numbering (relative or absolute)
+  set relativenumber
+  " set number
+
 " add line markers at 80 characters and 120 characters
   set colorcolumn=80,120
 
@@ -246,10 +246,18 @@ let g:ale_fixers = {
 \}
 
 " Set this variable to 1 to fix files when you save them.
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 0
 
+" keep the gutter open at all times
+let g:ale_sign_column_always = 1
+
+" customize the error/warning icons displayed in the gutter
 let g:ale_sign_error = '!!'
 let g:ale_sign_warning = "⚠"
+
+
+" run the ALE fixer (af = ale fix)
+nmap <leader>af :ALEFix<CR>
 
 " }}}
 " Airline {{{
@@ -378,13 +386,5 @@ let g:tmuxline_powerline_separators = 0
 let g:goldenview__enable_default_mapping = 0
 
 noremap <leader>gt :ToggleGoldenViewAutoResize<CR>
-
-" }}}
-" Prettier {{{
-
-" Prettier will auto format if the file contains `// @format`
-" Disabling this functionality
-let g:prettier#autoformat = 0
-
 
 " }}}
