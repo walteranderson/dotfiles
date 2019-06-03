@@ -43,6 +43,9 @@ Plug 'zhaocai/GoldenView.Vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'editorconfig/editorconfig-vim'
 
+" adding this only for the :Gblame command
+Plug 'tpope/vim-fugitive'
+
 call plug#end()
 
 " }}}
