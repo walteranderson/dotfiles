@@ -23,30 +23,22 @@ Plug 'vim-airline/vim-airline-themes'
 " tmux
 Plug 'edkolev/tmuxline.vim'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'melonmanchan/vim-tmux-resizer'
 
 " git
-Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'jreybert/vimagit'
 
-" surround things with ({'" and more
-Plug 'tpope/vim-surround'
-
-" search
+" fuzzy-finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-" color themes
-Plug 'morhetz/gruvbox'
-Plug 'jonathanfilip/vim-lucius'
-
 " everything else
+Plug 'tpope/vim-surround'
 Plug 'tomtom/tcomment_vim'
 Plug 'SirVer/ultisnips'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'Yggdroot/indentLine'
-Plug 'scrooloose/nerdtree'
+" Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-vinegar'
 Plug 'zhaocai/GoldenView.Vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'editorconfig/editorconfig-vim'
@@ -105,6 +97,9 @@ set lazyredraw " redraw only when needed
   " set listchars=tab:»·,nbsp:·,trail:·,eol:¬,extends:❯,precedes:❮
   set listchars=tab:··,nbsp:·,trail:·,extends:❯,precedes:❮
   set showbreak=↪
+
+" reduce the updatetime from the default (4000ms) to 100ms
+  set updatetime=100
 
 " }}}
 " Color Scheme & Display {{{
@@ -236,6 +231,9 @@ set foldmethod=marker
   nnoremap q: <nop>
   nnoremap Q <nop>
 
+" open file explorer (to simulate NERDtree)
+  map <leader>pt :e.<cr>
+
 " }}}
 " Plugin Settings {{{
 " ALE {{{
@@ -265,47 +263,18 @@ nmap <leader>af :ALEFix<CR>
 let g:airline#extensions#tabline#enabled = 0
 
 " enable/disable status bar at the system level
-  set laststatus=2
+set laststatus=2
 
 " set the theme
-  " dark theme
-  let g:airline_theme='base16'
-  " light theme
-  " let g:airline_theme='lucius'
+let g:airline_theme='hybrid'
 
 
 " enable powerline fonts
-  let g:airline_powerline_fonts = 0
+let g:airline_powerline_fonts = 1
 
 
 " disable the `vim-gitgutter` diff hunks
-   let g:airline#extensions#hunks#enabled = 0
-
-" }}}
-" NerdTree {{{
-
-" updating this remapping to match spacemacs
-map <leader>pt :NERDTreeToggle<CR>
-" :vertical resize 40<CR>
-
-let g:NERDTreeShowHidden=1
-let g:NERDTreeQuitOnOpen=0
-
-" hide .pyc files in NERDTree
-let NERDTreeIgnore=['\.pyc$']
-
-" close nerdtree if it is the only window left open
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
-" }}}
-" Fugitive {{{
-
-nnoremap <Leader>gst :Gstatus<CR>
-
-" }}}
-" Magit {{{
-
-nnoremap <Leader>gd :Magit<CR>
+let g:airline#extensions#hunks#enabled = 0
 
 " }}}
 " Commentary {{{
@@ -377,7 +346,7 @@ let g:multi_cursor_quit_key='<Esc>'
 
 
 let g:tmuxline_preset = 'powerline'
-let g:tmuxline_powerline_separators = 0
+let g:tmuxline_powerline_separators = 1
 
 
 " }}}
@@ -386,5 +355,11 @@ let g:tmuxline_powerline_separators = 0
 let g:goldenview__enable_default_mapping = 0
 
 noremap <leader>gt :ToggleGoldenViewAutoResize<CR>
+
+" }}}
+" Git Gutter {{{
+
+" disable all git-gutter keybindings
+let g:gitgutter_map_keys = 0
 
 " }}}
