@@ -37,8 +37,8 @@ Plug 'tomtom/tcomment_vim'
 Plug 'SirVer/ultisnips'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'Yggdroot/indentLine'
-" Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-vinegar'
+Plug 'scrooloose/nerdtree'
+" Plug 'tpope/vim-vinegar'
 Plug 'zhaocai/GoldenView.Vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'editorconfig/editorconfig-vim'
@@ -234,9 +234,6 @@ set foldmethod=marker
   nnoremap q: <nop>
   nnoremap Q <nop>
 
-" open file explorer (to simulate NERDtree)
-  map <leader>pt :e.<cr>
-
 " }}}
 " Plugin Settings {{{
 " ALE {{{
@@ -364,5 +361,14 @@ noremap <leader>gt :ToggleGoldenViewAutoResize<CR>
 
 " disable all git-gutter keybindings
 let g:gitgutter_map_keys = 0
+
+" }}}
+" NERDTree {{{
+
+" updating this remapping to match spacemacs
+map <leader>pt :NERDTreeToggle<CR>
+
+let g:NERDTreeShowHidden=1
+let g:NERDTreeQuitOnOpen=0
 
 " }}}
