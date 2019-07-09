@@ -22,6 +22,7 @@ alias gaa='git add --all'
 alias gcmsg='git commit -m'
 alias gco='git checkout'
 alias gl='git pull'
+alias gp='git push -u origin $(git symbolic-ref --short -q HEAD)'
 
 alias gopath='cd $GOPATH'
 alias dj='python3 manage.py'
