@@ -124,8 +124,8 @@ colorscheme hybrid_reverse
   set title
 
 " add line numbering (relative or absolute)
-  set relativenumber
-  " set number
+  " set relativenumber
+  set number
 
 " add line markers at 80 characters and 120 characters
   set colorcolumn=80,120
@@ -242,6 +242,11 @@ set foldmethod=marker
 let g:ale_fixers = {
 \   'javascript': ['prettier', 'eslint'],
 \}
+let g:ale_linters = {
+\   'javascript': ['prettier', 'eslint'],
+\}
+
+" let g:ale_linters_explicit = 1
 
 " Set this variable to 1 to fix files when you save them.
 let g:ale_fix_on_save = 0
