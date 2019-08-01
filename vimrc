@@ -374,6 +374,6 @@ let g:gitgutter_map_keys = 0
 map <leader>pt :NERDTreeToggle<CR>
 
 let g:NERDTreeShowHidden=1
-let g:NERDTreeQuitOnOpen=0
+let g:NERDTreeQuitOnOpen=1
 
 " }}}
