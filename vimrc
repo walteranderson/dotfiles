@@ -13,6 +13,9 @@
 
 call plug#begin('~/.vim/plugged')
 
+" adding for :help documentation
+Plug 'junegunn/vim-plug'
+
 " syntax checker
 Plug 'w0rp/ale'
 
@@ -26,6 +29,8 @@ Plug 'christoomey/vim-tmux-navigator'
 
 " git
 Plug 'airblade/vim-gitgutter'
+" adding this only for the :Gblame command
+Plug 'tpope/vim-fugitive'
 
 " fuzzy-finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -35,15 +40,14 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
 Plug 'tomtom/tcomment_vim'
 Plug 'SirVer/ultisnips'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'Yggdroot/indentLine'
 Plug 'scrooloose/nerdtree'
 Plug 'zhaocai/GoldenView.Vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'editorconfig/editorconfig-vim'
 
-" adding this only for the :Gblame command
-Plug 'tpope/vim-fugitive'
+" removing in favor of *gn command
+" Plug 'terryma/vim-multiple-cursors'
 
 call plug#end()
 
