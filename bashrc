@@ -12,12 +12,6 @@ parse_git_branch() {
 # command line prompt
 export PS1="\[\033[32m\]\W\[\033[31m\]\$(parse_git_branch)\[\033[00m\] ➜ "
 
-# export XDEBUG_CONFIG="idekey=phpstorm"
-
-# PATH modifications
-export PATH="/usr/local/mysql/bin:$PATH"
-export PATH="/Users/walter/bin:$PATH"
-
 # homebrew
 export PATH="/usr/local/sbin:$PATH"
 
