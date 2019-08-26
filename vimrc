@@ -13,9 +13,6 @@
 
 call plug#begin('~/.vim/plugged')
 
-" adding for :help documentation
-Plug 'junegunn/vim-plug'
-
 " syntax checker
 Plug 'w0rp/ale'
 
