@@ -7,9 +7,9 @@ packages=(
   'tmux'
   'htop'
   'the_silver_searcher'
-  'composer'
-  'php'
-  'php-code-sniffer'
+  # 'composer'
+  # 'php'
+  # 'php-code-sniffer'
   'noti'
   'ruby'
 )
