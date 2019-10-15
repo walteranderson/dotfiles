@@ -5,16 +5,7 @@ alias ll='ls -FGlAhp'
 
 # folder changes
 alias c='cd ~/code'
-alias d='cd ~/code/dev'
-alias h='cd ~/Homestead'
 alias df='cd ~/.dotfiles/'
-
-# opening files
-alias hosts='sudo vim /etc/hosts'
-alias vhost='sudo vim /etc/apache2/extra/httpd-vhosts.conf'
-
-# vim with a light colorscheme
-alias vimL='vim -c "colorscheme lucius|AirlineTheme lucius" -c "set background=light"'
 
 # git-related
 alias gst='git status'
@@ -31,6 +22,7 @@ alias dj='python3 manage.py'
 # applications
 alias mux='tmuxinator'
 alias tm='tmux'
+alias tma='tmux attach-session -t'
 alias emacsgui='open -a emacs'
 alias pgsql='postgres -D /usr/local/var/postgres'
 alias ctagsg='ctags -R --exclude=vendor --exclude=node_modules'
