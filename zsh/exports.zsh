@@ -1,18 +1,5 @@
 # User configuration
-export PATH="
- /Users/walter/.composer/vendor/bin
-:/usr/local/sbin
-:/Users/walter/bin
-:/usr/local/mysql/bin
-:/usr/local/bin
-:/usr/bin
-:/bin
-:/usr/sbin
-:/sbin
-:$PATH"
-
-# add custom aliases
-source $HOME/.dotfiles/shell/aliases.sh
+export PATH="/usr/local/sbin:/Users/walter/bin:/usr/local/mysql/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 
 export EDITOR='vim'
 
@@ -38,7 +25,7 @@ export VIRTUALENV_PYTHON=/usr/local/bin/python3
 export PATH="/usr/local/opt/ansible@2.0/bin:$PATH"
 
 # ruby
-export PATH="/usr/local/opt/ruby/bin:$PATH"
+export PATH="/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
 
 # reduce mode change delay to 0.1 seconds
 export KEYTIMEOUT=1
