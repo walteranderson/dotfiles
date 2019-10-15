@@ -377,3 +377,9 @@ let g:NERDTreeShowHidden=1
 let g:NERDTreeQuitOnOpen=1
 
 " }}}
+" Vim Polyglot {{{
+
+" the default markdown syntax does too much magic type stuff for my taste
+let g:polyglot_disabled = ['markdown']
+
+" }}}
