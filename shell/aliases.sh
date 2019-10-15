@@ -36,3 +36,4 @@ alias pgsql='postgres -D /usr/local/var/postgres'
 alias ctagsg='ctags -R --exclude=vendor --exclude=node_modules'
 
 alias :q='echo "this is not vim, you idiot."'
+alias nethack='ssh nethack@alt.org'
