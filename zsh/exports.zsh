@@ -27,5 +27,8 @@ export PATH="/usr/local/opt/ansible@2.0/bin:$PATH"
 # ruby
 export PATH="/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
 
+# yarn
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
 # reduce mode change delay to 0.1 seconds
 export KEYTIMEOUT=1
