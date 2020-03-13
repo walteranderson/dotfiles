@@ -2,6 +2,17 @@ local window = require('hs.window')
 local grid = require('hs.grid')
 local geo = require('hs.geometry')
 
+function getWindow()
+  local window = window.focusedWindow()
+  assert(window, 'could not find window')
+
+  return window
+end
+
+function set(cell)
+  grid.set(getWindow(), cell)
+end
+
 local Move = {}
 
 function Move.toggleGrid()
@@ -9,22 +20,15 @@ function Move.toggleGrid()
 end
 
 function Move.center()
-  local win = window.focusedWindow()
-  if not win then return end
-
-  grid.set(win, '1,1 6x6')
+  set('1,1 6x6')
 end
 
 function Move.fullscreen()
-  local win = window.focusedWindow()
-  if not win then return end
-
-  grid.maximizeWindow(win)
+  grid.maximizeWindow(getWindow())
 end
 
 function Move.left()
-  local win = window.focusedWindow()
-  if not win then return end
+  local win = getWindow()
 
   local initial = geo.new('0,0 4x8')
   local larger = geo.new('0,0 5x8')
@@ -43,8 +47,7 @@ function Move.left()
 end
 
 function Move.right()
-  local win = window.focusedWindow()
-  if not win then return end
+  local win = getWindow()
 
   local initial = geo.new('4,0 4x8')
   local larger = geo.new('3,0 5x8')

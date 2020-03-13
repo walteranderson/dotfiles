@@ -1,7 +1,7 @@
-# /Users/walter.anderson/.tmuxinator/dribe-portal.yml
+# /Users/walter.anderson/.tmuxinator/dribe-server.yml
 
-name: dribe-portal
-root: ~/code/dribe/flexdrive-portal
+name: dribe-server
+root: ~/code/dribe/flexdrive-services
 
 # Optional tmux socket
 # socket_name: foo
@@ -41,16 +41,6 @@ root: ~/code/dribe/flexdrive-portal
 
 windows:
   - editor:
-    - vim
+    -
   - terminal:
     -
-  - webpack:
-    -
-  - ui-kit:
-      root: ~/code/dribe/flexdrive-ui-kit
-      panes:
-        -
-  - ui-kit-terminal:
-      root: ~/code/dribe/flexdrive-ui-kit
-      panes:
-        -

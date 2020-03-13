@@ -104,6 +104,9 @@ set lazyredraw " redraw only when needed
 " reduce the updatetime from the default (4000ms) to 100ms
   set updatetime=100
 
+" set the foldmethod to use syntax by default
+  set foldmethod=syntax
+
 " }}}
 " Color Scheme & Display {{{
 
@@ -218,7 +221,7 @@ set foldmethod=marker
   noremap <cr> :nohlsearch<cr>/<bs>
 
 " search using Ag
-  nmap <leader>f :Ag<CR>
+  nmap <leader>g :Ag<CR>
 
 " close the buffer without messing with the splits
   nmap <leader>d :ene<CR>:bw #<CR>
@@ -312,7 +315,7 @@ let g:indentLine_noConcealCursor=""
   noremap <leader>j :Buffers<CR>
 
 " fuzzy find files
-  noremap <leader>pf :Files<CR>
+  noremap <leader>f :Files<CR>
 
 " This is the default extra key bindings
 let g:fzf_action = {
@@ -359,7 +362,7 @@ let g:tmuxline_powerline_separators = 1
 
 let g:goldenview__enable_default_mapping = 0
 
-noremap <leader>gt :ToggleGoldenViewAutoResize<CR>
+" noremap <leader>gt :ToggleGoldenViewAutoResize<CR>
 
 " }}}
 " Git Gutter {{{
@@ -371,10 +374,16 @@ let g:gitgutter_map_keys = 0
 " NERDTree {{{
 
 " updating this remapping to match spacemacs
-map <leader>pt :NERDTreeToggle<CR>
+map <leader>m :NERDTreeToggle<CR>
 
+" show hidden files
 let g:NERDTreeShowHidden=1
+
+" closes nerdtree when you open a file
 let g:NERDTreeQuitOnOpen=1
+
+" tells nerdtree to NOT collapse directories that only have one child
+let NERDTreeCascadeSingleChildDir=0
 
 " }}}
 " Vim Polyglot {{{

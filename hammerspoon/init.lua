@@ -43,11 +43,11 @@ hotkey.bind(primaryMovementModifier, '-', Move.toggleGrid)
 
 
 --- Sizing Shortcuts
-local Sizing = require 'sizing'
-
-local sizeModifier = {'cmd', 'option'}
-
-hotkey.bind(sizeModifier, 'h', Sizing.thinner)
-hotkey.bind(sizeModifier, 'l', Sizing.thicker)
-hotkey.bind(sizeModifier, 'k', Sizing.taller)
-hotkey.bind(sizeModifier, 'j', Sizing.shorter)
+-- local Sizing = require 'sizing'
+--
+-- local sizeModifier = {'cmd', 'option'}
+--
+-- hotkey.bind(sizeModifier, 'h', Sizing.thinner)
+-- hotkey.bind(sizeModifier, 'l', Sizing.thicker)
+-- hotkey.bind(sizeModifier, 'k', Sizing.taller)
+-- hotkey.bind(sizeModifier, 'j', Sizing.shorter)
