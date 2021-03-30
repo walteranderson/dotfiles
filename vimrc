@@ -9,6 +9,12 @@
 " Author:     Walter Anderson <walteranderson19@gmail.com>
 " Repository: https://github.com/walteranderson/dotfiles
 "
+" Pre {{{
+
+" vim-polyglot requires this variable be declared before loading the plugin
+let g:polyglot_disabled = ['markdown']
+
+" }}}
 " Vim Plug {{{
 
 call plug#begin('~/.vim/plugged')
