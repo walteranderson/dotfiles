@@ -48,6 +48,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'zhaocai/GoldenView.Vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'jonathanfilip/vim-lucius'
 
 " removing in favor of *gn command
 " Plug 'terryma/vim-multiple-cursors'
