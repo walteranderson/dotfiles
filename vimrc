@@ -9,7 +9,7 @@
 " Author:     Walter Anderson <walteranderson19@gmail.com>
 " Repository: https://github.com/walteranderson/dotfiles
 "
-" Pre {{{
+" Init {{{
 
 " vim-polyglot requires this variable be declared before loading the plugin
 let g:polyglot_disabled = ['markdown']
@@ -49,6 +49,7 @@ Plug 'zhaocai/GoldenView.Vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'jonathanfilip/vim-lucius'
+Plug 'leafOfTree/vim-svelte-plugin'
 
 " removing in favor of *gn command
 " Plug 'terryma/vim-multiple-cursors'
@@ -251,9 +252,13 @@ set foldmethod=marker
 " define which linters to use based on file type
 let g:ale_fixers = {
 \   'javascript': ['prettier', 'eslint'],
+\   'svelte': ['prettier', 'eslint'],
+\   'typescript': ['prettier', 'eslint'],
 \}
 let g:ale_linters = {
 \   'javascript': ['prettier', 'eslint'],
+\   'svelte': ['prettier', 'eslint'],
+\   'typescript': ['prettier', 'eslint'],
 \}
 
 " let g:ale_linters_explicit = 1
@@ -397,5 +402,11 @@ let NERDTreeCascadeSingleChildDir=0
 
 " the default markdown syntax does too much magic type stuff for my taste
 let g:polyglot_disabled = ['markdown']
+
+" }}}
+" Svelte Plugin {{{
+
+let g:vim_svelte_plugin_load_full_syntax = 1
+let g:vim_svelte_plugin_use_typescript = 1
 
 " }}}

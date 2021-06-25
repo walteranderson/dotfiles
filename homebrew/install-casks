@@ -7,19 +7,19 @@ casks=(
   'alfred'
   'bartender'
   'docker'
-  'firefox'
-  'google-chrome'
-  'postman'
-  'sequel-pro'
-  'slack'
+  # 'firefox'
+  # 'google-chrome'
+  # 'postman'
+  # 'sequel-pro'
+  # 'slack'
   'sublime-text'
-  '1password'
+  # '1password'
   'hammerspoon'
-  'quicklook-json' # adds JSON preview support in finder's quicklook window
+  # 'quicklook-json' # adds JSON preview support in finder's quicklook window
 )
 
 for cask in "${casks[@]}"
 do
-  echo " -- brew cask install ${cask}"
-  brew cask install $cask
+  echo " -- brew install --cask ${cask}"
+  brew install --cask $cask
 done

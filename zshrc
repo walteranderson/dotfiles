@@ -13,11 +13,3 @@ bindkey -v
 source ~/.shell/aliases.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# Dribe react native requirements
-export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
-export ANDROID_HOME="/usr/local/share/android-sdk"
-export ANDROID_NDK_HOME="/usr/local/share/android-ndk"
-export PATH="$ANDROID_HOME/tools:$PATH"
-export PATH="$ANDROID_HOME/platform-tools:$PATH"
-export PATH="$ANDROID_HOME/build-tools/28.0.2:$PATH"

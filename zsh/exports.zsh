@@ -32,3 +32,5 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # reduce mode change delay to 0.1 seconds
 export KEYTIMEOUT=1
+
+export AWS_PROFILE=dev
