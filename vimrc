@@ -10,7 +10,6 @@
 " Repository: https://github.com/walteranderson/dotfiles
 "
 " Init {{{
-
 " vim-polyglot requires this variable be declared before loading the plugin
 let g:polyglot_disabled = ['markdown']
 

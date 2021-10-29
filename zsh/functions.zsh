@@ -14,11 +14,6 @@ function pkg
   fi
 }
 
-function gclean
-{
-    git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D
-}
-
 # start a countdown clock in the current window, blocks until it reaches 0.
 # uses noti to display a popup notification once the countdown is finished
 #
