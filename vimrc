@@ -14,6 +14,9 @@
 " vim-polyglot requires this variable be declared before loading the plugin
 let g:polyglot_disabled = ['markdown']
 
+" enable ale's autocomplete support
+let g:ale_completion_enabled = 1
+
 " }}}
 " Vim Plug {{{
 
@@ -218,9 +221,6 @@ set foldmethod=marker
 " easy save
   noremap <leader><cr> :update<cr>
 
-" disable vim insert mode completion
-  inoremap <C-P> <nop>
-
 " stay in visual mode when changing indentation
   vnoremap < <gv
   vnoremap > >gv
@@ -251,20 +251,19 @@ set foldmethod=marker
 
 " define which linters to use based on file type
 let g:ale_fixers = {
-\   'javascript': ['prettier', 'eslint'],
-\   'svelte': ['prettier', 'eslint'],
-\   'typescript': ['prettier', 'eslint'],
+\   'javascript': ['prettier'],
+\   'svelte': ['prettier'],
+\   'typescript': ['prettier'],
 \}
+
 let g:ale_linters = {
-\   'javascript': ['prettier', 'eslint'],
-\   'svelte': ['prettier', 'eslint'],
-\   'typescript': ['prettier', 'eslint'],
+\   'svelte': ['svelteserver'],
 \}
 
 " let g:ale_linters_explicit = 1
 
 " Set this variable to 1 to fix files when you save them.
-let g:ale_fix_on_save = 0
+let g:ale_fix_on_save = 1
 
 " keep the gutter open at all times
 let g:ale_sign_column_always = 1
@@ -276,6 +275,9 @@ let g:ale_sign_warning = "⚠"
 
 " run the ALE fixer (af = ale fix)
 nmap <leader>af :ALEFix<CR>
+
+nmap <C-]> :ALEGoToDefinition<CR>
+nmap <C-[> :ALEHover<CR>
 
 " }}}
 " Airline {{{
