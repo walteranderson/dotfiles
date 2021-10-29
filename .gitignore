@@ -1,6 +1,5 @@
 .DS_Store
 .netrwhist
-vim/tmp
 
 vim/plugged
 zsh/oh-my-zsh/

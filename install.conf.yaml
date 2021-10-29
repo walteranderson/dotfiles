@@ -5,19 +5,18 @@
 - clean: ['~']
 
 - link:
+    ~/.vimrc:
     ~/.vim:
     ~/.zshrc:
     ~/.zsh:
     ~/.shell:
-    ~/.vimrc:
     ~/.ideavimrc:
     ~/.bashrc:
     ~/.gvimrc:
-    ~/.eslintrc:
     ~/.gitconfig:
     ~/.tmux.conf:
+    ~/.config/tmuxinator: tmuxinator
     ~/.bash_profile:
-    ~/.hammerspoon:
 
 - shell:
   - git submodule update --init --recursive

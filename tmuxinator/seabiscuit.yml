@@ -1,0 +1,14 @@
+# /Users/walteranderson/.config/tmuxinator/seabiscuit.yml
+
+name: seabiscuit
+root: ~/code/remedy
+
+windows:
+  - frontend:
+    - cd booking-frontend
+  - backend:
+    - cd seabiscuit-backend
+  - copenhagen:
+    - cd copenhagen
+  - control-center:
+    - cd control-center
