@@ -30,3 +30,4 @@ alias ctagsg='ctags -R --exclude=vendor --exclude=node_modules'
 
 alias :q='echo "this is not vim, you idiot."'
 alias nethack='ssh nethack@alt.org'
+alias svim='vim -u ~/.SpaceVim/vimrc'
