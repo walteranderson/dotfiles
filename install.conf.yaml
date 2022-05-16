@@ -17,6 +17,7 @@
     ~/.tmux.conf:
     ~/.config/tmuxinator: tmuxinator
     ~/.bash_profile:
+    ~/.emacs.d:
 
 - shell:
   - git submodule update --init --recursive

@@ -52,6 +52,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'jonathanfilip/vim-lucius'
 Plug 'leafOfTree/vim-svelte-plugin'
+Plug 'skywind3000/asyncrun.vim'
+Plug 'fatih/vim-go'
 
 " removing in favor of *gn command
 " Plug 'terryma/vim-multiple-cursors'
@@ -220,8 +222,8 @@ set foldmethod=marker
   nmap <leader>d :ene<CR>:bw #<CR>
 
 " set the tab size on the fly
-  nmap <leader>t4 :set expandtab tabstop=4 shiftwidth=4 softtabstop=4<CR>
-  nmap <leader>t2 :set expandtab tabstop=2 shiftwidth=2 softtabstop=2<CR>
+  nmap <leader>ta4 :set expandtab tabstop=4 shiftwidth=4 softtabstop=4<CR>
+  nmap <leader>ta2 :set expandtab tabstop=2 shiftwidth=2 softtabstop=2<CR>
 
 " beautify some selected JSON
   map <leader>bjson :!jq '.'<cr>
@@ -242,7 +244,8 @@ let g:ale_fixers = {
 \}
 
 let g:ale_linters = {
-\   'svelte': ['svelteserver'],
+\   'svelte': ['svelteserver', 'eslint'],
+\   'typescript': ['eslint', 'tsserver'],
 \}
 
 " let g:ale_linters_explicit = 1
@@ -262,7 +265,7 @@ let g:ale_sign_warning = "⚠"
 nmap <leader>af :ALEFix<CR>
 
 nmap <C-]> :ALEGoToDefinition<CR>
-nmap <C-[> :ALEHover<CR>
+" nmap <C-[> :ALEHover<CR>
 
 " }}}
 " Airline {{{
@@ -327,6 +330,8 @@ let g:fzf_action = {
 " - window (nvim only)
 let g:fzf_layout = { 'down': '~30%' }
 
+let g:fzf_preview_window = []
+
 " For Commits and BCommits to customize the options used by 'git log':
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
 
@@ -374,6 +379,7 @@ let g:gitgutter_map_keys = 0
 
 " updating this remapping to match spacemacs
 map <leader>m :NERDTreeToggle<CR>
+map <leader>t :NERDTreeFind<CR>
 
 " show hidden files
 let g:NERDTreeShowHidden=1
@@ -395,5 +401,18 @@ let g:polyglot_disabled = ['markdown']
 
 let g:vim_svelte_plugin_load_full_syntax = 1
 let g:vim_svelte_plugin_use_typescript = 1
+
+" }}}
+" AsyncRun {{{
+
+let g:asyncrun_open = 6
+
+nnoremap <leader>r :AsyncRun 
+nnoremap <leader>e :call asyncrun#quickfix_toggle(6)<cr>
+
+" }}}
+" Go Vim {{{
+
+let g:go_doc_keywordprg_enabled = 0
 
 " }}}

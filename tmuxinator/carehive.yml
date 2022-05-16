@@ -1,7 +1,7 @@
 # /Users/walteranderson/.config/tmuxinator/seabiscuit.yml
 
-name: seabiscuit
-root: ~/code/remedy
+name: carehive
+root: ~/code/carehive
 
 windows:
   - frontend:
@@ -12,3 +12,9 @@ windows:
     - cd copenhagen
   - control-center:
     - cd control-center
+  - moneypenny:
+    - cd moneypenny
+  - carenav-frontend:
+    - cd clinical-portal-frontend
+  - carenav-backend:
+    - cd clinical-portal-backend
