@@ -13,6 +13,3 @@ bindkey -v
 source ~/.shell/aliases.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-[ -f "/Users/walteranderson/.ghcup/env" ] && source "/Users/walteranderson/.ghcup/env" # ghcup-env

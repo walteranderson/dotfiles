@@ -21,6 +21,7 @@ alias dj='python3 manage.py'
 
 # applications
 alias vimL='vim -c "colorscheme lucius|AirlineTheme lucius" -c "set background=light"'
+alias nvimL='nvim -c "colorscheme lucius|AirlineTheme lucius" -c "set background=light"'
 alias mux='tmuxinator'
 alias tm='tmux'
 alias tma='tmux attach-session -t'

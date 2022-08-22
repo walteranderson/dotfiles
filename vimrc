@@ -34,6 +34,7 @@ Plug 'christoomey/vim-tmux-navigator'
 
 " git
 Plug 'airblade/vim-gitgutter'
+
 " adding this only for the :Gblame command
 Plug 'tpope/vim-fugitive'
 
@@ -236,15 +237,18 @@ set foldmethod=marker
 " Plugin Settings {{{
 " ALE {{{
 
+let g:ale_linter_aliases = {'svelte': ['css', 'javascript', 'svelte']}
+
 " define which linters to use based on file type
 let g:ale_fixers = {
 \   'javascript': ['prettier'],
 \   'svelte': ['prettier'],
 \   'typescript': ['prettier'],
+\   'scss': ['prettier'],
 \}
 
 let g:ale_linters = {
-\   'svelte': ['svelteserver', 'eslint'],
+\   'svelte': ['eslint', 'svelteserver'],
 \   'typescript': ['eslint', 'tsserver'],
 \}
 
@@ -401,6 +405,7 @@ let g:polyglot_disabled = ['markdown']
 
 let g:vim_svelte_plugin_load_full_syntax = 1
 let g:vim_svelte_plugin_use_typescript = 1
+let g:vim_svelte_plugin_use_sass = 1
 
 " }}}
 " AsyncRun {{{

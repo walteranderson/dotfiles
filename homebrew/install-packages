@@ -5,16 +5,8 @@ echo 'Installing homebrew packages...'
 packages=(
   'vim'
   'tmux'
-  'htop'
   'the_silver_searcher'
-  # 'composer'
-  # 'php'
-  # 'php-code-sniffer'
-  'noti'
-  'ruby'
 )
-
-# TODO: need to install nvm differently. doesn't work with homebrew
 
 for package in "${packages[@]}"
 do

@@ -16,10 +16,9 @@
     ~/.gitconfig:
     ~/.tmux.conf:
     ~/.config/tmuxinator: tmuxinator
+    ~/.config/nvim: nvim
     ~/.bash_profile:
-    ~/.emacs.d:
 
 - shell:
   - git submodule update --init --recursive
   - ./homebrew/install
-  - ./shell/install-yarn
