@@ -21,4 +21,3 @@
 
 - shell:
   - git submodule update --init --recursive
-  - ./homebrew/install

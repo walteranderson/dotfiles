@@ -3,10 +3,7 @@
 if ! type "brew" > /dev/null; then
   echo 'Installing Homebrew...'
 
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-  echo 'Installing packages/casks...'
-  ./install-packages
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 else
   echo 'Homebrew already installed'
 fi
