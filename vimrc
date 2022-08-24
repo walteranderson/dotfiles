@@ -55,6 +55,7 @@ Plug 'jonathanfilip/vim-lucius'
 Plug 'leafOfTree/vim-svelte-plugin'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'fatih/vim-go'
+Plug 'amadeus/vim-mjml'
 
 " removing in favor of *gn command
 " Plug 'terryma/vim-multiple-cursors'
@@ -237,7 +238,7 @@ set foldmethod=marker
 " Plugin Settings {{{
 " ALE {{{
 
-let g:ale_linter_aliases = {'svelte': ['css', 'javascript', 'svelte']}
+let g:ale_linter_aliases = {'svelte': ['css', 'javascript', 'svelte'], 'mjml': ['html']}
 
 " define which linters to use based on file type
 let g:ale_fixers = {
@@ -245,6 +246,7 @@ let g:ale_fixers = {
 \   'svelte': ['prettier'],
 \   'typescript': ['prettier'],
 \   'scss': ['prettier'],
+\   'mjml': ['prettier'],
 \}
 
 let g:ale_linters = {

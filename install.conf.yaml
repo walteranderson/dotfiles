@@ -18,6 +18,8 @@
     ~/.config/tmuxinator: tmuxinator
     ~/.config/nvim: nvim
     ~/.bash_profile:
+    ~/Documents/iterm-profiles: iterm-profiles
 
 - shell:
   - git submodule update --init --recursive
+  - corepack enable
