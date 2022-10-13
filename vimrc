@@ -363,8 +363,8 @@ let g:multi_cursor_quit_key='<Esc>'
 " Tmuxline {{{
 
 
-let g:tmuxline_preset = 'powerline'
-let g:tmuxline_powerline_separators = 1
+" let g:tmuxline_preset = 'powerline'
+let g:tmuxline_powerline_separators = 0
 
 
 " }}}

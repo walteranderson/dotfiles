@@ -17,6 +17,7 @@ configs.setup {
       'typescript',
       'vim',
       'yaml',
+      'python',
   },
   highlight = {
     enable = true,

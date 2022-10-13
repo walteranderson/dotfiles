@@ -11,9 +11,6 @@ vim.o.showmode = true
 vim.wo.wrap = false
 vim.o.incsearch = true
 vim.o.hidden = true
-vim.g.colors_name = 'hybrid_reverse'
--- vim.g.colors_name = 'lucius'
--- vim.g.colors_name = 'gloombuddy'
 
 -- tab width
 vim.o.tabstop = 2
@@ -40,6 +37,15 @@ vim.o.splitright = true
 -- leader key
 vim.g.mapleader = ' '
 
-require('plugins')
-require('mappings')
-require('treesitter')
+-- disable netrw
+vim.g.loaded = 1
+vim.g.loaded_netrwPlugin = 1
+
+require 'plugins'
+require 'keymap'
+
+-- On save, run prettier
+vim.api.nvim_create_autocmd('BufWritePre', {
+  pattern = { '*.ts', '*.js', '*.svelte', '*.md', '*.json' },
+  command = 'silent! Prettier'
+})

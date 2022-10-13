@@ -6,6 +6,7 @@ packages=(
   'vim'
   'tmux'
   'the_silver_searcher'
+  'ripgrep'
 )
 
 for package in "${packages[@]}"
