@@ -45,7 +45,7 @@ require 'plugins'
 require 'keymap'
 
 -- On save, run prettier
-vim.api.nvim_create_autocmd('BufWritePre', {
-  pattern = { '*.ts', '*.js', '*.svelte', '*.md', '*.json' },
-  command = 'silent! Prettier'
-})
+-- vim.api.nvim_create_autocmd('BufWritePre', {
+--   pattern = { '*.ts', '*.js', '*.svelte', '*.md', '*.json' },
+--   command = 'silent! Prettier'
+-- })

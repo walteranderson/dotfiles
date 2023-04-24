@@ -45,6 +45,16 @@ return packer.startup(function(use)
   -- color schemes
   use 'navarasu/onedark.nvim'
   use 'sheerun/vim-polyglot'
+  -- use 'EdenEast/nightfox.nvim'
+  -- use {
+  --   'catppuccin/nvim',
+  --   as = 'catppuccin',
+  --   config = function()
+  --     vim.g.catppuccin_flavour = 'mocha' -- latte, frappe, macchiato, mocha
+  --     require('catppuccin').setup()
+  --     vim.api.nvim_command "colorscheme catppuccin"
+  --   end
+  -- }
 
   -- syntax highlighting and LSP support
   use 'nvim-treesitter/nvim-treesitter'

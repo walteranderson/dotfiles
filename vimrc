@@ -247,12 +247,15 @@ let g:ale_fixers = {
 \   'typescript': ['prettier'],
 \   'scss': ['prettier'],
 \   'mjml': ['prettier'],
+\   'json': ['jq'],
 \}
 
 let g:ale_linters = {
 \   'svelte': ['eslint', 'svelteserver'],
 \   'typescript': ['eslint', 'tsserver'],
 \}
+
+let g:ale_lint_delay = 0
 
 " let g:ale_linters_explicit = 1
 
@@ -392,6 +395,9 @@ let g:NERDTreeShowHidden=1
 
 " closes nerdtree when you open a file
 let g:NERDTreeQuitOnOpen=1
+
+" use the smaller edit menu
+let g:NERDTreeMinimalMenu=1
 
 " tells nerdtree to NOT collapse directories that only have one child
 let NERDTreeCascadeSingleChildDir=0

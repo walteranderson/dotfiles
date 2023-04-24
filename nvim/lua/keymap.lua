@@ -39,7 +39,7 @@ keymap('v', '>', '>gv')
 keymap('n', '<leader><CR>', ':update<CR>')
 
 -- LSP
-keymap('n', 'gd', ':lua vim.lsp.buf.definition()<CR>')
+keymap('n', '<C-]>', ':lua vim.lsp.buf.definition()<CR>')
 keymap('n', 'gD', ':lua vim.lsp.buf.declaration()<CR>')
 keymap('n', 'gi', ':lua vim.lsp.buf.implementation()<CR>')
 keymap('n', 'gw', ':lua vim.lsp.buf.document_symbol()<CR>')
