@@ -40,6 +40,7 @@ return require('packer').startup(function(use)
 
   -- color scheme
   use({ 'rose-pine/neovim', as = 'rose-pine' })
+  use "EdenEast/nightfox.nvim"
 
   -- the great tpope
   use('tpope/vim-fugitive')

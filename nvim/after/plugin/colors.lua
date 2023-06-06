@@ -3,4 +3,4 @@ function SetColorscheme(color)
 	vim.cmd.colorscheme(color)
 end
 
-SetColorscheme()
+SetColorscheme("nordfox")
