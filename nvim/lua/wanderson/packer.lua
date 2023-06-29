@@ -38,19 +38,26 @@ return require('packer').startup(function(use)
     requires = { {'nvim-lua/plenary.nvim'} }
   }
 
+  -- harpoon
+  use 'ThePrimeagen/harpoon'
+
   -- color scheme
   use({ 'rose-pine/neovim', as = 'rose-pine' })
-  use "EdenEast/nightfox.nvim"
+  use('EdenEast/nightfox.nvim')
 
   -- the great tpope
   use('tpope/vim-fugitive')
   use('tpope/vim-surround')
+  use('tpope/vim-commentary')
+
+  -- making comments work with svelte
+  use('JoosepAlviste/nvim-ts-context-commentstring')
 
   -- git gutter
   use('airblade/vim-gitgutter')
 
   -- easier comments
-  use('tomtom/tcomment_vim')
+  -- use('tomtom/tcomment_vim')
 
   -- file tree
   use {

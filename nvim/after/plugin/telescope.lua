@@ -1,4 +1,5 @@
 local builtin = require('telescope.builtin')
+local actions = require "telescope.actions"
 
 local setup = require('telescope').setup
 setup({
@@ -9,8 +10,9 @@ setup({
         mappings = {
             i = {
                 -- WHY DOESN'T <C-p> <C-n> WORK?!?!?
-                ["<C-j>"] = "move_selection_next",
-                ["<C-k>"] = "move_selection_previous"
+                ["<C-j>"] = actions.move_selection_next,
+                ["<C-k>"] = actions.move_selection_previous,
+
             }
         }
     },

@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/Users/walteranderson/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
+  harpoon = {
+    loaded = true,
+    path = "/Users/walteranderson/.local/share/nvim/site/pack/packer/start/harpoon",
+    url = "https://github.com/ThePrimeagen/harpoon"
+  },
   ["lsp-zero.nvim"] = {
     loaded = true,
     path = "/Users/walteranderson/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
@@ -129,6 +134,11 @@ _G.packer_plugins = {
     path = "/Users/walteranderson/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
+  ["nvim-ts-context-commentstring"] = {
+    loaded = true,
+    path = "/Users/walteranderson/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring",
+    url = "https://github.com/JoosepAlviste/nvim-ts-context-commentstring"
+  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/Users/walteranderson/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
@@ -154,15 +164,15 @@ _G.packer_plugins = {
     path = "/Users/walteranderson/.local/share/nvim/site/pack/packer/start/rose-pine",
     url = "https://github.com/rose-pine/neovim"
   },
-  tcomment_vim = {
-    loaded = true,
-    path = "/Users/walteranderson/.local/share/nvim/site/pack/packer/start/tcomment_vim",
-    url = "https://github.com/tomtom/tcomment_vim"
-  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/walteranderson/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["vim-commentary"] = {
+    loaded = true,
+    path = "/Users/walteranderson/.local/share/nvim/site/pack/packer/start/vim-commentary",
+    url = "https://github.com/tpope/vim-commentary"
   },
   ["vim-fugitive"] = {
     loaded = true,
