@@ -6,7 +6,10 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- LSP
-  use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate' })
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    { run = ':TSUpdate' }
+  }
   use {
       'VonHeikemen/lsp-zero.nvim',
       branch = 'v2.x',
@@ -66,4 +69,7 @@ return require('packer').startup(function(use)
       'nvim-tree/nvim-web-devicons', -- optional
     },
   }
+
+  -- Github Copilot
+  use 'github/copilot.vim'
 end)

@@ -53,5 +53,7 @@ vim.keymap.set('n', 'J', 'mzJ`z')
 vim.keymap.set('n', '<C-m>', '<C-a>', { noremap = true })
 vim.keymap.set('v', 'g<C-m>', 'g<C-a>', { noremap = true })
 
+vim.keymap.set('n', '<leader>ff', vim.lsp.buf.format)
+
 -- toggle background between light and dark --
 -- vim.keymap.set('n', '<leader>0', ':exec &bg=="light"? "set bg=dark" : "set bg=light"<CR>', {noremap = true, silent = true})
