@@ -1,8 +1,15 @@
+local nvim_lsp = require('lspconfig')
 local lsp = require('lsp-zero').preset({})
 local cmp = require('cmp')
 
-lsp.on_attach(function(_, bufnr)
+lsp.on_attach(function(client, bufnr)
   lsp.default_keymaps({buffer = bufnr})
+  if nvim_lsp.util.root_pattern("deno.json", "import_map.json")(vim.fn.getcwd()) then
+        if client.name == "tsserver" then
+            client.stop()
+            return
+        end
+    end
 end)
 
 lsp.format_on_save({
@@ -18,6 +25,10 @@ lsp.ensure_installed({
 	'tsserver',
 	'eslint',
 	'svelte'
+})
+
+lsp.configure('denols', {
+    root_dir = nvim_lsp.util.root_pattern("deno.json", "import_map.json"),
 })
 
 cmp.setup({
