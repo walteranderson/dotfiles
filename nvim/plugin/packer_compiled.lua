@@ -189,6 +189,11 @@ _G.packer_plugins = {
     path = "/Users/walteranderson/.local/share/nvim/site/pack/packer/start/vim-gitgutter",
     url = "https://github.com/airblade/vim-gitgutter"
   },
+  ["vim-matchtag"] = {
+    loaded = true,
+    path = "/Users/walteranderson/.local/share/nvim/site/pack/packer/start/vim-matchtag",
+    url = "https://github.com/leafOfTree/vim-matchtag"
+  },
   ["vim-surround"] = {
     loaded = true,
     path = "/Users/walteranderson/.local/share/nvim/site/pack/packer/start/vim-surround",

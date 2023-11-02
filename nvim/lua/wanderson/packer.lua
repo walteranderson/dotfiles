@@ -72,4 +72,7 @@ return require('packer').startup(function(use)
 
   -- Github Copilot
   use 'github/copilot.vim'
+
+  -- matching html tags
+  use 'leafOfTree/vim-matchtag'
 end)
