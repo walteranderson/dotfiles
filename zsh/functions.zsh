@@ -1,19 +1,3 @@
-# check your ip address
-checkip() { dig +short myip.opendns.com @resolver1.opendns.com }
-
-dockip() {
-  docker inspect --format '{{ .NetworkSettings.IPAddress }}' "$@"
-}
-
-function pkg
-{
-  if [ -f yarn.lock ]; then
-    yarn "$@"
-  else
-    npm "$@"
-  fi
-}
-
 # start a countdown clock in the current window, blocks until it reaches 0.
 # uses noti to display a popup notification once the countdown is finished
 #
@@ -36,6 +20,7 @@ function countdown
     noti -t "Countdown" -m "Countdown is finished!"
 }
 
+# remove all branches that don't have an origin
 function gclean
 {
     git fetch -p && for branch in $(git for-each-ref --format '%(refname) %(upstream:track)' refs/heads | awk '$2 == "[gone]" {sub("refs/heads/", "", $1); print $1}'); do git branch -D $branch; done
