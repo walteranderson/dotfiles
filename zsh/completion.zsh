@@ -7,9 +7,6 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:
 
 compdef -d mpv
 
-# git-flow completion
-source ~/.zsh/completion/git-flow-completion.zsh
-
 # tmuxinator completion
 # only add if tmuxinator is present
 if type tmuxinator > /dev/null; then
