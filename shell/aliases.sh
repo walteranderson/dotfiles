@@ -28,5 +28,5 @@ alias pgsql='postgres -D /usr/local/var/postgres'
 alias :q='echo "this is not vim, you idiot."'
 alias nethack='ssh nethack@alt.org'
 
-#lazyvim
-alias lvim='NVIM_APPNAME=lazyvim nvim'
+#kickstart
+alias kvim='NVIM_APPNAME=kickstart nvim'

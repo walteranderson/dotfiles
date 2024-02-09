@@ -57,3 +57,7 @@ vim.keymap.set('n', '<leader>ff', vim.lsp.buf.format)
 
 -- toggle background between light and dark --
 -- vim.keymap.set('n', '<leader>0', ':exec &bg=="light"? "set bg=dark" : "set bg=light"<CR>', {noremap = true, silent = true})
+
+-- quickfix navigation --
+vim.keymap.set('n', '<leader>cn', ':cn<CR>')
+vim.keymap.set('n', '<leader>cp', ':cp<CR>')
