@@ -40,3 +40,11 @@ vim.o.completeopt = 'menuone,noselect'
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
+-- Personal Config Options
+
+-- default split locations
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+
+-- visual column
+vim.opt.colorcolumn = "80,120"
