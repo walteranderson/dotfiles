@@ -48,3 +48,6 @@ vim.opt.splitright = true
 
 -- visual column
 vim.opt.colorcolumn = "80,120"
+
+-- line wrap
+vim.opt.wrap = false
