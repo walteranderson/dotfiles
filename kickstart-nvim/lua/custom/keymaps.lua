@@ -41,7 +41,7 @@ vim.keymap.set('n', '<C-m>', '<C-a>', { noremap = true })
 vim.keymap.set('v', 'g<C-m>', 'g<C-a>', { noremap = true })
 
 -- quickfix navigation --
-vim.keymap.set('n', '<leader>cn', ':cn<CR>', { desc = '[C]ode Quickfix [N]ext' })
-vim.keymap.set('n', '<leader>cp', ':cp<CR>', { desc = '[C]ode Quickfix [P]revious' })
+vim.keymap.set('n', '<C-n>', ':cn<CR>')
+vim.keymap.set('n', '<C-p>', ':cp<CR>')
 
 vim.keymap.set('n', '<leader>`', '<cmd>e #<cr>', { desc = 'Switch to Other Buffer' })
