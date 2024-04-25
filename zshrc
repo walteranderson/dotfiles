@@ -13,3 +13,5 @@ bindkey -v
 source ~/.shell/aliases.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+eval "$(direnv hook zsh)"
