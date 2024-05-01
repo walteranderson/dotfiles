@@ -128,7 +128,11 @@ local servers = {
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
   tsserver = {},
   eslint = {},
-  svelte = {},
+  svelte = {
+    emmet = {
+      showExpandedAbbreviation = 'never'
+    }
+  },
   spectral = {},
 
   lua_ls = {
