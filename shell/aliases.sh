@@ -17,6 +17,7 @@ alias gp='git push'
 alias gpu='git push -u origin $(git symbolic-ref --short -q HEAD)'
 
 alias gopath='cd $GOPATH'
+alias brewski='brew update && brew upgrade && brew cleanup; brew doctor'
 
 # applications
 alias nvimL='nvim -c "set background=light"'

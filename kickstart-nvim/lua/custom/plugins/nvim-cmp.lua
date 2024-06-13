@@ -14,7 +14,6 @@ return {
     local cmp = require 'cmp'
     local luasnip = require 'luasnip'
     require('luasnip.loaders.from_snipmate').lazy_load()
-    -- require('luasnip.loaders.from_vscode').lazy_load()
     luasnip.config.setup {}
 
     cmp.setup {
@@ -59,6 +58,7 @@ return {
       sources = {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
+        -- { name = 'copilot' },
         -- { name = 'path' },
       },
     }

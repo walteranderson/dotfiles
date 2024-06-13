@@ -17,6 +17,8 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- open lazy.nvim plugin manager
 vim.keymap.set('n', '<leader>l', '<cmd>Lazy<cr>', { desc = 'Lazy' })
 
+vim.keymap.set('i', 'jk', '<Esc>')
+
 -- I don't know if this is a bad idea, but I'm so used to it at this point I don't know if I can go back
 vim.keymap.set('n', ';', ':')
 vim.keymap.set('n', 'H', '^')
