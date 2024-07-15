@@ -20,7 +20,6 @@ alias gopath='cd $GOPATH'
 alias brewski='brew update && brew upgrade && brew cleanup; brew doctor'
 
 # applications
-alias nvimL='nvim -c "set background=light"'
 alias mux='tmuxinator'
 alias tm='tmux'
 alias tma='tmux attach-session -t'
@@ -28,6 +27,3 @@ alias pgsql='postgres -D /usr/local/var/postgres'
 
 alias :q='echo "this is not vim, you idiot."'
 alias nethack='ssh nethack@alt.org'
-
-#kickstart
-alias kvim='NVIM_APPNAME=kickstart nvim'

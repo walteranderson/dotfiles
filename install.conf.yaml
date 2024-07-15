@@ -17,7 +17,6 @@
     ~/.tmux.conf:
     ~/.config/tmuxinator: tmuxinator
     ~/.config/nvim: nvim
-    ~/.config/kickstart: kickstart-nvim
     ~/.bash_profile:
     ~/Documents/iterm-profiles: iterm-profiles
 
