@@ -26,4 +26,3 @@ alias tma='tmux attach-session -t'
 alias pgsql='postgres -D /usr/local/var/postgres'
 
 alias :q='echo "this is not vim, you idiot."'
-alias nethack='ssh nethack@alt.org'
