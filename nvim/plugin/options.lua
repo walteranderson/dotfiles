@@ -5,7 +5,7 @@ opt.inccommand = 'split'
 opt.number = true
 opt.relativenumber = true
 
--- opt.hlsearch = false
+opt.hlsearch = false
 
 opt.clipboard = 'unnamedplus'
 

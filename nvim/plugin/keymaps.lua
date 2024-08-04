@@ -12,12 +12,6 @@ set('n', 'N', 'Nzzzv')
 set('n', '<left>', 'gT')
 set('n', '<right>', 'gt')
 
--- resizing splits width/height
-set('n', '<M-.>', '<c-w>5<')
-set('n', '<M-,>', '<c-w>5>')
-set('n', '<M-j>', '<C-W>+')
-set('n', '<M-m>', '<C-W>-')
-
 -- I don't know if this is a bad idea, but I'm so used to it at this point I don't know if I can go back
 set('n', 'H', '^')
 set('v', 'H', '^')
