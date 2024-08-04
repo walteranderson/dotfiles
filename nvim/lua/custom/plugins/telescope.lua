@@ -19,6 +19,7 @@ return {
   config = function()
     local telescope = require 'telescope'
     local builtin = require 'telescope.builtin'
+    local set = vim.keymap.set
 
     telescope.setup {
       defaults = {
@@ -29,9 +30,12 @@ return {
     -- Enable telescope fzf native, if installed
     pcall(telescope.load_extension, 'fzf')
 
-    vim.keymap.set('n', '<leader>,', '<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr><cr>', { desc = '[,] Switch Buffer' })
-    vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
-    vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
-    vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
+    set('n', '<leader>,', '<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr><cr>', { desc = '[,] Switch Buffer' })
+    set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+    set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
+    set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
+    set('n', '<leader>sh', function()
+      builtin.grep_string { search = 'Handler(' .. vim.fn.expand '<cword>' }
+    end)
   end,
 }
