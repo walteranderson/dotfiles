@@ -53,6 +53,7 @@ return {
         set('n', '<leader>dj', vim.diagnostic.goto_next, { buffer = 0 })
         set('n', '<leader>dk', vim.diagnostic.goto_prev, { buffer = 0 })
         set('n', '<leader>dl', '<cmd>Telescope diagnostic<cr>', { buffer = 0 })
+        set('n', '<leader>ca', vim.lsp.buf.code_action, { buffer = 0 })
       end,
     })
   end,

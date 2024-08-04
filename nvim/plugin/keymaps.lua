@@ -30,16 +30,6 @@ set('v', '>', '>gv')
 
 set('n', '<leader>`', '<cmd>e #<cr>', { desc = 'Switch to Other Buffer' })
 
--- toggle hlsearch if its on, otherwise just do enter
-set('n', '<CR>', function()
-  if vim.v.hlsearch == 1 then
-    vim.cmd.nohl()
-    return ''
-  else
-    return vim.keycode '<CR>'
-  end
-end, { expr = true })
-
 -- quickfix navigation --
 vim.keymap.set('n', '<C-n>', ':cn<CR>')
 vim.keymap.set('n', '<C-p>', ':cp<CR>')
