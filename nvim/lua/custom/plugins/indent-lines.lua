@@ -6,7 +6,7 @@ return {
   main = 'ibl',
   opts = {
     exclude = {
-      filetypes = { 'dashboard' }
-    }
+      filetypes = { 'dashboard' },
+    },
   },
 }

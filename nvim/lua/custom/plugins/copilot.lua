@@ -1,30 +1,30 @@
 return {
   {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    event = "InsertEnter",
+    'zbirenbaum/copilot.lua',
+    cmd = 'Copilot',
+    event = 'InsertEnter',
     config = function()
-      require("copilot").setup({
+      require('copilot').setup {
         suggestion = { enabled = false },
         panel = { enabled = false },
-      })
+      }
     end,
   },
 
   {
-    "zbirenbaum/copilot-cmp",
-    after = { "copilot.lua" },
+    'zbirenbaum/copilot-cmp',
+    after = { 'copilot.lua' },
     config = function()
-      require("copilot_cmp").setup()
-    end
+      require('copilot_cmp').setup()
+    end,
   },
 
   {
-    "CopilotC-Nvim/CopilotChat.nvim",
-    branch = "canary",
+    'CopilotC-Nvim/CopilotChat.nvim',
+    branch = 'canary',
     dependencies = {
-      { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
-      { "nvim-lua/plenary.nvim" },  -- for curl, log wrapper
+      { 'zbirenbaum/copilot.lua' }, -- or github/copilot.vim
+      { 'nvim-lua/plenary.nvim' }, -- for curl, log wrapper
     },
     opts = {
       debug = false, -- Enable debugging
@@ -32,10 +32,10 @@ return {
     },
     keys = {
       {
-        "<leader>cc",
-        "<cmd>CopilotChatToggle<cr>",
-        desc = "[C]opilot [C]hat"
+        '<leader>cc',
+        '<cmd>CopilotChatToggle<cr>',
+        desc = '[C]opilot [C]hat',
       },
-    }
-  }
+    },
+  },
 }
