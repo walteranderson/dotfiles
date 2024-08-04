@@ -1,4 +1,3 @@
--- https://github.com/stevearc/conform.nvim
 return {
   'stevearc/conform.nvim',
   opts = {

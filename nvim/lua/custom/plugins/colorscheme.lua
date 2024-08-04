@@ -2,11 +2,14 @@ local COLOR = 'nordfox'
 
 return {
   'EdenEast/nightfox.nvim',
-  lazy = false,    -- make sure we load this during startup if it is your main colorscheme
-  priority = 1000, -- make sure to load this before all the other start plugins
+  lazy = false,
+  priority = 1000,
+  config = function()
+    vim.cmd.colorscheme(COLOR)
+  end,
   keys = {
     {
-      "<leader>tc",
+      '<leader>tc',
       function()
         if COLOR == 'nordfox' then
           COLOR = 'dawnfox'
@@ -16,10 +19,6 @@ return {
 
         vim.cmd.colorscheme(COLOR)
       end,
-      desc = "[T]oggle [C]olorscheme",
     },
   },
-  config = function()
-    vim.cmd.colorscheme(COLOR)
-  end
 }

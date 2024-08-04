@@ -1,4 +1,5 @@
 return {
+  -- Main Copilot integration
   {
     'zbirenbaum/copilot.lua',
     cmd = 'Copilot',
@@ -11,6 +12,7 @@ return {
     end,
   },
 
+  -- Add Copilot to completion
   {
     'zbirenbaum/copilot-cmp',
     after = { 'copilot.lua' },
@@ -19,16 +21,16 @@ return {
     end,
   },
 
+  -- Copilot Chat integration
   {
     'CopilotC-Nvim/CopilotChat.nvim',
     branch = 'canary',
     dependencies = {
-      { 'zbirenbaum/copilot.lua' }, -- or github/copilot.vim
-      { 'nvim-lua/plenary.nvim' }, -- for curl, log wrapper
+      { 'zbirenbaum/copilot.lua' },
+      { 'nvim-lua/plenary.nvim' },
     },
     opts = {
-      debug = false, -- Enable debugging
-      -- See Configuration section for rest
+      debug = false,
     },
     keys = {
       {
