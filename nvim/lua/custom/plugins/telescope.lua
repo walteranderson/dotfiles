@@ -19,7 +19,12 @@ return {
   config = function()
     local telescope = require 'telescope'
     local builtin = require 'telescope.builtin'
-    local themes = require 'telescope.themes'
+
+    telescope.setup {
+      defaults = {
+        layout_strategy = 'vertical',
+      },
+    }
 
     -- Enable telescope fzf native, if installed
     pcall(telescope.load_extension, 'fzf')
