@@ -2,6 +2,7 @@ return {
   -- Main Copilot integration
   {
     'zbirenbaum/copilot.lua',
+    enabled = false,
     cmd = 'Copilot',
     event = 'InsertEnter',
     config = function()
@@ -15,6 +16,7 @@ return {
   -- Add Copilot to completion
   {
     'zbirenbaum/copilot-cmp',
+    enabled = false,
     after = { 'copilot.lua' },
     config = function()
       require('copilot_cmp').setup()
@@ -24,6 +26,7 @@ return {
   -- Copilot Chat integration
   {
     'CopilotC-Nvim/CopilotChat.nvim',
+    enabled = false,
     branch = 'canary',
     dependencies = {
       { 'zbirenbaum/copilot.lua' },
