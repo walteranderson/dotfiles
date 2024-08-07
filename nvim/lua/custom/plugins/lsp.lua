@@ -3,7 +3,7 @@ return {
   dependencies = {
     { 'williamboman/mason.nvim', config = true },
     'williamboman/mason-lspconfig.nvim',
-    { 'folke/neodev.nvim', opts = {} },
+    { 'folke/neodev.nvim',       opts = {} },
   },
   config = function()
     require('mason').setup()
@@ -33,7 +33,7 @@ return {
 
     local mason_lspconfig = require 'mason-lspconfig'
     mason_lspconfig.setup {
-      ensure_installed = vim.tbl_keys(servers),
+      -- ensure_installed = vim.tbl_keys(servers),
     }
 
     for name, config in pairs(servers) do
