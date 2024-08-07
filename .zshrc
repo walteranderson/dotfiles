@@ -5,13 +5,12 @@ source ~/.zsh/functions.zsh
 source ~/.zsh/prompt.zsh
 source ~/.zsh/completion.zsh
 source ~/.zsh/plugins.zsh
+source ~/.zsh/aliases.zsh
 
 # enable VIM mode!
 bindkey -v
 
-# useful aliases across all terminal environments
-source ~/.shell/aliases.sh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source <(fzf --zsh)
 
 eval "$(direnv hook zsh)"

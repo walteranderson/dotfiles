@@ -20,6 +20,8 @@ return {
           showExpandedAbbreviation = 'never',
         },
       },
+      -- JSON/YAML linter
+      -- https://github.com/luizcorreia/spectral-language-server
       spectral = {},
       lua_ls = {},
     }
