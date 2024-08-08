@@ -22,5 +22,5 @@ _darcs
 ^/LICENSE.*
 ^/COPYING
 
-homebrew-pkgs.txt
+Makefile
 iterm.md
