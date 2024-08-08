@@ -2,28 +2,15 @@
     name = Walter Anderson
     email = walter.anderson@harborhealthteam.com
 [alias]
-    st = status
-    ci = commit
-    co = checkout
-    cob = checkout -b
     br = branch
     prune = fetch --prune
     hist = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-    lol = log --graph --decorate --pretty=oneline --abbrev-commit
-    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
     wip = !git add -A && git commit -am "WIP"
     undo = reset HEAD~1 --mixed
     amend = commit -a --amend
-    update-submodules = submodule update --init --recursive
-    upgrade-submodules = submodule update --init --remote
-    save-me = reset --hard ORIG_HEAD
 [core]
     autocrlf = input
-    excludesfile = /Users/walter.anderson/.gitignore_global
     ignorecase = false
-    pager = "diff-so-fancy | less --tabs=4 -RFX"
-[interactive]
-    diffFilter = "diff-so-fancy --patch"
 [push]
     default = simple
 [pull]
