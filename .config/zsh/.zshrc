@@ -31,3 +31,6 @@ fi
 if command -v brew > /dev/null; then
 	eval "$(brew shellenv)"
 fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"

@@ -3,9 +3,6 @@ export EDITOR='vim'
 # do not auto-name tmux windows
 export DISABLE_AUTO_TITLE=true
 
-# nvm
-export NVM_DIR=$HOME/.nvm
-
 # golang
 export GOPATH="$HOME/code/golang"
 
