@@ -23,6 +23,6 @@ _darcs
 ^/COPYING
 
 Makefile
-iterm.md
+TODO.md
 install-homebrew.sh
 install-nvm.sh
