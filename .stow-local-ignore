@@ -24,3 +24,5 @@ _darcs
 
 Makefile
 iterm.md
+install-homebrew.sh
+install-nvm.sh
