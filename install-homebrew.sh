@@ -21,6 +21,7 @@ packages=(
   'stow'
   'fzf'
   'zsh-syntax-highlighting'
+  'wget'
 )
 
 for package in "${packages[@]}"
