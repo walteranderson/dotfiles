@@ -1,3 +1,10 @@
+#!/usr/bin/env bash
+
+if [ "$(uname)" != "Darwin" ]; then
+	echo 'Skipping Homebrew - not on a Mac'
+	exit 0
+fi
+
 if ! type "brew" > /dev/null; then
   echo 'Installing Homebrew...'
 
