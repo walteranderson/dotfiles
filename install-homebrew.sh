@@ -13,6 +13,7 @@ packages=(
   'tmux'
   'stow'
   'fzf'
+  'zsh-syntax-highlighting'
 )
 
 for package in "${packages[@]}"
