@@ -16,10 +16,8 @@ echo "========================"
 # Homebrew
 ###########
 
-if is_mac; then
-	echo '>>> Running Homebrew - on a Mac'
-else
-	echo '>>> Skipping Homebrew - not on a Mac'
+if ! is_mac; then
+	echo '>>> Skipping - not on a Mac'
 	exit 0
 fi
 
