@@ -1,7 +1,7 @@
 
-all: install clean build
+all: install clean stow
 
-build:
+stow:
 	stow .
 
 clean:

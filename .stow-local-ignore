@@ -24,6 +24,5 @@ _darcs
 
 Makefile
 TODO.md
-install-homebrew.sh
-install-nvm.sh
+install.sh
 com.googlecode.iterm2.plist

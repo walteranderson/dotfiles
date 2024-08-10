@@ -2,9 +2,9 @@
 
 is_mac() {
 	if [ "$(uname)" == "Darwin" ]; then
-		return 1
+		return 0 # success
 	else
-		return 0
+		return 1
 	fi
 }
 
@@ -16,7 +16,9 @@ echo "========================"
 # Homebrew
 ###########
 
-if [ "$(is_mac)" != 1]; then
+if is_mac; then
+	echo '>>> Running Homebrew - on a Mac'
+else
 	echo '>>> Skipping Homebrew - not on a Mac'
 	exit 0
 fi
