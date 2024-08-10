@@ -1,16 +1,11 @@
-if command -v fzf > /dev/null; then
-	source <(fzf --zsh)
-fi
+if [ "$(uname)" = "Darwin" ]; then
+	eval "$(/opt/homebrew/bin/brew shellenv)"
+	source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-if command -v direnv > /dev/null; then
+	export NVM_DIR="$HOME/.nvm"
+	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+	source <(fzf --zsh)
+
 	eval "$(direnv hook zsh)"
 fi
-
-if command -v brew > /dev/null; then
-	eval "$(brew shellenv)"
-	source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
