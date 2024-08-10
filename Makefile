@@ -1,5 +1,5 @@
 
-all: homebrew nvm clean build
+all: install clean build
 
 build:
 	stow .
@@ -7,8 +7,5 @@ build:
 clean:
 	stow -D .
 
-homebrew:
-	./install-homebrew.sh
-
-nvm:
-	./install-nvm.sh
+install:
+	./install.sh
