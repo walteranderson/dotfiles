@@ -22,6 +22,8 @@ _darcs
 ^/LICENSE.*
 ^/COPYING
 
+.*\.hide
+
 Makefile
 TODO.md
 install.sh
