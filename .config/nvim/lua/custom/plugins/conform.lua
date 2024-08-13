@@ -6,6 +6,7 @@ return {
       typescript = { 'prettier' },
       svelte = { 'prettier' },
       go = { 'gopls' },
+      ocaml = { 'ocamlformat' },
     },
     format_on_save = {
       timeout_ms = 500,

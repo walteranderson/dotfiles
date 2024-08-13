@@ -3,7 +3,7 @@ return {
   dependencies = {
     { 'williamboman/mason.nvim', config = true },
     'williamboman/mason-lspconfig.nvim',
-    { 'folke/neodev.nvim',       opts = {} },
+    { 'folke/neodev.nvim', opts = {} },
   },
   config = function()
     require('mason').setup()
@@ -15,6 +15,7 @@ return {
       -- html = { filetypes = { 'html', 'twig', 'hbs'} },
       tsserver = {},
       eslint = {},
+      ocamllsp = {},
       svelte = {
         emmet = {
           showExpandedAbbreviation = 'never',
@@ -56,6 +57,7 @@ return {
         set('n', '<leader>dk', vim.diagnostic.goto_prev, { buffer = 0 })
         set('n', '<leader>dl', '<cmd>Telescope diagnostic<cr>', { buffer = 0 })
         set('n', '<leader>ca', vim.lsp.buf.code_action, { buffer = 0 })
+        set('n', '<leader>e', vim.diagnostic.open_float, { buffer = 0 })
       end,
     })
   end,
