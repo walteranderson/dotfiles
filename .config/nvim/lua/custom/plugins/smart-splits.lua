@@ -1,10 +1,9 @@
 return {
   'mrjones2014/smart-splits.nvim',
+  opts = {},
   config = function()
     local smart_splits = require 'smart-splits'
     local set = vim.keymap.set
-
-    smart_splits.setup()
 
     -- resizing splits
     set('n', '<A-h>', smart_splits.resize_left)
