@@ -7,7 +7,7 @@ export DISABLE_AUTO_TITLE=true
 export GOPATH="$HOME/code/golang"
 
 # TODO do i need to do this?
-# export PATH="$PATH:$GOPATH/bin"
+export PATH="$PATH:$GOPATH/bin"
 
 # reduce mode change delay to 0.1 seconds
 export KEYTIMEOUT=1
