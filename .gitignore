@@ -1,8 +1,6 @@
 .DS_Store
 .netrwhist
 
-vim/plugged
-zsh/oh-my-zsh/
 .config/zsh/.zsh_history
 .config/zsh/.zcompdump
 .config/zsh/.zcompcache/
