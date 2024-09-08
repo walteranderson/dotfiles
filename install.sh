@@ -38,6 +38,7 @@ packages=(
   'fzf'
   'zsh-syntax-highlighting'
   'wget'
+  'ripgrep' # for telescope.nvim
 )
 
 casks=(
