@@ -52,6 +52,7 @@ return {
         local set = vim.keymap.set
         set('n', 'K', vim.lsp.buf.hover, { buffer = 0 })
         set('n', 'gd', vim.lsp.buf.definition, { buffer = 0 })
+        set('n', 'gr', vim.lsp.buf.references, { buffer = 0 })
         set('n', '<leader>cr', vim.lsp.buf.rename, { buffer = 0 })
         set('n', '<leader>dj', vim.diagnostic.goto_next, { buffer = 0 })
         set('n', '<leader>dk', vim.diagnostic.goto_prev, { buffer = 0 })
