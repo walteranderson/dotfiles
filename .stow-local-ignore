@@ -25,7 +25,7 @@ _darcs
 # hide files from stow using a suffix of `.hide`
 .*\.hide
 
+assets/*
 Makefile
 TODO.md
 install.sh
-com.googlecode.iterm2.plist

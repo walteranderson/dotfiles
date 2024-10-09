@@ -66,11 +66,24 @@ done
 ###########
 
 if is_mac; then
-	if [ -f ~/Library/Preferences/com.googlecode.iterm2.plist ]; then
+	if [ -f "$HOME/Library/Preferences/com.googlecode.iterm2.plist" ]; then
 		echo '>>> Copying iterm2 config...'
-		cp com.googlecode.iterm2.plist ~/Library/Preferences
+		cp assets/com.googlecode.iterm2.plist ~/Library/Preferences
 	else
 		echo '>>> iterm2 config already exists'
+	fi
+fi
+
+###########
+# Font
+###########
+
+if is_mac; then
+	if [ -f "$HOME/Library/Fonts/FuraMonoRegularNerdFontComplete.otf" ]; then
+		echo '>>> Font already exists'
+	else
+		echo '>>> Copying font...'
+		cp assets/FuraMonoRegularNerdFontComplete.otf ~/Library/Fonts
 	fi
 fi
 
