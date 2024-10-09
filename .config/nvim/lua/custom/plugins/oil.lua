@@ -9,6 +9,8 @@ return {
         ['<C-k>'] = false,
         ['<C-j>'] = false,
         ['<M-h>'] = 'actions.select_split',
+        ['<C-c>'] = false,
+        ['<Esc>'] = 'actions.close',
       },
       view_options = {
         show_hidden = true,
