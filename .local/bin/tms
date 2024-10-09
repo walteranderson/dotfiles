@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+selected=$( (find \
+	~/code/harbor \
+	~/code/personal \
+	~/code/test \
+	~/code/golang/src/github.com/walteranderson \
+	-mindepth 1 \
+	-maxdepth 1 \
+	-type d \
+	; echo ~/.dotfiles) | fzf)
+
+if [[ -z $selected ]]; then
+    exit 0
+fi
+
+session_name=$(basename "$selected" | sed 's/^\.//')
+
+if ! tmux has-session -t=$session_name 2> /dev/null; then
+	tmux new-session -ds $session_name -c $selected -n editor
+	tmux new-window -t $session_name -n terminal
+fi
+
+if [[ -n $TMUX ]]; then
+	tmux switch-client -t $session_name
+else
+	tmux attach-session -t $session_name
+fi
