@@ -18,7 +18,8 @@ session_name=$(basename "$selected" | sed 's/^\.//')
 
 if ! tmux has-session -t=$session_name 2> /dev/null; then
 	tmux new-session -ds $session_name -c $selected -n editor
-	tmux new-window -t $session_name -n terminal
+	tmux new-window -t $session_name -c $selected -n terminal
+	tmux select-window -t $session_name:0
 fi
 
 if [[ -n $TMUX ]]; then
