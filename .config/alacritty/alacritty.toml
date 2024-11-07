@@ -1,0 +1,7 @@
+[window]
+padding = { x = 10, y = 30 }
+dynamic_padding = true
+decorations = "Transparent"
+
+[font]
+size = 18
