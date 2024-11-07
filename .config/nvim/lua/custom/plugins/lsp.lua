@@ -13,7 +13,7 @@ return {
     local servers = {
       gopls = {},
       -- html = { filetypes = { 'html', 'twig', 'hbs'} },
-      tsserver = {},
+      ts_ls = {},
       eslint = {},
       ocamllsp = {},
       svelte = {
