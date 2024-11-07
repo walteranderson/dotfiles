@@ -9,7 +9,7 @@ return {
       ocaml = { 'ocamlformat' },
     },
     format_on_save = {
-      timeout_ms = 500,
+      timeout_ms = 5000,
       lsp_format = 'fallback',
     },
   },
