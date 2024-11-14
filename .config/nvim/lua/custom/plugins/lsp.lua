@@ -25,6 +25,7 @@ return {
       -- https://github.com/luizcorreia/spectral-language-server
       spectral = {},
       lua_ls = {},
+      clojure_lsp = {},
     }
 
     local lspconfig = require 'lspconfig'

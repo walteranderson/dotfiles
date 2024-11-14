@@ -7,6 +7,7 @@ return {
       svelte = { 'prettier' },
       go = { 'gopls' },
       ocaml = { 'ocamlformat' },
+      clojure = { 'cljfmt' },
     },
     format_on_save = {
       timeout_ms = 5000,
