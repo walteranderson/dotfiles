@@ -46,7 +46,6 @@ alias c='cd ~/code'
 alias df='cd ~/.dotfiles/'
 
 alias gopath='cd $GOPATH'
-alias brewski='brew update && brew upgrade && brew cleanup; brew doctor'
 alias tm='tmux'
 alias tma='tmux attach-session -t'
 
