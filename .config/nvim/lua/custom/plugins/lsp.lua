@@ -26,6 +26,7 @@ return {
       spectral = {},
       lua_ls = {},
       clojure_lsp = {},
+      biome = {},
     }
 
     local lspconfig = require 'lspconfig'
