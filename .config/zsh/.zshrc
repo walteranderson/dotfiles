@@ -26,3 +26,4 @@ alias gpu='git push -u origin $(git symbolic-ref --short -q HEAD)'
 source ~/.config/zsh/setopt.zsh
 source ~/.config/zsh/external.zsh
 source ~/.config/zsh/prompt.zsh
+source ~/.config/zsh/completion.zsh
