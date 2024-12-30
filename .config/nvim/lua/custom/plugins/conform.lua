@@ -13,6 +13,7 @@ return {
       lua = { 'stylua' },
       typescript = { 'biome' },
       svelte = { 'prettier' },
+      javascript = { 'prettier' },
       go = { 'gopls' },
       ocaml = { 'ocamlformat' },
       clojure = { 'cljfmt' },
