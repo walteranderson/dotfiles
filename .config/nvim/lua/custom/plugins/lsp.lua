@@ -27,6 +27,7 @@ return {
       lua_ls = {},
       clojure_lsp = {},
       biome = {},
+      ols = {},
     }
 
     local lspconfig = require 'lspconfig'
