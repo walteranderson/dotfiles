@@ -6,4 +6,5 @@ zstyle ':vcs_info:*' stagedstr '+'
 zstyle ':vcs_info:git:*' formats ' on %F{red}%b%f%F{yellow}%u%f%F{green}%c%f'
 
 # https://zsh.sourceforge.io/Doc/Release/Prompt-Expansion.html
-PROMPT='[%n@%m] %1~${vcs_info_msg_0_} %# '
+PROMPT='[%n@%m] %~${vcs_info_msg_0_}
+%# '
