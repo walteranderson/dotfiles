@@ -27,6 +27,9 @@ return {
     set('n', '<leader>sf', function()
       builtin.find_files { hidden = true }
     end)
+    set('n', '<leader>sd', function()
+      builtin.find_files { cwd = '~/.dotfiles', hidden = true }
+    end)
     set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
     set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
     set('n', '<leader>sh', function()
