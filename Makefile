@@ -2,10 +2,10 @@
 all: install clean stow
 
 stow:
-	stow .
+	stow . -t ~/
 
 clean:
-	stow -D .
+	stow -D . -t ~/
 
 install:
 	./install.sh

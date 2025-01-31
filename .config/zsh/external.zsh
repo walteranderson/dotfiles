@@ -1,5 +1,5 @@
 # https://github.com/awslabs/aws-shell
-export AWS_PROFILE=dev
+# export AWS_PROFILE=dev
 
 # https://brew.sh/
 if [ "$(uname)" = "Darwin" ]; then
@@ -18,7 +18,9 @@ load_nvm() {
 source <(fzf --zsh)
 
 # https://github.com/direnv/direnv
-eval "$(direnv hook zsh)"
+if [ -x "$(command -v direnv)" ]; then
+	eval "$(direnv hook zsh)"
+fi
 
 # https://ocaml.org/
 # BEGIN opam configuration
