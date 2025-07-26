@@ -1,14 +1,10 @@
 #!/usr/bin/env bash
 
 selected=$( (find \
-	~/code/harbor \
-	~/code/personal \
-	~/code/test \
-	~/code/golang/src/github.com/walteranderson \
+	~/code \
 	-mindepth 1 \
 	-maxdepth 1 \
-	-type d \
-	; echo ~/.dotfiles) | fzf)
+	-type d) | fzf)
 
 if [[ -z $selected ]]; then
     exit 0

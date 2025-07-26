@@ -5,7 +5,14 @@ bindkey -v
 export HISTFILE=~/.zsh_history
 export EDITOR='nvim'
 export DISABLE_AUTO_TITLE=true
-export PATH="$PATH:$HOME/.local/bin"
+
+function add_to_path() {
+  export PATH="$PATH:$1"
+}
+
+add_to_path "/usr/local/go/bin"
+add_to_path "$HOME/.local/bin"
+add_to_path "$HOME/go/bin"
 
 alias ..='cd ..'
 alias ...='cd ../..'
