@@ -1,3 +1,6 @@
+.PHONY: all
+all: install clean stow
+
 .PHONY: stow
 stow:
 	stow . -t ~/
