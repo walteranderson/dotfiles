@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# https://go.dev/doc/install
+
+VERSION="1.24.3"
+FILENAME="go${VERSION}.linux-amd64"
+
+
+if command -v /usr/local/go/bin/go &> /dev/null; then
+  current=$(/usr/local/go/bin/go version | awk '{print $3}' | sed 's/^go//')
+  if [ "$current" = "$VERSION" ]; then
+    echo "current version: $current, target version: $VERSION"
+    echo "skipping installation"
+    exit 0
+  fi
+fi
+
+curl -LO https://go.dev/dl/${FILENAME}.tar.gz
+sudo rm -rf /usr/local/go
+sudo tar -C /usr/local -xzf ${FILENAME}.tar.gz
+
+rm ${FILENAME}.tar.gz

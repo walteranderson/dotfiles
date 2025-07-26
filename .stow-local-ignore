@@ -26,6 +26,7 @@ _darcs
 .*\.hide
 
 assets/*
+scripts/*
 Makefile
 TODO.md
 install.sh

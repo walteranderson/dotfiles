@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+sudo apt -y update
+sudo apt install git stow fzf ripgrep rlwrap jq tmux wget mpv
