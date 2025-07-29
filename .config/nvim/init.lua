@@ -20,3 +20,9 @@ require('lazy').setup({ import = 'custom.plugins' }, {
     notify = false,
   },
 })
+
+vim.filetype.add {
+  extension = {
+    doma = 'racket',
+  },
+}

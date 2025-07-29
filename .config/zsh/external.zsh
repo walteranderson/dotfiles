@@ -1,5 +1,5 @@
 # https://github.com/awslabs/aws-shell
-export AWS_PROFILE=dev
+# export AWS_PROFILE=dev
 
 # https://brew.sh/
 if [ "$(uname)" = "Darwin" ]; then
@@ -29,3 +29,7 @@ eval "$(direnv hook zsh)"
 [[ ! -r '/Users/walteranderson/.opam/opam-init/init.zsh' ]] || source '/Users/walteranderson/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
 # END opam configuration
 
+# https://github.com/pyenv/pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"

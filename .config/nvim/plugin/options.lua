@@ -23,4 +23,4 @@ opt.shiftwidth = 4
 opt.tabstop = 4
 
 -- https://nanotipsforvim.prose.sh/word-boundaries-and-kebab-case-variables
-opt.iskeyword = opt.iskeyword + { '-' }
+-- opt.iskeyword = opt.iskeyword + { '-' }
