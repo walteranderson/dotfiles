@@ -19,6 +19,7 @@ opt.smartcase = true
 
 opt.wrap = false
 
+opt.expandtab = true
 opt.shiftwidth = 4
 opt.tabstop = 4
 

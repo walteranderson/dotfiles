@@ -1,7 +1,18 @@
 [window]
-padding = { x = 10, y = 30 }
+opacity = 1
+padding.x = 5
+padding.y = 5
 dynamic_padding = true
-decorations = "Transparent"
 
 [font]
-size = 18
+normal.family = "FuraMono Nerd Font"
+bold.family = "FuraMono Nerd Font"
+italic.family = "FuraMono Nerd Font"
+bold_italic.family = "FuraMono Nerd Font"
+size = 21
+
+[cursor]
+style = { shape = "Block", blinking = "Never" }
+
+[mouse]
+hide_when_typing = true

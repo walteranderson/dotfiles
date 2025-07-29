@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+TARGET_OS=""
+
+usage () {
+  echo "Usage: $0 [grep]"
+}
+
+if [[ "$#" -gt 1 ]]; then
+  usage
+  exit 1
+fi
+
+KERNEL=$(uname -s)
+case "$KERNEL" in
+  Linux*)
+    TARGET_OS="linux"
+    ;;
+  Darwin*)
+    TARGET_OS="mac"
+    ;;
+  *)
+    echo "Error: unsupported operating system"
+    exit 1
+    ;;
+esac
+
+log () {
+  echo "[RUN] $1"
+}
+
+log "TARGET_OS: $TARGET_OS"
+log "======================================================================"
+log "RUNNING SCRIPTS"
+
+scripts=$(find ./scripts/$TARGET_OS -mindepth 1 -maxdepth 1 -executable)
+
+for script in $scripts; do
+  log "RUNNING $script"
+  log "======================================================================"
+  $script
+  log "======================================================================"
+done
+
+log "DONE!"
+log "======================================================================"

@@ -1,11 +1,14 @@
-
+.PHONY: all
 all: install clean stow
 
+.PHONY: stow
 stow:
-	stow .
+	stow . -t ~/
 
+.PHONY: clean
 clean:
-	stow -D .
+	stow -D . -t ~/
 
+.PHONY: install
 install:
-	./install.sh
+	./scripts/install

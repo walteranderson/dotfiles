@@ -6,6 +6,17 @@ if [ "$(uname)" = "Darwin" ]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
   # https://github.com/zsh-users/zsh-syntax-highlighting
   source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+elif command -v apt > /dev/null; then
+  # asdf - https://asdf-vm.com/
+  export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+
+  # pnpm - https://pnpm.io/installation
+  export PNPM_HOME="/home/walter/.local/share/pnpm"
+  case ":$PATH:" in
+    *":$PNPM_HOME:"*) ;;
+    *) export PATH="$PNPM_HOME:$PATH" ;;
+  esac
+  # pnpm end
 fi
 
 # https://github.com/nvm-sh/nvm
@@ -18,7 +29,9 @@ load_nvm() {
 source <(fzf --zsh)
 
 # https://github.com/direnv/direnv
-eval "$(direnv hook zsh)"
+if [ -x "$(command -v direnv)" ]; then
+	eval "$(direnv hook zsh)"
+fi
 
 # https://ocaml.org/
 # BEGIN opam configuration

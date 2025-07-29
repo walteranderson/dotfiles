@@ -3,7 +3,7 @@ return {
   dependencies = {
     { 'williamboman/mason.nvim', config = true },
     'williamboman/mason-lspconfig.nvim',
-    { 'folke/neodev.nvim', opts = {} },
+    { 'folke/neodev.nvim',       opts = {} },
   },
   config = function()
     require('mason').setup()
@@ -14,7 +14,7 @@ return {
       gopls = {},
       -- html = { filetypes = { 'html', 'twig', 'hbs'} },
       ts_ls = {},
-      eslint = {},
+      -- eslint = {},
       ocamllsp = {},
       svelte = {
         emmet = {
@@ -28,6 +28,7 @@ return {
       clojure_lsp = {},
       biome = {},
       ols = {},
+      clangd = {},
     }
 
     local lspconfig = require 'lspconfig'

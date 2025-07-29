@@ -1,13 +1,5 @@
 #!/usr/bin/env bash
 
-is_mac() {
-	if [ "$(uname)" == "Darwin" ]; then
-		return 0 # success
-	else
-		return 1
-	fi
-}
-
 echo "========================"
 echo '>>> Starting Install'
 echo "========================"
@@ -15,11 +7,6 @@ echo "========================"
 ###########
 # Homebrew
 ###########
-
-if ! is_mac; then
-	echo '>>> Skipping - not on a Mac'
-	exit 0
-fi
 
 if ! type "brew" > /dev/null; then
   echo '>>> Installing Homebrew...'
