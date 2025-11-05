@@ -27,3 +27,5 @@ set('n', '<leader>`', '<cmd>e #<cr>', { desc = 'Switch to Other Buffer' })
 -- quickfix navigation --
 set('n', '<C-n>', ':cn<CR>')
 set('n', '<C-p>', ':cp<CR>')
+
+set('n', '<leader>m', '<cmd>make<cr>')

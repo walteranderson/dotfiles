@@ -1,5 +1,5 @@
 return {
-  { 'Olical/conjure' },
+  -- { 'Olical/conjure' },
   -- {
   --   'm4xshen/autoclose.nvim',
   --   config = function()

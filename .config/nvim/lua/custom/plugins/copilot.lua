@@ -1,4 +1,5 @@
-local enabled = vim.fn.executable 'node' == 1
+-- local enabled = vim.fn.executable 'node' == 1
+local enabled = false
 
 return {
   -- Main Copilot integration
