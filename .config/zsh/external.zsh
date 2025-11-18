@@ -45,4 +45,6 @@ fi
 # https://github.com/pyenv/pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - zsh)"
+if [ -x "$(command -v pyenv)" ]; then
+  eval "$(pyenv init - zsh)"
+fi
