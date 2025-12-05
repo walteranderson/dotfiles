@@ -2,7 +2,7 @@ return {
   'stevearc/oil.nvim',
   config = function()
     require('oil').setup {
-      columns = { 'icon' },
+      columns = { 'icon', 'permissions', 'size', 'mtime' },
       keymaps = {
         ['<C-h>'] = false,
         ['<C-l>'] = false,
