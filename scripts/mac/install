@@ -30,6 +30,7 @@ packages=(
 
 casks=(
 	'iterm2'
+    'hammerspoon'
 )
 
 for package in "${packages[@]}"

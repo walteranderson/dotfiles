@@ -4,6 +4,7 @@ padding.x = 5
 padding.y = 5
 dynamic_padding = true
 option_as_alt = "OnlyLeft"
+decorations = "None"
 
 [font]
 normal.family = "FuraMono Nerd Font"
