@@ -24,5 +24,6 @@ require('lazy').setup({ import = 'custom.plugins' }, {
 vim.filetype.add {
   extension = {
     doma = 'racket',
+    nami = 'rust',
   },
 }
