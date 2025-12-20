@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# .tms.conf example
+# SEARCH_PATHS=(
+#     $HOME/code
+# )
 CONFIG_FILE="$HOME/.tms.conf"
 
 if [ -f "$CONFIG_FILE" ]; then

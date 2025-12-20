@@ -13,6 +13,7 @@ function add_to_path() {
 add_to_path "/usr/local/go/bin"
 add_to_path "$HOME/.local/bin"
 add_to_path "$HOME/go/bin"
+add_to_path "$HOME/n/bin"
 
 alias ..='cd ..'
 alias ...='cd ../..'
