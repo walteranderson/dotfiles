@@ -80,7 +80,7 @@ return {
       -- html = { filetypes = { 'html', 'twig', 'hbs'} },
       ts_ls = {},
       -- eslint = {},
-      ocamllsp = {},
+      -- ocamllsp = {},
       svelte = {
         emmet = {
           showExpandedAbbreviation = 'never',
