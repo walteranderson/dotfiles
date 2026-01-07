@@ -33,6 +33,8 @@ if [ -x "$(command -v direnv)" ]; then
 	eval "$(direnv hook zsh)"
 fi
 
+[ -s "$HOME/.cargo/env" ] && \. "$HOME/.cargo/env" 
+
 # https://ocaml.org/
 # BEGIN opam configuration
 # This is useful if you're using opam as it adds:
