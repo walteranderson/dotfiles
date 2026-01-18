@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# Add Erlang Solutions repo key
+wget -qO- https://binaries2.erlang-solutions.com/GPG-KEY-pmanager.asc | sudo tee /etc/apt/keyrings/erlang.asc
+
+# Add as APT source
+echo 'deb [signed-by=/etc/apt/keyrings/erlang.asc] http://binaries2.erlang-solutions.com/ubuntu/ jammy-esl-erlang-27 contrib' | sudo tee /etc/apt/sources.list.d/erlang.list
+
+# Update apt and install esl-erlang
+sudo apt update
+sudo apt install esl-erlang
