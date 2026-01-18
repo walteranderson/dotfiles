@@ -10,6 +10,11 @@ elif command -v apt > /dev/null; then
   # asdf - https://asdf-vm.com/
   export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
+  if [ ! -d ~/opt/zsh-syntax-highlighting ]; then
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/opt/zsh-syntax-highlighting
+  fi
+  source ~/opt/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
   # pnpm - https://pnpm.io/installation
   export PNPM_HOME="/home/walter/.local/share/pnpm"
   case ":$PATH:" in
