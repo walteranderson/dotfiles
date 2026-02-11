@@ -1,3 +1,3 @@
-- `git clone git@bitbucket.org:walteranderson/dotfiles.git ~/.dotfiles`
-- `cd ~/.dotfiles`
+- `git clone git@github.com:walteranderson/dotfiles.git ~/code/dotfiles`
+- `cd ~/code/dotfiles`
 - `make`
