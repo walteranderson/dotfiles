@@ -24,19 +24,37 @@ return {
     pcall(telescope.load_extension, 'fzf')
 
     set('n', '<leader>,', '<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr><cr>', { desc = '[,] Switch Buffer' })
+
     set('n', '<leader>ss', builtin.git_files)
+
     set('n', '<leader>sf', function()
       builtin.find_files { hidden = true }
     end)
+
     set('n', '<leader>sd', function()
       builtin.find_files { cwd = '~/.dotfiles', hidden = true }
     end)
+
     set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
+
     set('n', '<leader>sg', function()
       builtin.live_grep { hidden = true }
     end, { desc = '[S]earch by [G]rep' })
+
     set('n', '<leader>sh', function()
       builtin.grep_string { search = 'Handler(' .. vim.fn.expand '<cword>' }
     end)
+
+    set('n', '<leader>sd', function()
+      vim.ui.input({ prompt = 'Search in directory: ', default = '' }, function(input)
+        if input == nil or input == '' then
+          return
+        end
+        builtin.live_grep {
+          hidden = true,
+          search_dirs = { input },
+        }
+      end)
+    end, { desc = '[S]earch in [D]irectory' })
   end,
 }
