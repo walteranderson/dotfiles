@@ -56,5 +56,17 @@ return {
         }
       end)
     end, { desc = '[S]earch in [D]irectory' })
+
+    set('n', '<leader>cc', function()
+      builtin.colorscheme {
+        layout_strategy = 'cursor',
+        layout_config = {
+          height = 0.25,
+          width = 0.25,
+          preview_width = 0,
+        },
+        enable_preview = true,
+      }
+    end, { desc = '[C]hange [C]olorscheme' })
   end,
 }
