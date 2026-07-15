@@ -34,3 +34,5 @@ source ~/.config/zsh/setopt.zsh
 source ~/.config/zsh/external.zsh
 source ~/.config/zsh/prompt.zsh
 source ~/.config/zsh/completion.zsh
+
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
