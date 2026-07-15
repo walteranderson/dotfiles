@@ -6,9 +6,9 @@ export HISTFILE=~/.zsh_history
 export EDITOR='nvim'
 export DISABLE_AUTO_TITLE=true
 
-function add_to_path() {
-  export PATH="$PATH:$1"
-}
+function add_to_path { export PATH="$PATH:$1" }
+function is_mac { [[ "$(uname)" == "Darwin" ]] }
+function is_linux { [[ "$(uname)" == "Linux" ]] }
 
 add_to_path "/usr/local/go/bin"
 add_to_path "$HOME/.local/bin"
