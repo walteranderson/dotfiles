@@ -9,10 +9,13 @@ export DISABLE_AUTO_TITLE=true
 function add_to_path { export PATH="$PATH:$1" }
 function is_mac { [[ "$(uname)" == "Darwin" ]] }
 function is_linux { [[ "$(uname)" == "Linux" ]] }
+function check_port { lsof -i :$1 }
 
-add_to_path "/usr/local/go/bin"
 add_to_path "$HOME/.local/bin"
 add_to_path "$HOME/go/bin"
+
+# TODO: move these into linux .zshrc.local
+add_to_path "/usr/local/go/bin"
 add_to_path "$HOME/n/bin"
 
 alias ..='cd ..'
