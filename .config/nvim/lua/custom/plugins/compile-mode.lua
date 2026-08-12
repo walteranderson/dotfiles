@@ -27,6 +27,9 @@ return {
       -- bang_expansion = true,
     }
 
-    vim.keymap.set('n', '<leader>m', ':Compile<CR>')
+    vim.keymap.set('n', '<leader>cc', ':Compile<CR>')
+    vim.keymap.set('n', '<leader>cq', ':QuickfixErrors<CR>')
+    vim.keymap.set('n', '<leader>cn', ':NextError<CR>')
+    vim.keymap.set('n', '<leader>cp', ':PrevError<CR>')
   end,
 }
