@@ -1,40 +1,129 @@
 return {
-  'mrjones2014/smart-splits.nvim',
-  opts = {},
-  config = function()
-    local smart_splits = require 'smart-splits'
-    local set = vim.keymap.set
-
-    -- resizing splits
-    set('n', '<A-h>', smart_splits.resize_left)
-    set('n', '<S-A-h>', function()
-      smart_splits.resize_left(100)
-    end)
-    set('n', '<A-j>', smart_splits.resize_down)
-    set('n', '<S-A-j>', function()
-      smart_splits.resize_down(100)
-    end)
-    set('n', '<A-k>', smart_splits.resize_up)
-    set('n', '<S-A-k>', function()
-      smart_splits.resize_up(100)
-    end)
-    set('n', '<A-l>', smart_splits.resize_right)
-    set('n', '<S-A-l>', function()
-      smart_splits.resize_right(100)
-    end)
-    set('n', '<A-=>', '<C-w>=<CR>')
-
-    -- moving between splits
-    set('n', '<C-h>', smart_splits.move_cursor_left)
-    set('n', '<C-j>', smart_splits.move_cursor_down)
-    set('n', '<C-k>', smart_splits.move_cursor_up)
-    set('n', '<C-l>', smart_splits.move_cursor_right)
-    set('n', '<C-\\>', smart_splits.move_cursor_previous)
-
-    -- swapping buffers between windows
-    set('n', '<leader><leader>h', smart_splits.swap_buf_left)
-    set('n', '<leader><leader>j', smart_splits.swap_buf_down)
-    set('n', '<leader><leader>k', smart_splits.swap_buf_up)
-    set('n', '<leader><leader>l', smart_splits.swap_buf_right)
-  end,
+  'smart-splits-nvim/smart-splits.nvim',
+  version = '^3.0.0',
+  lazy = false,
+  opts = {
+    mux = { backend = 'smart-splits-backend-tmux' },
+    move = { at_edge = 'split' },
+  },
+  dependencies = {
+    { 'smart-splits-nvim/backend-tmux', main = 'smart-splits-backend-tmux' },
+  },
+  keys = {
+    -- Resize splits
+    {
+      '<A-h>',
+      function()
+        require('smart-splits').resize_left()
+      end,
+      desc = 'Resize left',
+    },
+    {
+      '<S-A-h>',
+      function()
+        require('smart-splits').resize_left(100)
+      end,
+      desc = 'Resize left',
+    },
+    {
+      '<A-j>',
+      function()
+        require('smart-splits').resize_down()
+      end,
+      desc = 'Resize down',
+    },
+    {
+      '<S-A-j>',
+      function()
+        require('smart-splits').resize_down(100)
+      end,
+      desc = 'Resize down',
+    },
+    {
+      '<A-k>',
+      function()
+        require('smart-splits').resize_up()
+      end,
+      desc = 'Resize up',
+    },
+    {
+      '<S-A-k>',
+      function()
+        require('smart-splits').resize_up(100)
+      end,
+      desc = 'Resize up',
+    },
+    {
+      '<A-l>',
+      function()
+        require('smart-splits').resize_right()
+      end,
+      desc = 'Resize right',
+    },
+    {
+      '<S-A-l>',
+      function()
+        require('smart-splits').resize_right(100)
+      end,
+      desc = 'Resize right',
+    },
+    -- Move between splits
+    {
+      '<C-h>',
+      function()
+        require('smart-splits').move_cursor_left()
+      end,
+      desc = 'Move left',
+    },
+    {
+      '<C-j>',
+      function()
+        require('smart-splits').move_cursor_down()
+      end,
+      desc = 'Move down',
+    },
+    {
+      '<C-k>',
+      function()
+        require('smart-splits').move_cursor_up()
+      end,
+      desc = 'Move up',
+    },
+    {
+      '<C-l>',
+      function()
+        require('smart-splits').move_cursor_right()
+      end,
+      desc = 'Move right',
+    },
+    -- Swap buffers
+    {
+      '<leader><leader>h',
+      function()
+        require('smart-splits').swap_buf_left()
+      end,
+      desc = 'Swap left',
+    },
+    {
+      '<leader><leader>j',
+      function()
+        require('smart-splits').swap_buf_down()
+      end,
+      desc = 'Swap down',
+    },
+    {
+      '<leader><leader>k',
+      function()
+        require('smart-splits').swap_buf_up()
+      end,
+      desc = 'Swap up',
+    },
+    {
+      '<leader><leader>l',
+      function()
+        require('smart-splits').swap_buf_right()
+      end,
+      desc = 'Swap right',
+    },
+  },
 }
