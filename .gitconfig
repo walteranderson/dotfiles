@@ -17,3 +17,5 @@
 	ff = only
 [init]
 	defaultBranch = main
+[includeIf "gitdir:/Users/walteranderson/code/harbor/"]
+    path = ~/code/harbor/.gitconfig
